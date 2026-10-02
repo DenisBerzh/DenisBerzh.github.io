@@ -55,20 +55,52 @@
   reducedMotion.addEventListener('change', () => {
     if (reducedMotion.matches) document.querySelectorAll('.magnetic').forEach((element) => { element.style.transform = ''; });
   });
-  const preview = document.querySelector('.project-preview');
-  document.querySelectorAll('.project').forEach((project) => {
-    project.addEventListener('pointerenter', (event) => {
-      if (!finePointer.matches || reducedMotion.matches) return;
-      preview.querySelector('img').src = project.dataset.preview;
-      preview.style.left = `${event.clientX}px`;
-      preview.style.top = `${event.clientY}px`;
-      preview.classList.add('visible');
+  const presentations = JSON.parse(document.querySelector('#presentations-data').textContent);
+  const viewer = document.querySelector('#slide-viewer');
+  const slideImage = viewer.querySelector('#slide-image');
+  const loadStatus = viewer.querySelector('.slide-load-status');
+  slideImage.addEventListener('load', () => { slideImage.classList.remove('is-loading'); loadStatus.hidden = true; });
+  slideImage.addEventListener('error', () => { loadStatus.textContent = 'Не удалось загрузить слайд. Откройте изображение по ссылке ниже.'; loadStatus.hidden = false; });
+  const previous = viewer.querySelector('.slide-prev');
+  const next = viewer.querySelector('.slide-next');
+  let activePresentation = 0;
+  let activeSlide = 0;
+  const renderSlide = () => {
+    const presentation = presentations[activePresentation];
+    const slide = presentation.slides[activeSlide];
+    viewer.querySelector('#slide-title').textContent = presentation.title;
+    slideImage.classList.add('is-loading');
+    loadStatus.textContent = 'Загрузка слайда…';
+    loadStatus.hidden = false;
+    slideImage.src = slide.src;
+    slideImage.alt = slide.alt;
+    viewer.querySelector('#slide-status').textContent = `${activeSlide + 1} / ${presentation.slides.length}`;
+    viewer.querySelector('.slide-original').href = slide.src;
+    previous.disabled = activeSlide === 0;
+    next.disabled = activeSlide === presentation.slides.length - 1;
+    viewer.querySelector('.slide-controls').hidden = presentation.slides.length === 1;
+  };
+  document.querySelectorAll('[data-presentation]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      activePresentation = Number(link.dataset.presentation);
+      activeSlide = 0;
+      renderSlide();
+      viewer.showModal();
+      document.body.classList.add('viewer-open');
+      viewer.querySelector('.slide-close').focus();
     });
-    project.addEventListener('pointermove', (event) => {
-      if (!finePointer.matches || reducedMotion.matches) return;
-      preview.style.left = `${event.clientX}px`;
-      preview.style.top = `${event.clientY}px`;
-    });
-    project.addEventListener('pointerleave', () => preview.classList.remove('visible'));
+  });
+  previous.addEventListener('click', () => { if (activeSlide > 0) { activeSlide--; renderSlide(); } });
+  next.addEventListener('click', () => { if (activeSlide < presentations[activePresentation].slides.length - 1) { activeSlide++; renderSlide(); } });
+  viewer.querySelector('.slide-close').addEventListener('click', () => viewer.close());
+  viewer.addEventListener('close', () => document.body.classList.remove('viewer-open'));
+  viewer.addEventListener('click', (event) => {
+    const rect = viewer.getBoundingClientRect();
+    if (event.target === viewer && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) viewer.close();
+  });
+  viewer.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') { event.preventDefault(); previous.click(); }
+    if (event.key === 'ArrowRight') { event.preventDefault(); next.click(); }
   });
 })();

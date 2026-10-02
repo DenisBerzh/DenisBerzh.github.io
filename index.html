@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Berzhanin Denis — личный сайт. Резюме, опыт и проекты скоро появятся здесь.">
+  <meta name="description" content="Berzhanin Denis — личный сайт. Примеры презентаций, резюме и портфолио.">
   <meta name="theme-color" content="#1c1c1c">
   <title>Berzhanin Denis — личный сайт</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%231c1c1c'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial,sans-serif' font-size='23' fill='white'%3EBD%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=portrait-2">
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=presentations-1">
+  <script src="app.js?v=presentations-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#about">Перейти к содержанию</a>
@@ -39,16 +39,40 @@
         <div class="about-aside" data-reveal><p>Я — Berzhanin Denis.<br>Собираю здесь всё важное обо мне: мой путь, навыки и работы.</p><p class="subtle">Скоро на этой странице появится полное резюме.</p><a class="round-link magnetic" href="#projects"><span>К работам</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 25L25 7M7 7h18v18"/></svg></a></div>
       </div>
     </section>
-    <section id="projects" class="projects section-light">
-      <div class="section-top"><p class="eyebrow">Работы</p><span class="subtle">Пока — примеры оформления</span></div>
-      <p class="demo-note">Демонстрационные проекты Dennis Snellenberg. Позже здесь будут мои работы.</p>
-      <div class="project-list">
-        <a class="project" href="https://dennissnellenberg.com/work/twice" target="_blank" rel="noopener noreferrer" data-preview="assets/twice.jpg"><span class="project-name">TWICE</span><span class="project-type">Взаимодействие & разработка</span><span class="project-arrow" aria-hidden="true">↗</span><span class="sr-only"> — проект Dennis Snellenberg, откроется в новой вкладке</span></a>
-        <a class="project" href="https://dennissnellenberg.com/work/the-damai" target="_blank" rel="noopener noreferrer" data-preview="assets/damai.jpg"><span class="project-name">The Damai</span><span class="project-type">Дизайн & разработка</span><span class="project-arrow" aria-hidden="true">↗</span><span class="sr-only"> — проект Dennis Snellenberg, откроется в новой вкладке</span></a>
-        <a class="project" href="https://dennissnellenberg.com/work/fabric" target="_blank" rel="noopener noreferrer" data-preview="assets/fabric.jpg"><span class="project-name">FABRIC™</span><span class="project-type">Дизайн & разработка</span><span class="project-arrow" aria-hidden="true">↗</span><span class="sr-only"> — проект Dennis Snellenberg, откроется в новой вкладке</span></a>
-        <a class="project" href="https://dennissnellenberg.com/work/aanstekelijk" target="_blank" rel="noopener noreferrer" data-preview="assets/aanstekelijk.jpg"><span class="project-name">Aanstekelijk</span><span class="project-type">Дизайн & разработка</span><span class="project-arrow" aria-hidden="true">↗</span><span class="sr-only"> — проект Dennis Snellenberg, откроется в новой вкладке</span></a>
+    <section id="projects" class="projects section-light" aria-labelledby="projects-title">
+      <div class="section-top"><p class="eyebrow">Работы</p><span class="subtle">Примеры слайдов</span></div>
+      <h2 id="projects-title" class="portfolio-heading">Презентации.</h2>
+      <p class="portfolio-intro">Аналитика, типографика, коллажи и 3D-композиции. Несколько примеров моих презентаций.</p>
+      <div class="project-gallery portfolio-grid" aria-label="Примеры презентаций">
+        <figure class="portfolio-card">
+          <a class="slide-open" href="assets/presentations/creator.png" data-presentation="0" aria-label="Смотреть: Creator Gym" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/creator.png" alt="Creator Gym — чёрная обложка с хромированными 3D-фигурами" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+          <figcaption><h3>Creator Gym</h3><p>Обложка · 3D-графика</p></figcaption>
+        </figure>
+        <figure class="portfolio-card">
+          <a class="slide-open" href="assets/presentations/unity.png" data-presentation="1" aria-label="Смотреть: Unity of Command" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/unity.png" alt="Unity of Command — бордовая типографическая обложка. Ekaterina Singilevtseva и Denis Berhzhanin" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+          <figcaption><h3>Unity of Command</h3><p>Обложка · Совместная работа</p></figcaption>
+        </figure>
+        <figure class="portfolio-card">
+          <a class="slide-open" href="assets/presentations/insurance.png" data-presentation="2" aria-label="Смотреть: Страховой рынок" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/insurance.png" alt="Российский страховой рынок: I полугодие 2026 — слайд с ключевыми показателями" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+          <figcaption><h3>Страховой рынок</h3><p>Аналитический слайд</p></figcaption>
+        </figure>
+        <figure class="portfolio-card">
+          <a class="slide-open" href="assets/presentations/orders.png" data-presentation="3" aria-label="Смотреть: Обработка заказов" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/orders.png" alt="Бизнес-процесс обработки заказов в небольшом интернет-магазине — чёрно-розовая обложка" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+          <figcaption><h3>Обработка заказов</h3><p>Обложка · Бизнес-процесс</p></figcaption>
+        </figure>
+        <figure class="portfolio-card">
+          <a class="slide-open" href="assets/presentations/russia.png" data-presentation="4" aria-label="Смотреть: Россия и русская культура" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/russia.png" alt="Россия — коллаж из архитектуры и культурных символов" loading="lazy" width="1486" height="835"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+          <figcaption><h3>Россия и русская культура</h3><p>Коллажи · 3 слайда</p></figcaption>
+        </figure>
+        <figure class="portfolio-card">
+          <a class="slide-open" href="assets/presentations/palaces.png" data-presentation="5" aria-label="Смотреть: Дворцовые здания" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/palaces.png" alt="Дворцовые здания — чёрно-белый архитектурный коллаж" loading="lazy" width="1919" height="1077"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+          <figcaption><h3>Дворцовые здания</h3><p>Коллаж · Текстуры</p></figcaption>
+        </figure>
+        <figure class="portfolio-card">
+          <a class="slide-open" href="assets/presentations/closing.png" data-presentation="6" aria-label="Смотреть: 3D-композиция" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/closing.png" alt="Thank you — финальный слайд с фиолетовыми и зелёными 3D-фигурами" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+          <figcaption><h3>3D-композиция</h3><p>Финальный слайд</p></figcaption>
+        </figure>
       </div>
-      <div class="project-gallery" aria-label="Превью демонстрационных проектов"><figure><img src="assets/twice.jpg" alt="Превью проекта TWICE — Dennis Snellenberg" loading="lazy" width="810" height="810"><figcaption>TWICE</figcaption></figure><figure><img src="assets/damai.jpg" alt="Превью проекта The Damai — Dennis Snellenberg" loading="lazy" width="810" height="810"><figcaption>The Damai</figcaption></figure></div>
     </section>
     <section id="contact" class="contact">
       <div class="section-top"><p class="eyebrow">Контакты</p><span class="subtle">Berzhanin Denis</span></div>
@@ -58,6 +82,13 @@
       <footer><span>© 2026 Berzhanin Denis</span><span>Резюме & портфолио</span><a href="https://dennissnellenberg.com/" target="_blank" rel="noopener noreferrer">Дизайн-референс ↗</a></footer>
     </section>
   </main>
-  <div class="project-preview" aria-hidden="true"><img alt=""><span>Смотреть ↗</span></div>
+  <dialog id="slide-viewer" class="slide-viewer" aria-labelledby="slide-title">
+    <div class="slide-viewer-header"><h2 id="slide-title"></h2><button class="slide-close" type="button" aria-label="Закрыть просмотр">×</button></div>
+    <img id="slide-image" class="slide-image" alt="">
+    <p class="slide-load-status" role="status" hidden>Загрузка слайда…</p>
+    <div class="slide-controls"><button class="slide-prev" type="button" aria-label="Предыдущий слайд">←</button><p id="slide-status" role="status" aria-live="polite"></p><button class="slide-next" type="button" aria-label="Следующий слайд">→</button></div>
+    <a class="slide-original" href="" target="_blank" rel="noopener">Открыть изображение ↗</a>
+  </dialog>
+  <script id="presentations-data" type="application/json">[{"title": "Creator Gym", "slides": [{"src": "assets/presentations/creator.png", "alt": "Creator Gym — чёрная обложка с хромированными 3D-фигурами"}]}, {"title": "Unity of Command", "slides": [{"src": "assets/presentations/unity.png", "alt": "Unity of Command — бордовая типографическая обложка. Ekaterina Singilevtseva и Denis Berhzhanin"}]}, {"title": "Страховой рынок", "slides": [{"src": "assets/presentations/insurance.png", "alt": "Российский страховой рынок: I полугодие 2026 — слайд с ключевыми показателями"}]}, {"title": "Обработка заказов", "slides": [{"src": "assets/presentations/orders.png", "alt": "Бизнес-процесс обработки заказов в небольшом интернет-магазине — чёрно-розовая обложка"}]}, {"title": "Россия и русская культура", "slides": [{"src": "assets/presentations/russia.png", "alt": "Россия — коллаж из архитектуры и культурных символов"}, {"src": "assets/presentations/culture.png", "alt": "Русская культура / Russian Culture — бело-синяя обложка с цветами"}, {"src": "assets/presentations/words.png", "alt": "Первые слова / Words you can use today — красный слайд с русскими словами и переводами"}]}, {"title": "Дворцовые здания", "slides": [{"src": "assets/presentations/palaces.png", "alt": "Дворцовые здания — чёрно-белый архитектурный коллаж"}]}, {"title": "3D-композиция", "slides": [{"src": "assets/presentations/closing.png", "alt": "Thank you — финальный слайд с фиолетовыми и зелёными 3D-фигурами"}]}]</script>
 </body>
 </html>

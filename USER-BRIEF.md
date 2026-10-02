@@ -9,3 +9,5 @@ Use Dennis Snellenberg's layout and interactions as a reference: full-height pho
 Motion implementation references: Kinetics Momentum Marquee, Magnetic Button, Stagger Entrance. Use reduced motion, an explicit pause control, keyboard-accessible navigation, and responsive layout. No external runtime libraries are needed.
 
 Portrait framing: the user requested more distance from the face. Display the complete supplied portrait at a modest scale with generous surrounding space, rather than a full-screen close crop. The name and website identity should be the main emphasis.
+
+Portfolio content: the user supplied nine presentation slide images. Replace the demonstration projects with these original images, grouped into seven examples (three related Russia/culture slides share one viewer). Preserve original colors, wording and coauthor credit in the images. The website remains monochrome. Only slide images were supplied; do not imply full decks or download links to PPTX/PDF exist.
