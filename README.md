@@ -1,21 +1,14 @@
-# Личный сайт
+# Berzhanin Denis — личный сайт
 
-Статическая заглушка для будущего резюме. Откройте index.html в браузере: сборка и установка зависимостей не нужны.
+Чёрно-белое резюме и портфолио с портретом, движущимся именем, меню и интерактивными превью. Личные сведения пока не заполнены. Проекты Dennis Snellenberg обозначены как демонстрационные.
 
-## GitHub Pages
+Статический сайт без сборки и зависимостей. Для локального просмотра запустите HTTP-сервер в этой папке. GitHub Pages публикует корень ветки main репозитория DenisBerzh/DenisBerzh.github.io по адресу https://denisberzh.github.io/.
 
-1. Репозиторий сайта: `DenisBerzh/DenisBerzh.github.io`.
-2. Загрузите `index.html` и `.nojekyll` в корень ветки `main`.
-3. Откройте Settings → Pages → Deploy from a branch → main → / (root) → Save.
-4. Адрес сайта: `https://denisberzh.github.io/`.
+Содержимое: index.html. Оформление: styles.css. Взаимодействия: app.js. Фото: assets/portrait.png. Прочитайте USER-BRIEF.md, AGENTS.md и DESIGN.md перед изменениями.
 
-Для обновления страницы замените index.html. Дизайн и инструкции для последующих правок сохранены в DESIGN.md и AGENTS.md.
+## Источники
 
-## Источники оформления
-
-- [Linear DESIGN.md, VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/linear.app/DESIGN.md): палитра, типографика, отступы. Оригинал сохранён в DESIGN.md без изменений.
-- [21st.dev, Cards](https://21st.dev/community/components/s/card): просмотр вариантов контейнеров; библиотека не установлена.
-- [Component Gallery, Card](https://component.gallery/components/card/) и [Bootstrap Card](https://getbootstrap.com/docs/4.3/components/card/): простая структура контейнера; библиотека не установлена.
-- [Kinetics, Stagger Entrance](https://kinetics.colorion.co/): адаптация реального промпта для однократного появления элементов при загрузке (смещение 14px, 0,45с, задержка 90мс). При reduced motion анимация отключается.
-
-DESIGN.md опубликован его авторами под [MIT License](https://github.com/VoltAgent/awesome-design-md/blob/main/LICENSE).
+- [Dennis Snellenberg](https://dennissnellenberg.com/): композиция первого экрана, движущееся имя, список работ, круглая кнопка меню и тёмный финальный раздел. Четыре превью проектов принадлежат их авторам; ссылки ведут на оригинал. Фото пользователя предоставлено им для сайта.
+- [Kinetics](https://kinetics.colorion.co/): Momentum Marquee, Magnetic Button и Stagger Entrance адаптированы в CSS и JavaScript. Предусмотрены пауза движения и системная настройка reduced motion.
+- [21st.dev Navigation Menu](https://21st.dev/community/components/s/navigation-menu) и [Component Gallery Navigation](https://component.gallery/components/navigation/): просмотр структуры навигации. Меню реализовано нативным HTML dialog без установки библиотек.
+- [Linear DESIGN.md](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/linear.app/DESIGN.md): исходные рекомендации по типографике и отступам, сохранённые без изменений. Текущий запрос пользователя на монохромное оформление зафиксирован отдельно в USER-BRIEF.md. Лицензия исходного файла сохранена в DESIGN-LICENSE.txt.
