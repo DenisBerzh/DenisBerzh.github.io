@@ -435,3 +435,75 @@ body.motion-paused .globe-sway{animation-play-state:paused!important}
 }
 @media(min-width:501px) and (max-width:700px){.hero--silhouette .portrait-wrap{height:51%;bottom:8%}.hero--silhouette .hero-intro{top:114px}}
 @media(prefers-reduced-motion:reduce){.hero--silhouette .name-track{font-size:clamp(34px,9.5vw,140px);line-height:1.15;letter-spacing:-.025em}}
+
+/* ==========================================================================
+   РЕВЬЮ 2026-10-04 — начало
+   1. Ритм секций: общие переменные + адресные правила (без main > section)
+   2. «Обо мне»: кнопка «Резюме» под текстом на телефоне, мера абзаца, переносы h2
+   3. Резюме: колонка текста 60–70ch, адаптивная сетка без переполнения
+   4. Сетка работ: кнопка «Ещё» в соседнюю колонку (--more-col ставит app.js)
+   5. Мобильная шапка: воздух между «Написать» и кнопкой меню
+   Откат: удалить этот блок и .about-lead в index.html, вернуть прежние правила.
+   ========================================================================== */
+
+:root{
+  /* Ритм секций: одно значение на брейкпоинт вместо четырёх разных */
+  --gap-section:144px;
+  --gap-section-doc:96px;
+  --cv-measure:64ch;
+}
+
+/* 1. Ритм секций. Расстояние между секциями задаётся ровно один раз —
+   в padding-top следующей секции. Первый экран, внутренние отступы
+   и футер не затронуты; у тёмной контактной секции своя нижняя отбивка. */
+.about{padding-top:var(--gap-section);padding-bottom:0}
+.marketing-experience{padding-top:var(--gap-section);padding-bottom:0}
+.projects{padding-top:var(--gap-section);padding-bottom:0}
+.contact{padding-top:var(--gap-section)}
+.resume-document,.language-section,.certificates{padding-top:var(--gap-section-doc);padding-bottom:0}
+.resume-ending{padding-top:var(--gap-section-doc)}
+@media(max-width:1050px){:root{--gap-section:112px;--gap-section-doc:80px}}
+@media(max-width:600px){:root{--gap-section:80px;--gap-section-doc:64px}}
+
+/* 2. «Обо мне»: колонки, мера абзаца, переносы заголовка по ширине колонки.
+   cqi — доля ширины колонки, поэтому «Предложить решение.» не остаётся висячим
+   ни на одной ширине окна. Первый размер — запасной вариант без container query. */
+.about-grid{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(40px,4.5vw,72px)}
+.about-lead{container-type:inline-size;min-width:0}
+.about h2{font-size:clamp(26px,4.6vw,80px);font-size:min(9.4cqi,80px)}
+.about-aside p{max-width:46ch}
+@media(max-width:1050px){
+  .about-grid{gap:32px;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
+  .about-aside p{font-size:16px}
+}
+@media(max-width:820px){
+  .about-grid{grid-template-columns:minmax(0,1fr);gap:36px}
+  .about h2{font-size:min(9.4cqi,60px)}
+  .about-aside p{font-size:17px}
+}
+@media(max-width:600px){
+  .about h2{font-size:min(9.4cqi,42px)}
+  .about-aside{display:block}
+  .about-aside p{font-size:15px}
+  .about-aside p+p{margin-top:16px;font-size:12px;grid-column:auto;grid-row:auto}
+  .about-aside .round-link{grid-column:auto;grid-row:auto;margin:32px 0 0}
+}
+
+/* 3. Резюме: мера текста 60–70ch. minmax(0,…) не даёт колонке переполниться. */
+.cv-layout{grid-template-columns:minmax(200px,1fr) minmax(0,42rem)}
+.cv-row>div{min-width:0;max-width:var(--cv-measure)}
+@media(max-width:720px){.cv-layout{grid-template-columns:minmax(0,1fr);gap:48px}}
+
+/* 4. Кнопка «Ещё» в соседнюю колонку. На одной колонке — во всю ширину.
+   align-self не даёт кнопке растянуться на высоту строки, когда она делит
+   ячейку с карточкой. */
+.more-presentations{grid-column:var(--more-col,1 / -1);align-self:center}
+@media(max-width:600px){.more-presentations{--more-col:1 / -1;align-self:auto}}
+/* Первая карточка нечётного хвоста (app.js ставит .is-wide) — иначе пустая ячейка. */
+.portfolio-card.is-wide{grid-column:1 / -1}
+.portfolio-card.is-wide.poster .slide-frame{aspect-ratio:16/9}
+
+/* 5. Шапка на телефоне: «Написать» и меню не должны стоять вплотную. */
+@media(max-width:720px){.header{padding-right:104px}}
+@media(max-width:380px){.header{padding-right:96px}}
+/* РЕВЬЮ 2026-10-04 — конец */

@@ -8,7 +8,28 @@
   const results = document.querySelector('#portfolio-results');
   const reset = document.querySelector('#reset-filter');
   let activeCategory = 'all', expanded = false;
+  const grid = document.querySelector('#portfolio-grid');
   const canMove = () => !reducedMotion.matches && !document.body.classList.contains('motion-paused');
+  const gridColumns = () => {
+    const template = getComputedStyle(grid).gridTemplateColumns.trim();
+    return template && template !== 'none' ? template.split(/\s+/).length : 1;
+  };
+  // Первая работа занимает строку целиком, поэтому число карточек после неё может
+  // быть нечётным. Кнопка «Ещё» дополняет строку или занимает её целиком, а первая
+  // карточка нечётного хвоста растягивается — иначе в сетке остаётся пустая ячейка.
+  const layoutGrid = () => {
+    cards.forEach(card => card.classList.remove('is-wide'));
+    grid.style.removeProperty('--more-col');
+    if (gridColumns() < 2) return;
+    const items = [...grid.children].filter(item => !item.hidden);
+    const buttonIndex = items.indexOf(more);
+    if (buttonIndex > 0) {
+      const paired = items.slice(1, buttonIndex).length % 2 === 1;
+      grid.style.setProperty('--more-col', paired ? '2' : '1 / -1');
+    }
+    const rest = buttonIndex < 0 ? items.slice(1) : items.slice(buttonIndex + 1);
+    if (rest.length % 2 === 1) rest[0].classList.add('is-wide');
+  };
   const updateCount = () => {
     const count = cards.filter(card => !card.hidden).length;
     const total = cards.filter(card => activeCategory === 'all' || card.dataset.category === activeCategory).length;
@@ -35,6 +56,7 @@
     reset.hidden = activeCategory === 'all';
     cards.find(card => !card.hidden)?.classList.add('lead');
     document.querySelector('#selected-category').textContent = categoryNames[activeCategory];
+    layoutGrid();
     updateCount();
   };
   const showResults = () => {
@@ -64,6 +86,11 @@
     } else {showResults();}
   });
   render();
+  let resizeFrame = 0;
+  addEventListener('resize', () => {
+    cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(layoutGrid);
+  });
   reducedMotion.addEventListener('change', () => {
     if (reducedMotion.matches) cards.forEach(card => card.getAnimations().forEach(animation => animation.cancel()));
   });
