@@ -126,7 +126,7 @@
     targetY = Math.max(halfHeight, Math.min(innerHeight - halfHeight, event.clientY));
   };
   document.querySelectorAll('.category-row').forEach(row => {
-    row.addEventListener('pointerenter', event => {
+    const showPreview = event => {
       if (!finePointer.matches || reducedMotion.matches) return;
       setPreviewTarget(event);
       if (!previewActive) { previewX = targetX; previewY = targetY; }
@@ -134,8 +134,9 @@
       previewTrack.style.transform = `translateY(-${Number(row.dataset.preview) * 100}%)`;
       preview.classList.add('visible');
       if (!followFrame) followFrame = requestAnimationFrame(followPreview);
-    });
-    row.addEventListener('pointermove', setPreviewTarget);
+    };
+    row.addEventListener('pointerenter', showPreview);
+    row.addEventListener('pointermove', showPreview);
     row.addEventListener('pointerleave', hidePreview);
     row.addEventListener('click', hidePreview);
   });
