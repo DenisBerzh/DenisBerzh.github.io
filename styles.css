@@ -135,3 +135,18 @@ body.viewer-open{overflow:hidden}.slide-viewer{position:fixed;inset:0;margin:aut
 @media(max-width:1000px){.certificate-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.resume-intro-grid{gap:48px;grid-template-columns:1fr 240px}.resume-section-nav{gap:32px}.resume-section-nav a{gap:24px}}
 @media(max-width:600px){.resume-intro{padding-top:112px}.resume-intro-grid{grid-template-columns:1fr;gap:32px;margin:32px 0}.resume-heading h1{font-size:clamp(56px,14.5vw,84px)}.resume-heading>p{font-size:15px;margin-top:24px}.resume-portrait{width:160px;justify-self:end}.resume-section-nav{gap:12px 24px;padding:16px 0}.resume-section-nav a{font-size:12px;gap:12px}.resume-section-nav span{font-size:18px}.resume-document,.certificates{padding-top:64px;scroll-margin-top:24px}.resume-section-heading{align-items:flex-start;flex-direction:column;gap:16px;margin-bottom:32px}.resume-section-heading h2{font-size:clamp(36px,9.8vw,48px)}.resume-pending{grid-template-columns:1fr;padding:24px;gap:24px}.resume-pending>.subtle{grid-column:1;font-size:12px}.certificate-grid{grid-template-columns:1fr;gap:48px}.certificate-preview{padding:20px}.certificate-card h3{font-size:24px}.certificate-meta{margin-top:20px}.certificates{padding-bottom:64px}.certificate-viewer .slide-image{height:auto;max-height:65dvh;aspect-ratio:auto}}
 @media(hover:none){.certificate-preview>span{opacity:1;transform:none}}
+
+/* Language qualifications are highlighted before the academic documents. */
+.language-section{padding-top:96px;scroll-margin-top:40px}
+.language-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
+.language-card{border-top:1px solid var(--line);padding-top:24px}
+.language-card .certificate-meta{margin-top:0}
+.language-card h3{font-size:clamp(24px,2.4vw,36px);margin:20px 0 0}
+.language-result{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:24px 0 32px}
+.language-score{display:flex;align-items:baseline;gap:16px;font-size:clamp(64px,6.5vw,100px);line-height:1;letter-spacing:-.06em}
+.language-score>span{font-size:24px;letter-spacing:-.025em;color:var(--muted)}
+.language-level{font-size:12px;border:1px solid var(--line);border-radius:99px;padding:10px 16px;white-space:nowrap}
+.language-card .certificate-preview{height:320px;aspect-ratio:auto;padding:24px}
+.language-copy-note{margin-top:8px;font-size:11px;line-height:1.5;color:var(--muted)}
+@media(max-width:900px){.language-grid{gap:32px}.language-card .certificate-preview{height:280px}.language-result{gap:16px}.language-level{padding:8px 12px}}
+@media(max-width:600px){.language-section{padding-top:64px;scroll-margin-top:24px}.language-grid{grid-template-columns:1fr;gap:48px}.language-card h3{font-size:28px}.language-result{margin:24px 0}.language-score{font-size:72px;gap:12px}.language-score>span{font-size:20px}.language-card .certificate-preview{height:300px;padding:20px}.language-card .certificate-meta{font-size:10px}}

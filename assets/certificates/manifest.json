@@ -1,5 +1,35 @@
 [
   {
+    "id": "ielts-academic-2026",
+    "title": "IELTS Academic",
+    "kind": "Языковой сертификат",
+    "year": "2026",
+    "pdf": "assets/certificates/ielts-academic-2026.pdf",
+    "image": "assets/certificates/ielts-academic-2026.jpg",
+    "original_filename": "VN10426533753-30-08-2026-ETRF (1).pdf",
+    "sha256": "5181deca2a046f880cd387ea9ba577f8e5b97c89b26888710facb35df182e5e4",
+    "source_sha256": "72968b8dc25646f7fd22a96106b572ebe7e02b0a0529ece8cd3263496a1bbb1e",
+    "public_copy": "redacted",
+    "score": "6.0",
+    "maximum": "9",
+    "cefr": "B2"
+  },
+  {
+    "id": "duolingo-english-2026",
+    "title": "Duolingo English Test",
+    "kind": "Языковой сертификат",
+    "year": "2026",
+    "pdf": "assets/certificates/duolingo-english-2026.pdf",
+    "image": "assets/certificates/duolingo-english-2026.jpg",
+    "original_filename": "Duolingo English Test.pdf",
+    "sha256": "2cba7dc221b6b949ecb1b1b429fbf8617ffb1fb0f8dc192da8022eccb2d75a8f",
+    "source_sha256": "5e1dfaa9928957d701e840eeffa4f8df4d8fe674e88e348987b8ce91271c389c",
+    "public_copy": "redacted",
+    "score": "110",
+    "maximum": "160",
+    "cefr": "B2"
+  },
+  {
     "id": "branding-award-2026",
     "title": "Брендинг в эпоху платформенной экономики",
     "kind": "Диплом · II место",
