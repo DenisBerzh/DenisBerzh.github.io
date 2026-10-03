@@ -3,142 +3,158 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Денис Бержанин: дизайн презентаций, концепты интерфейсов, айдентика и графика. Портфолио, резюме и награды.">
+  <meta name="description" content="Денис Бержанин — маркетолог: исследования рынка и потребителей, позиционирование и брендинг. Проектный опыт, резюме и сертификаты.">
   <link rel="canonical" href="https://denisberzh.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="Денис Бержанин">
-  <meta property="og:title" content="Денис Бержанин — маркетинг и дизайн">
-  <meta property="og:description" content="Денис Бержанин: дизайн презентаций, концепты интерфейсов, айдентика и графика. Портфолио, резюме и награды.">
+  <meta property="og:title" content="Денис Бержанин — маркетолог · исследования и брендинг">
+  <meta property="og:description" content="Денис Бержанин — маркетолог: исследования рынка и потребителей, позиционирование и брендинг. Проектный опыт, резюме и сертификаты.">
   <meta property="og:url" content="https://denisberzh.github.io/">
   <meta property="og:image" content="https://denisberzh.github.io/assets/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Денис Бержанин — маркетинг и дизайн, портрет и направления работ">
+  <meta property="og:image:alt" content="Денис Бержанин — маркетолог · исследования и брендинг, портрет и направления работ">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Денис Бержанин — маркетинг и дизайн">
-  <meta name="twitter:description" content="Денис Бержанин: дизайн презентаций, концепты интерфейсов, айдентика и графика. Портфолио, резюме и награды.">
+  <meta name="twitter:title" content="Денис Бержанин — маркетолог · исследования и брендинг">
+  <meta name="twitter:description" content="Денис Бержанин — маркетолог: исследования рынка и потребителей, позиционирование и брендинг. Проектный опыт, резюме и сертификаты.">
   <meta name="twitter:image" content="https://denisberzh.github.io/assets/og-image.jpg">
   <meta name="theme-color" content="#1c1c1c">
-  <title>Денис Бержанин — маркетинг и дизайн</title>
+  <title>Денис Бержанин — маркетолог · исследования и брендинг</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%231c1c1c'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial,sans-serif' font-size='23' fill='white'%3EBD%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=profile-2">
-  <script src="site.js?v=profile-2" defer></script>
-  <script src="app.js?v=profile-2" defer></script>
+  <link rel="preload" href="assets/fonts/InterTight-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Inter-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Onest-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=silhouette-1">
+    <link rel="stylesheet" href="motion.css?v=type-14">
+  <script src="motion-boot.js?v=type-14"></script>
+  <script src="motion.js?v=type-14" defer></script>
+  <script src="app.js?v=type-14" defer></script>
 </head>
 <body>
+  <div class="page-curtain" aria-hidden="true"><span class="curtain-label">Портфолио</span></div>
   <a class="skip-link" href="#about">Перейти к содержанию</a>
   <header class="header">
     <a class="wordmark" href="#home" aria-label="Berzhanin Denis — на главную"><span class="copyright">©</span><span>Berzhanin Denis</span></a>
-    <div class="header-actions"><nav class="desktop-nav" aria-label="Основная навигация"><a href="#projects">Работы</a><a href="#about">Обо мне</a><a href="resume.html">Резюме</a><a href="#contact">Контакты</a></nav><a class="header-write" href="https://t.me/denskoi" target="_blank" rel="noopener">Написать <span aria-hidden="true">↗</span></a></div>
+    <div class="header-actions"><nav class="desktop-nav" aria-label="Основная навигация"><a href="#experience">Опыт</a><a href="#about">Обо мне</a><a href="resume.html">Резюме</a><a href="#contact">Контакты</a></nav><a class="header-write" href="https://t.me/denskoi" target="_blank" rel="noopener">Написать <span aria-hidden="true">↗</span></a></div>
   </header>
   <button class="menu-toggle magnetic" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
-  <dialog id="menu" class="menu">
+  <dialog id="menu" class="menu" aria-label="Навигация по сайту">
     <button class="menu-close" type="button" aria-label="Закрыть меню"><span></span><span></span></button>
     <p class="eyebrow">Навигация</p>
-    <nav aria-label="Меню сайта"><a href="#home">Главная</a><a href="#projects">Работы</a><a href="#about">Обо мне</a><a href="resume.html">Резюме</a><a href="#contact">Контакты</a></nav>
+    <nav aria-label="Меню сайта"><a href="#home">Главная</a><a href="#experience">Опыт</a><a href="#about">Обо мне</a><a href="resume.html">Резюме</a><a href="#contact">Контакты</a></nav>
     <p class="menu-caption">Berzhanin Denis<br>Резюме & портфолио</p>
   </dialog>
   <main>
-    <section id="home" class="hero" aria-labelledby="name">
-      <div class="portrait-wrap"><img class="portrait" src="assets/portrait.png" alt="Чёрно-белый портрет Berzhanin Denis" fetchpriority="high" width="1122" height="1402"></div>
-      <div class="hero-label"><span>Личный<br>сайт</span><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19"/><ellipse cx="22" cy="22" rx="9" ry="19"/><path d="M3 22h38M7 10h30M7 34h30"/></svg></div>
-      <a class="hero-intro hero-resume-link" href="resume.html" aria-label="Резюме и портфолио — обо мне и сертификаты"><svg class="arrow-diagonal" viewBox="0 0 44 44" aria-hidden="true"><path d="M8 8l27 27M8 35h27V8"/></svg><p>Резюме<br>& портфолио</p></a>
-      <h1 id="name" class="sr-only">Денис Бержанин — маркетинг и дизайн</h1>
-      <div class="name-marquee" aria-hidden="true"><div class="name-track"><span>Berzhanin Denis —&nbsp;</span><span>Berzhanin Denis —&nbsp;</span></div></div>
+    <section id="home" class="hero hero--silhouette" aria-labelledby="name">
+      <div class="portrait-wrap"><img class="portrait" src="assets/portrait-cutout-1200.webp" srcset="assets/portrait-cutout-480.webp 480w, assets/portrait-cutout-800.webp 800w, assets/portrait-cutout-1200.webp 1200w" sizes="(max-width: 700px) 94vw, (max-width: 1500px) 46vw, 700px" decoding="async" alt="Чёрно-белый портрет Дениса Бержанина" fetchpriority="high" width="1200" height="1499"></div>
+      <a class="hero-intro hero-resume-link" href="resume.html" aria-label="Исследования и брендинг — резюме и опыт">
+        <svg class="arrow-diagonal" viewBox="0 0 44 44" aria-hidden="true"><path d="M8 8l27 27M8 35h27V8"/></svg>
+        <p class="hero-eyebrow">Маркетинг</p>
+        <h1 id="name" class="hero-title"><span class="sr-only">Денис Бержанин — </span>Исследования<br>& брендинг</h1>
+        <p class="hero-summary">Изучаю рынки и поведение людей. <br>Работаю с данными и позиционированием.</p>
+        <span class="hero-link-label">Резюме и опыт <span aria-hidden="true">↗</span></span>
+      </a>
+      <div class="name-marquee" aria-hidden="true"><div class="name-track"><span>Berzhanin Denis —&nbsp;</span><span>Berzhanin Denis —&nbsp;</span><span>Berzhanin Denis —&nbsp;</span></div></div>
       <div class="hero-bottom"><a class="scroll-link" href="#about">Листайте вниз <span aria-hidden="true">↓</span></a><button class="pause-motion" type="button" aria-pressed="false" aria-label="Остановить движение имени"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg></button></div>
     </section>
     <section id="about" class="about section-light">
-      <div class="section-top"><p class="eyebrow">Обо мне</p><span class="subtle">Маркетинг и дизайн</span></div>
+      <div class="section-top"><p class="eyebrow">Обо мне</p><span class="subtle">Маркетинг · исследования · брендинг</span></div>
       <div class="about-grid">
-        <h2 data-reveal>Идеи —<br>в понятную<br>визуальную форму.</h2>
-        <div class="about-aside" data-reveal><p>Я — Денис Бержанин. Оформляю презентации: выстраиваю структуру и визуальную подачу. Также создаю концепты интерфейсов, логотипы и графику.</p><p class="subtle">3-й курс Финансового университета.<br>Дипломы I и III степени, II место на конференции по брендингу.<br>Принимаю заказы на оформление презентаций.</p><a class="round-link magnetic" href="resume.html"><span>Резюме</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 25L25 7M7 7h18v18"/></svg></a></div>
+        <h2 data-reveal>Понять людей.<br>Найти смысл.<br>Предложить решение.</h2>
+        <div class="about-aside" data-reveal><p>Я — Денис Бержанин, студент маркетинга. Мне интересно, как люди принимают решения и почему выбирают одни продукты вместо других. Исследую рынки и потребителей, работаю с данными и позиционированием.</p><p class="subtle">3-й курс Финансового университета.<br>Исследование для ООО «Неровиль», кейс ВТБ и наставничество двух команд в «Я в деле».<br>Дизайн помогает мне понятно представлять идеи и выводы.</p><a class="round-link magnetic" href="resume.html"><span>Резюме</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 25L25 7M7 7h18v18"/></svg></a></div>
       </div>
     </section>
+    <section id="experience" class="marketing-experience section-light" aria-labelledby="experience-title">
+      <div class="section-top"><p class="eyebrow">Проектный опыт</p><span class="subtle">Исследовать · анализировать · представлять</span></div>
+      <h2 id="experience-title" class="portfolio-heading">От задачи к решению</h2>
+      <div class="experience-list">
+        <article class="experience-item" data-reveal><p class="eyebrow">01 / Исследования и брендинг</p><h3>ООО «Неровиль»</h3><p>Университетское исследование по заказу компании. Участвовал в анализе рынка и потребителей, подготовке рекомендаций по ребрендингу и репозиционированию. Представлял и защищал результаты.</p></article>
+        <article class="experience-item" data-reveal><p class="eyebrow">02 / Аналитика и защита решений</p><h3>Кейс-чемпионат ВТБ</h3><p>В команде разработал модель выбора мест для банкоматов. После недели обучения на кейс было три дня. Представляли решение представителям банка.</p></article>
+        <article class="experience-item" data-reveal><p class="eyebrow">03 / Работа с командами</p><h3>«Я в деле»</h3><p>Наставник двух команд: обучение, постановка задач и дедлайнов, поддержка участников и отчётность. Ранее — участник образовательного проекта «БЕЗ ТАБУ».</p></article>
+      </div>
+      <a class="text-link experience-link" href="resume.html#resume">Резюме, навыки и награды <span aria-hidden="true">↗</span></a>
+    </section>
     <section id="projects" class="projects section-light" aria-labelledby="projects-title">
-      <div class="section-top"><p class="eyebrow">Портфолио</p><span class="subtle">Berzhanin Denis</span></div>
-      <h2 id="projects-title" class="portfolio-heading">Избранные работы.</h2>
-      <p class="portfolio-intro">Презентации, интерфейсы, айдентика и графика.</p>
+      <div class="section-top"><p class="eyebrow">Визуальные работы</p><span class="subtle">Дополнительный навык</span></div>
+      <h2 id="projects-title" class="portfolio-heading">Как я оформляю идеи</h2>
+      <p class="portfolio-intro">Дизайн — ещё один инструмент: помогает объяснять идеи, результаты исследований и логику решений.</p>
       <div class="portfolio-filters" role="group" aria-label="Фильтры работ">
         <div class="category-top"><span class="eyebrow">Направления</span><button class="all-filter" type="button" data-filter="all" aria-pressed="true" aria-controls="portfolio-grid" hidden>Все <span aria-hidden="true">↗</span></button></div>
         <button class="category-row" type="button" data-filter="presentations" data-preview="0" aria-pressed="false" aria-controls="portfolio-grid" hidden><span class="category-name">Презентации</span><span class="category-description">Деловые и творческие<br><span>7 работ</span></span><span class="category-arrow" aria-hidden="true">↗</span></button>
         <button class="category-row" type="button" data-filter="interfaces" data-preview="1" aria-pressed="false" aria-controls="portfolio-grid" hidden><span class="category-name">Интерфейсы</span><span class="category-description">Веб и приложения<br><span>2 работы</span></span><span class="category-arrow" aria-hidden="true">↗</span></button>
         <button class="category-row" type="button" data-filter="identity" data-preview="2" aria-pressed="false" aria-controls="portfolio-grid" aria-label="Айдентика и графика" hidden><span class="category-name">Айдентика<br class="identity-break"> и графика</span><span class="category-description">Логотипы и постер<br><span>3 работы</span></span><span class="category-arrow" aria-hidden="true">↗</span></button>
       </div>
-      <div class="portfolio-grid-heading"><p id="selected-category">Все работы</p><span id="visible-count">Показано 9 из 12</span></div>
+      <div id="portfolio-results" class="portfolio-grid-heading" tabindex="-1"><p id="selected-category">Все работы</p><div class="portfolio-result-actions"><span id="visible-count">12 работ</span><button id="reset-filter" type="button" hidden>Все работы ↗</button></div></div>
       <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
       <div id="portfolio-grid" class="project-gallery portfolio-grid">
-          <figure class="portfolio-card  lead" data-category="presentations">
-            <a class="slide-open" href="assets/presentations/insurance.png" data-work="0" aria-label="Смотреть: Страховой рынок" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/insurance.png" alt="Российский страховой рынок: I полугодие 2026 — слайд с ключевыми показателями" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h3>Страховой рынок</h3><p>Аналитический слайд</p><p class="work-context">Аналитический слайд для презентации о страховом рынке: премии, договоры и динамика собраны в одном сравнимом блоке.</p></figcaption>
+<figure class="portfolio-card  lead" data-category="presentations">
+            <a class="slide-open" href="assets/presentations/insurance.png" data-work="0" aria-label="Смотреть: Страховой рынок" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/insurance-1600.webp" srcset="assets/presentations/insurance-400.webp 400w, assets/presentations/insurance-800.webp 800w, assets/presentations/insurance-1200.webp 1200w, assets/presentations/insurance-1600.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1050px) 85vw, 1200px" decoding="async" alt="Российский страховой рынок: I полугодие 2026 — слайд с ключевыми показателями" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Страховой рынок</h3><p>Аналитический слайд</p></figcaption>
           </figure>
-          <figure class="portfolio-card " data-category="presentations">
-            <a class="slide-open" href="assets/presentations/orders.png" data-work="1" aria-label="Смотреть: Обработка заказов" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/orders.png" alt="Бизнес-процесс обработки заказов в небольшом интернет-магазине — чёрно-розовая обложка" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h3>Обработка заказов</h3><p>Обложка · Бизнес-процесс</p><p class="work-context">Обложка учебной презентации о бизнес-процессе обработки заказов в интернет-магазине.</p></figcaption>
+<figure class="portfolio-card " data-category="presentations">
+            <a class="slide-open" href="assets/presentations/orders.png" data-work="1" aria-label="Смотреть: Обработка заказов" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/orders-1600.webp" srcset="assets/presentations/orders-400.webp 400w, assets/presentations/orders-800.webp 800w, assets/presentations/orders-1200.webp 1200w, assets/presentations/orders-1600.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1050px) 85vw, 1200px" decoding="async" alt="Бизнес-процесс обработки заказов в небольшом интернет-магазине — чёрно-розовая обложка" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Обработка заказов</h3><p>Обложка · Бизнес-процесс</p></figcaption>
           </figure>
-          <figure class="portfolio-card " data-category="presentations">
-            <a class="slide-open" href="assets/presentations/creator.png" data-work="2" aria-label="Смотреть: Creator Gym" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/creator.png" alt="Creator Gym — чёрная обложка с хромированными 3D-фигурами" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h3>Creator Gym</h3><p>Обложка · 3D-графика</p><p class="work-context">Концепт обложки Creator Gym: крупное название и хромированные 3D-формы задают визуальный образ.</p></figcaption>
+<figure class="portfolio-card " data-category="presentations" data-extra-presentation>
+            <a class="slide-open" href="assets/presentations/creator.png" data-work="2" aria-label="Смотреть: Creator Gym" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/creator-1600.webp" srcset="assets/presentations/creator-400.webp 400w, assets/presentations/creator-800.webp 800w, assets/presentations/creator-1200.webp 1200w, assets/presentations/creator-1600.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1050px) 85vw, 1200px" decoding="async" alt="Creator Gym — чёрная обложка с хромированными 3D-фигурами" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Creator Gym</h3><p>Обложка · 3D-графика</p></figcaption>
           </figure>
-          <figure class="portfolio-card " data-category="presentations">
-            <a class="slide-open" href="assets/presentations/unity.png" data-work="3" aria-label="Смотреть: Unity of Command" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/unity.png" alt="Unity of Command — бордовая типографическая обложка. Ekaterina Singilevtseva и Denis Berhzhanin" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h3>Unity of Command</h3><p>Обложка · Совместная работа</p><p class="work-context">Обложка совместной презентации: название, авторы и год объединены в типографическую композицию.</p></figcaption>
+<figure class="portfolio-card " data-category="presentations" data-extra-presentation>
+            <a class="slide-open" href="assets/presentations/unity.png" data-work="3" aria-label="Смотреть: Unity of Command" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/unity-1600.webp" srcset="assets/presentations/unity-400.webp 400w, assets/presentations/unity-800.webp 800w, assets/presentations/unity-1200.webp 1200w, assets/presentations/unity-1600.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1050px) 85vw, 1200px" decoding="async" alt="Unity of Command — бордовая типографическая обложка. Ekaterina Singilevtseva и Denis Berhzhanin" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Unity of Command</h3><p>Обложка · Совместная работа</p></figcaption>
           </figure>
-        <details id="more-presentations" class="more-presentations">
-          <summary><span class="more-label">Ещё <span aria-hidden="true">+</span></span><span class="more-count">3 презентации</span></summary>
-          <div class="extra-grid">
-          <figure class="portfolio-card " data-category="presentations">
-            <a class="slide-open" href="assets/presentations/russia.png" data-work="4" aria-label="Смотреть: Россия и русская культура" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/russia.png" alt="Россия — коллаж из архитектуры и культурных символов" loading="lazy" width="1486" height="835"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h3>Россия и русская культура</h3><p>Коллажи · 3 слайда</p><p class="work-context">Три слайда для знакомства с культурой России: архитектура, визуальные символы и первые слова.</p></figcaption>
+<figure class="portfolio-card " data-category="presentations" data-extra-presentation>
+            <a class="slide-open" href="assets/presentations/russia.png" data-work="4" aria-label="Смотреть: Россия и русская культура" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/russia-1486.webp" srcset="assets/presentations/russia-400.webp 400w, assets/presentations/russia-800.webp 800w, assets/presentations/russia-1200.webp 1200w, assets/presentations/russia-1486.webp 1486w" sizes="(max-width: 600px) 100vw, (max-width: 1050px) 85vw, 1200px" decoding="async" alt="Россия — коллаж из архитектуры и культурных символов" loading="lazy" width="1486" height="835"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Россия и русская культура</h3><p>Коллажи · 3 слайда</p></figcaption>
           </figure>
-          <figure class="portfolio-card " data-category="presentations">
-            <a class="slide-open" href="assets/presentations/palaces.png" data-work="5" aria-label="Смотреть: Дворцовые здания" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/palaces.png" alt="Дворцовые здания — чёрно-белый архитектурный коллаж" loading="lazy" width="1919" height="1077"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h3>Дворцовые здания</h3><p>Коллаж · Текстуры</p><p class="work-context">Архитектурная тема: текст с фактурой и фотографии дворцов объединены в чёрно-белую композицию.</p></figcaption>
+<figure class="portfolio-card " data-category="presentations" data-extra-presentation>
+            <a class="slide-open" href="assets/presentations/palaces.png" data-work="5" aria-label="Смотреть: Дворцовые здания" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/palaces-1600.webp" srcset="assets/presentations/palaces-400.webp 400w, assets/presentations/palaces-800.webp 800w, assets/presentations/palaces-1200.webp 1200w, assets/presentations/palaces-1600.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1050px) 85vw, 1200px" decoding="async" alt="Дворцовые здания — чёрно-белый архитектурный коллаж" loading="lazy" width="1919" height="1077"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Дворцовые здания</h3><p>Коллаж · Текстуры</p></figcaption>
           </figure>
-          <figure class="portfolio-card " data-category="presentations">
-            <a class="slide-open" href="assets/presentations/closing.png" data-work="6" aria-label="Смотреть: 3D-композиция" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/closing.png" alt="Thank you — финальный слайд с фиолетовыми и зелёными 3D-фигурами" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h3>3D-композиция</h3><p>Финальный слайд</p><p class="work-context">Финальный слайд с благодарностью аудитории и объёмной 3D-композицией.</p></figcaption>
+<figure class="portfolio-card " data-category="presentations" data-extra-presentation>
+            <a class="slide-open" href="assets/presentations/closing.png" data-work="6" aria-label="Смотреть: 3D-композиция" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/closing-1600.webp" srcset="assets/presentations/closing-400.webp 400w, assets/presentations/closing-800.webp 800w, assets/presentations/closing-1200.webp 1200w, assets/presentations/closing-1600.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1050px) 85vw, 1200px" decoding="async" alt="Thank you — финальный слайд с фиолетовыми и зелёными 3D-фигурами" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>3D-композиция</h3><p>Финальный слайд</p></figcaption>
           </figure>
-          </div>
-        </details>
-          <figure class="portfolio-card interface" data-category="interfaces">
-            <a class="slide-open" href="assets/design/atlas-upscaled.png" data-work="7" aria-label="Смотреть: Learning Atlas" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/atlas.png" alt="Learning Atlas — карта подготовки к экзаменам, карточки предметов и мобильная версия" loading="lazy" width="1134" height="713"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h3>Learning Atlas</h3><p>Концепт учебного сервиса · Веб и мобильный экран</p><p class="work-context">Концепт подготовки к экзаменам: карта маршрута, прогресс по предметам и мобильный экран.</p></figcaption>
+<button id="more-presentations" class="more-presentations" type="button" aria-expanded="false" aria-controls="portfolio-grid" hidden><span class="more-label">Ещё 5 презентаций <span aria-hidden="true">+</span></span></button>
+<figure class="portfolio-card interface" data-category="interfaces">
+            <a class="slide-open" href="assets/design/atlas-upscaled.png" data-work="7" aria-label="Смотреть: Learning Atlas" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/atlas-1134.webp" srcset="assets/design/atlas-400.webp 400w, assets/design/atlas-800.webp 800w, assets/design/atlas-1134.webp 1134w" sizes="(max-width: 600px) 100vw, (max-width: 1050px) 85vw, 1200px" decoding="async" alt="Learning Atlas — карта подготовки к экзаменам, карточки предметов и мобильная версия" loading="lazy" width="1134" height="713"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Learning Atlas</h3><p>Концепт учебного сервиса · Веб и мобильный экран</p></figcaption>
           </figure>
-          <figure class="portfolio-card panorama" data-category="interfaces">
-            <a class="slide-open" href="assets/design/eon-upscaled.png" data-work="8" aria-label="Смотреть: EON VPN" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/eon.png" alt="EON VPN — экраны подключения, тарифов, входа, подтверждения email, восстановления пароля и настроек" loading="lazy" width="1075" height="276"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h3>EON VPN</h3><p>Дизайн мобильного приложения</p><p class="work-context">Концепт VPN-приложения: подключение, тарифы, вход и настройки собраны в набор экранов.</p></figcaption>
+<figure class="portfolio-card panorama" data-category="interfaces">
+            <a class="slide-open" href="assets/design/eon-upscaled.png" data-work="8" aria-label="Смотреть: EON VPN" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/eon-1075.webp" srcset="assets/design/eon-400.webp 400w, assets/design/eon-800.webp 800w, assets/design/eon-1075.webp 1075w" sizes="(max-width: 600px) 100vw, (max-width: 1050px) 85vw, 1200px" decoding="async" alt="EON VPN — экраны подключения, тарифов, входа, подтверждения email, восстановления пароля и настроек" loading="lazy" width="1075" height="276"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>EON VPN</h3><p>Дизайн мобильного приложения</p></figcaption>
           </figure>
-          <figure class="portfolio-card logo" data-category="identity">
-            <a class="slide-open" href="assets/design/faux.png" data-work="9" aria-label="Смотреть: .FAUX" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/faux.png" alt=".FAUX — чёрный геометрический логотип на белом фоне" loading="lazy" width="1254" height="1254"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h3>.FAUX</h3><p>Логотип · Геометрический знак</p><p class="work-context">Логотип .FAUX: геометрические буквы и знак-звезда образуют цельный силуэт.</p></figcaption>
+<figure class="portfolio-card logo" data-category="identity">
+            <a class="slide-open" href="assets/design/faux.png" data-work="9" aria-label="Смотреть: .FAUX" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/faux-1254.webp" srcset="assets/design/faux-400.webp 400w, assets/design/faux-800.webp 800w, assets/design/faux-1200.webp 1200w, assets/design/faux-1254.webp 1254w" sizes="(max-width: 600px) 100vw, (max-width: 1050px) 85vw, 1200px" decoding="async" alt=".FAUX — чёрный геометрический логотип на белом фоне" loading="lazy" width="1254" height="1254"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>.FAUX</h3><p>Логотип · Геометрический знак</p></figcaption>
           </figure>
-          <figure class="portfolio-card logo lettering" data-category="identity">
-            <a class="slide-open" href="assets/design/lettering.png" data-work="10" aria-label="Смотреть: Голубой леттеринг" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/lettering.png" alt="Голубой логотип с рисованными буквами и многослойным контуром" loading="lazy" width="314" height="150"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h3>Голубой леттеринг</h3><p>Логотип · Рисованные буквы</p><p class="work-context">Эксперимент с рисованными буквами: многослойный контур создаёт объёмный знак.</p></figcaption>
+<figure class="portfolio-card logo lettering" data-category="identity">
+            <a class="slide-open" href="assets/design/lettering.png" data-work="10" aria-label="Смотреть: Голубой леттеринг" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/lettering-314.webp" srcset="assets/design/lettering-314.webp 314w" sizes="(max-width: 600px) 100vw, (max-width: 1050px) 85vw, 1200px" decoding="async" alt="Голубой логотип с рисованными буквами и многослойным контуром" loading="lazy" width="314" height="150"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Голубой леттеринг</h3><p>Логотип · Рисованные буквы</p></figcaption>
           </figure>
-          <figure class="portfolio-card poster" data-category="identity">
-            <a class="slide-open" href="assets/design/angel.png" data-work="11" aria-label="Смотреть: Я устал" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/angel.png" alt="Я устал — постер со статуей ангела, светлым нимбом и ярко-розовой типографикой" loading="lazy" width="1280" height="1280"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h3>Я устал</h3><p>Постер · Типографика и коллаж</p><p class="work-context">Авторский постер: статуя ангела и крупная типографика передают настроение «Я устал».</p></figcaption>
+<figure class="portfolio-card poster" data-category="identity">
+            <a class="slide-open" href="assets/design/angel.png" data-work="11" aria-label="Смотреть: Я устал" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/angel-1280.webp" srcset="assets/design/angel-400.webp 400w, assets/design/angel-800.webp 800w, assets/design/angel-1200.webp 1200w, assets/design/angel-1280.webp 1280w" sizes="(max-width: 600px) 100vw, (max-width: 1050px) 85vw, 1200px" decoding="async" alt="Я устал — постер со статуей ангела, светлым нимбом и ярко-розовой типографикой" loading="lazy" width="1280" height="1280"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Я устал</h3><p>Постер · Типографика и коллаж</p></figcaption>
           </figure>
       </div>
     </section>
     <section id="contact" class="contact">
       <div class="section-top"><p class="eyebrow">Контакты</p><span class="subtle">Berzhanin Denis</span></div>
-      <h2 data-reveal><span class="contact-portrait"><img src="assets/portrait.png" alt="" width="1122" height="1402" loading="lazy"></span>Давайте<br>знакомиться.</h2>
+      <h2 data-reveal><span class="contact-portrait"><img src="assets/portrait-1122.webp" srcset="assets/portrait-400.webp 400w, assets/portrait-800.webp 800w, assets/portrait-1122.webp 1122w" sizes="64px" decoding="async" alt="" width="1122" height="1402" loading="lazy"></span>Давайте<br>знакомиться</h2>
       <div class="contact-line"><span class="contact-rule"></span><a class="round-link inverse magnetic" href="https://t.me/denskoi" target="_blank" rel="noopener"><span>Написать</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 25L25 7M7 7h18v18"/></svg></a></div>
       <div class="contact-links" aria-label="Связаться со мной">
         <a href="https://t.me/denskoi" target="_blank" rel="noopener"><span>Telegram</span>@denskoi ↗</a>
         <a href="mailto:den.berzhanin@mail.ru"><span>Почта</span>den.berzhanin@mail.ru ↗</a>
         <a href="tel:+79160593839"><span>Телефон</span>+7 916 059 38 39 ↗</a>
       </div>
-      <footer><span>© 2026 Berzhanin Denis</span><span>Резюме & портфолио</span><a href="https://dennissnellenberg.com/" target="_blank" rel="noopener noreferrer">Дизайн-референс ↗</a></footer>
+      <footer><span>© 2026 Berzhanin Denis</span><span>Резюме & портфолио</span></footer>
     </section>
   </main>
   <div class="category-preview" aria-hidden="true"><div class="category-preview-inner"><div class="category-preview-track">
-    <div class="category-preview-slide"><img src="assets/presentations/insurance.png" alt="" width="1919" height="1079" loading="lazy"></div>
-    <div class="category-preview-slide"><img src="assets/design/atlas.png" alt="" width="1134" height="713" loading="lazy"></div>
-    <div class="category-preview-slide"><img src="assets/design/faux.png" alt="" width="1254" height="1254" loading="lazy"></div>
+    <div class="category-preview-slide"><img src="assets/presentations/insurance-1600.webp" srcset="assets/presentations/insurance-400.webp 400w, assets/presentations/insurance-800.webp 800w, assets/presentations/insurance-1200.webp 1200w, assets/presentations/insurance-1600.webp 1600w" sizes="30vw" decoding="async" alt="" width="1919" height="1079" loading="lazy"></div>
+    <div class="category-preview-slide"><img src="assets/design/atlas-1134.webp" srcset="assets/design/atlas-400.webp 400w, assets/design/atlas-800.webp 800w, assets/design/atlas-1134.webp 1134w" sizes="30vw" decoding="async" alt="" width="1134" height="713" loading="lazy"></div>
+    <div class="category-preview-slide"><img src="assets/design/faux-1254.webp" srcset="assets/design/faux-400.webp 400w, assets/design/faux-800.webp 800w, assets/design/faux-1200.webp 1200w, assets/design/faux-1254.webp 1254w" sizes="30vw" decoding="async" alt="" width="1254" height="1254" loading="lazy"></div>
   </div></div><span class="category-preview-badge">К работам</span></div>
   <dialog id="slide-viewer" class="slide-viewer" aria-labelledby="slide-title">
     <div class="slide-viewer-header"><h2 id="slide-title"></h2><button class="slide-close" type="button" aria-label="Закрыть просмотр">×</button></div>
@@ -149,6 +165,6 @@
     <a class="slide-source" href="" target="_blank" rel="noopener" hidden>Исходное изображение ↗</a>
     <a class="slide-original" href="" target="_blank" rel="noopener">Открыть изображение ↗</a>
   </dialog>
-  <script id="portfolio-data" type="application/json">[{"title": "Страховой рынок", "slides": [{"src": "assets/presentations/insurance.png", "alt": "Российский страховой рынок: I полугодие 2026 — слайд с ключевыми показателями"}], "detail": "Аналитический слайд", "category": "presentations", "context": "Аналитический слайд для презентации о страховом рынке: премии, договоры и динамика собраны в одном сравнимом блоке."}, {"title": "Обработка заказов", "slides": [{"src": "assets/presentations/orders.png", "alt": "Бизнес-процесс обработки заказов в небольшом интернет-магазине — чёрно-розовая обложка"}], "detail": "Обложка · Бизнес-процесс", "category": "presentations", "context": "Обложка учебной презентации о бизнес-процессе обработки заказов в интернет-магазине."}, {"title": "Creator Gym", "slides": [{"src": "assets/presentations/creator.png", "alt": "Creator Gym — чёрная обложка с хромированными 3D-фигурами"}], "detail": "Обложка · 3D-графика", "category": "presentations", "context": "Концепт обложки Creator Gym: крупное название и хромированные 3D-формы задают визуальный образ."}, {"title": "Unity of Command", "slides": [{"src": "assets/presentations/unity.png", "alt": "Unity of Command — бордовая типографическая обложка. Ekaterina Singilevtseva и Denis Berhzhanin"}], "detail": "Обложка · Совместная работа", "category": "presentations", "context": "Обложка совместной презентации: название, авторы и год объединены в типографическую композицию."}, {"title": "Россия и русская культура", "slides": [{"src": "assets/presentations/russia.png", "alt": "Россия — коллаж из архитектуры и культурных символов"}, {"src": "assets/presentations/culture.png", "alt": "Русская культура / Russian Culture — бело-синяя обложка с цветами"}, {"src": "assets/presentations/words.png", "alt": "Первые слова / Words you can use today — красный слайд с русскими словами и переводами"}], "detail": "Коллажи · 3 слайда", "category": "presentations", "context": "Три слайда для знакомства с культурой России: архитектура, визуальные символы и первые слова."}, {"title": "Дворцовые здания", "slides": [{"src": "assets/presentations/palaces.png", "alt": "Дворцовые здания — чёрно-белый архитектурный коллаж"}], "detail": "Коллаж · Текстуры", "category": "presentations", "context": "Архитектурная тема: текст с фактурой и фотографии дворцов объединены в чёрно-белую композицию."}, {"title": "3D-композиция", "slides": [{"src": "assets/presentations/closing.png", "alt": "Thank you — финальный слайд с фиолетовыми и зелёными 3D-фигурами"}], "detail": "Финальный слайд", "category": "presentations", "context": "Финальный слайд с благодарностью аудитории и объёмной 3D-композицией."}, {"title": "Learning Atlas", "detail": "Концепт учебного сервиса · Веб и мобильный экран", "layout": "interface", "view": "", "slides": [{"src": "assets/design/atlas-upscaled.png", "alt": "Learning Atlas — карта подготовки к экзаменам, карточки предметов и мобильная версия", "original": "assets/design/atlas.png"}], "category": "interfaces", "context": "Концепт подготовки к экзаменам: карта маршрута, прогресс по предметам и мобильный экран."}, {"title": "EON VPN", "detail": "Дизайн мобильного приложения", "layout": "panorama", "view": "panorama", "slides": [{"src": "assets/design/eon-upscaled.png", "alt": "EON VPN — экраны подключения, тарифов, входа, подтверждения email, восстановления пароля и настроек", "original": "assets/design/eon.png"}], "category": "interfaces", "context": "Концепт VPN-приложения: подключение, тарифы, вход и настройки собраны в набор экранов."}, {"title": ".FAUX", "detail": "Логотип · Геометрический знак", "layout": "logo", "view": "", "slides": [{"src": "assets/design/faux.png", "alt": ".FAUX — чёрный геометрический логотип на белом фоне"}], "category": "identity", "context": "Логотип .FAUX: геометрические буквы и знак-звезда образуют цельный силуэт."}, {"title": "Голубой леттеринг", "detail": "Логотип · Рисованные буквы", "layout": "logo lettering", "view": "", "slides": [{"src": "assets/design/lettering.png", "alt": "Голубой логотип с рисованными буквами и многослойным контуром"}], "category": "identity", "context": "Эксперимент с рисованными буквами: многослойный контур создаёт объёмный знак."}, {"title": "Я устал", "detail": "Постер · Типографика и коллаж", "layout": "poster", "view": "", "slides": [{"src": "assets/design/angel.png", "alt": "Я устал — постер со статуей ангела, светлым нимбом и ярко-розовой типографикой"}], "category": "identity", "context": "Авторский постер: статуя ангела и крупная типографика передают настроение «Я устал»."}]</script>
+  <script id="portfolio-data" type="application/json">[{"title": "Страховой рынок", "slides": [{"src": "assets/presentations/insurance.png", "alt": "Российский страховой рынок: I полугодие 2026 — слайд с ключевыми показателями"}], "detail": "Аналитический слайд", "category": "presentations"}, {"title": "Обработка заказов", "slides": [{"src": "assets/presentations/orders.png", "alt": "Бизнес-процесс обработки заказов в небольшом интернет-магазине — чёрно-розовая обложка"}], "detail": "Обложка · Бизнес-процесс", "category": "presentations"}, {"title": "Creator Gym", "slides": [{"src": "assets/presentations/creator.png", "alt": "Creator Gym — чёрная обложка с хромированными 3D-фигурами"}], "detail": "Обложка · 3D-графика", "category": "presentations"}, {"title": "Unity of Command", "slides": [{"src": "assets/presentations/unity.png", "alt": "Unity of Command — бордовая типографическая обложка. Ekaterina Singilevtseva и Denis Berhzhanin"}], "detail": "Обложка · Совместная работа", "category": "presentations"}, {"title": "Россия и русская культура", "slides": [{"src": "assets/presentations/russia.png", "alt": "Россия — коллаж из архитектуры и культурных символов"}, {"src": "assets/presentations/culture.png", "alt": "Русская культура / Russian Culture — бело-синяя обложка с цветами"}, {"src": "assets/presentations/words.png", "alt": "Первые слова / Words you can use today — красный слайд с русскими словами и переводами"}], "detail": "Коллажи · 3 слайда", "category": "presentations"}, {"title": "Дворцовые здания", "slides": [{"src": "assets/presentations/palaces.png", "alt": "Дворцовые здания — чёрно-белый архитектурный коллаж"}], "detail": "Коллаж · Текстуры", "category": "presentations"}, {"title": "3D-композиция", "slides": [{"src": "assets/presentations/closing.png", "alt": "Thank you — финальный слайд с фиолетовыми и зелёными 3D-фигурами"}], "detail": "Финальный слайд", "category": "presentations"}, {"title": "Learning Atlas", "detail": "Концепт учебного сервиса · Веб и мобильный экран", "layout": "interface", "view": "", "slides": [{"src": "assets/design/atlas-upscaled.png", "alt": "Learning Atlas — карта подготовки к экзаменам, карточки предметов и мобильная версия", "original": "assets/design/atlas.png"}], "category": "interfaces"}, {"title": "EON VPN", "detail": "Дизайн мобильного приложения", "layout": "panorama", "view": "panorama", "slides": [{"src": "assets/design/eon-upscaled.png", "alt": "EON VPN — экраны подключения, тарифов, входа, подтверждения email, восстановления пароля и настроек", "original": "assets/design/eon.png"}], "category": "interfaces"}, {"title": ".FAUX", "detail": "Логотип · Геометрический знак", "layout": "logo", "view": "", "slides": [{"src": "assets/design/faux.png", "alt": ".FAUX — чёрный геометрический логотип на белом фоне"}], "category": "identity"}, {"title": "Голубой леттеринг", "detail": "Логотип · Рисованные буквы", "layout": "logo lettering", "view": "", "slides": [{"src": "assets/design/lettering.png", "alt": "Голубой логотип с рисованными буквами и многослойным контуром"}], "category": "identity"}, {"title": "Я устал", "detail": "Постер · Типографика и коллаж", "layout": "poster", "view": "", "slides": [{"src": "assets/design/angel.png", "alt": "Я устал — постер со статуей ангела, светлым нимбом и ярко-розовой типографикой"}], "category": "identity"}]</script>
 </body>
 </html>

@@ -1,97 +1,70 @@
 (() => {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const filters = document.querySelector('.portfolio-filters');
   const cards = [...document.querySelectorAll('.portfolio-card')];
   const more = document.querySelector('#more-presentations');
   const categoryNames = {all: 'Все работы', presentations: 'Презентации', interfaces: 'Интерфейсы', identity: 'Айдентика и графика'};
-  let activeCategory = 'all';
+  const extraCards = cards.filter(card => card.hasAttribute('data-extra-presentation'));
+  const results = document.querySelector('#portfolio-results');
+  const reset = document.querySelector('#reset-filter');
+  let activeCategory = 'all', expanded = false;
+  const canMove = () => !reducedMotion.matches && !document.body.classList.contains('motion-paused');
   const updateCount = () => {
-    const count = cards.filter(card => !card.hidden && (!card.closest('details') || more.open)).length;
+    const count = cards.filter(card => !card.hidden).length;
     const total = cards.filter(card => activeCategory === 'all' || card.dataset.category === activeCategory).length;
     document.querySelector('#visible-count').textContent = `Показано ${count} из ${total}`;
     document.querySelector('#filter-status').textContent = `${categoryNames[activeCategory]}. Показано работ: ${count} из ${total}`;
   };
   const animateCards = () => {
-    if (reducedMotion.matches) return;
-    cards.filter(card => !card.hidden && (!card.closest('details') || more.open)).forEach((card, index) => {
+    if (!canMove()) return;
+    cards.filter(card => !card.hidden).forEach((card, index) => {
       card.getAnimations().forEach(animation => animation.cancel());
       card.animate([{opacity: 0, transform: 'translateY(18px)'}, {opacity: 1, transform: 'translateY(0)'}],
         {duration: 480, delay: Math.min(index, 5) * 45, easing: 'cubic-bezier(.16,1,.3,1)'});
     });
   };
+  const render = () => {
+    cards.forEach(card => {
+      card.hidden = (activeCategory !== 'all' && card.dataset.category !== activeCategory) || (extraCards.includes(card) && !expanded);
+      card.classList.remove('lead');
+    });
+    more.hidden = activeCategory !== 'all' && activeCategory !== 'presentations';
+    more.setAttribute('aria-expanded', String(expanded));
+    more.querySelector('.more-label').innerHTML = expanded ? 'Свернуть презентации <span aria-hidden="true">−</span>' : 'Ещё 5 презентаций <span aria-hidden="true">+</span>';
+    filters.querySelectorAll('[data-filter]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === activeCategory)));
+    reset.hidden = activeCategory === 'all';
+    cards.find(card => !card.hidden)?.classList.add('lead');
+    document.querySelector('#selected-category').textContent = categoryNames[activeCategory];
+    updateCount();
+  };
+  const showResults = () => {
+    results.focus({preventScroll: true});
+    results.scrollIntoView({behavior: canMove() ? 'smooth' : 'instant', block: 'start'});
+  };
   filters.querySelectorAll('[data-filter]').forEach(button => {
     button.hidden = false;
     button.addEventListener('click', () => {
-      if (activeCategory === button.dataset.filter) return;
-      activeCategory = button.dataset.filter;
-      filters.querySelectorAll('[data-filter]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-      cards.forEach(card => { card.hidden = activeCategory !== 'all' && card.dataset.category !== activeCategory; card.classList.remove('lead'); });
-      more.hidden = activeCategory !== 'all' && activeCategory !== 'presentations';
-      cards.find(card => !card.hidden)?.classList.add('lead');
-      document.querySelector('#selected-category').textContent = categoryNames[activeCategory];
-      updateCount();
-      animateCards();
+      if (activeCategory !== button.dataset.filter) {
+        activeCategory = button.dataset.filter;
+        expanded = false;
+        render(); animateCards();
+      }
+      showResults();
     });
   });
-  more.addEventListener('toggle', () => {
-    more.querySelector('.more-label').firstChild.textContent = more.open ? 'Свернуть ' : 'Ещё ';
-    more.querySelector('.more-label span').textContent = more.open ? '−' : '+';
-    updateCount();
-    if (more.open) animateCards();
+  reset.addEventListener('click', () => {activeCategory = 'all'; expanded = false; render(); animateCards(); showResults();});
+  more.addEventListener('click', () => {
+    expanded = !expanded;
+    render();
+    if (expanded) {
+      animateCards();
+      const first = extraCards[0];
+      first.setAttribute('tabindex', '-1'); first.focus({preventScroll: true});
+      first.scrollIntoView({behavior: canMove() ? 'smooth' : 'instant', block: 'start'});
+    } else {showResults();}
   });
-  updateCount();
-  // Dennis Snellenberg's floating category preview and vertical image switch.
-  // Cursor easing follows Kinetics Pointer Tooltip (lerp per animation frame).
-  const preview = document.querySelector('.category-preview');
-  const previewTrack = preview.querySelector('.category-preview-track');
-  let followFrame = 0;
-  let previewActive = false;
-  let previewX = 0, previewY = 0, targetX = 0, targetY = 0;
-  let lastFrameTime = 0;
-  const hidePreview = () => {
-    previewActive = false;
-    preview.classList.remove('visible');
-    cancelAnimationFrame(followFrame);
-    followFrame = 0;
-    lastFrameTime = 0;
-  };
-  const followPreview = time => {
-    const frames = lastFrameTime ? Math.min((time - lastFrameTime) / 16.67, 3) : 1;
-    const easing = 1 - Math.pow(1 - .18, frames);
-    previewX += (targetX - previewX) * easing;
-    previewY += (targetY - previewY) * easing;
-    preview.style.transform = `translate3d(${previewX}px, ${previewY}px, 0)`;
-    lastFrameTime = time;
-    if (previewActive) followFrame = requestAnimationFrame(followPreview);
-  };
-  const setPreviewTarget = event => {
-    const halfWidth = preview.offsetWidth / 2 + 12;
-    const halfHeight = preview.offsetHeight / 2 + 12;
-    targetX = Math.max(halfWidth, Math.min(innerWidth - halfWidth, event.clientX));
-    targetY = Math.max(halfHeight, Math.min(innerHeight - halfHeight, event.clientY));
-  };
-  document.querySelectorAll('.category-row').forEach(row => {
-    const showPreview = event => {
-      if (!finePointer.matches || reducedMotion.matches) return;
-      setPreviewTarget(event);
-      if (!previewActive) { previewX = targetX; previewY = targetY; }
-      previewActive = true;
-      previewTrack.style.transform = `translateY(-${Number(row.dataset.preview) * 100}%)`;
-      preview.classList.add('visible');
-      if (!followFrame) followFrame = requestAnimationFrame(followPreview);
-    };
-    row.addEventListener('pointerenter', showPreview);
-    row.addEventListener('pointermove', showPreview);
-    row.addEventListener('pointerleave', hidePreview);
-    row.addEventListener('click', hidePreview);
-  });
-  addEventListener('scroll', hidePreview, {passive: true});
-  addEventListener('resize', hidePreview);
-  addEventListener('blur', hidePreview);
-  document.addEventListener('visibilitychange', () => { if (document.hidden) hidePreview(); });
+  render();
   reducedMotion.addEventListener('change', () => {
-    hidePreview();
     if (reducedMotion.matches) cards.forEach(card => card.getAnimations().forEach(animation => animation.cancel()));
   });
   const works = JSON.parse(document.querySelector('#portfolio-data').textContent);
@@ -128,6 +101,7 @@
   };
   document.querySelectorAll('[data-work]').forEach((link) => {
     link.addEventListener('click', (event) => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
       activeWork = Number(link.dataset.work);
       activeSlide = 0;
