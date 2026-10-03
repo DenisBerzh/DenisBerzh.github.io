@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Berzhanin Denis — личный сайт. Дизайн интерфейсов, логотипы, графика и презентации.">
+  <meta name="description" content="Berzhanin Denis — личный сайт. Презентации, дизайн интерфейсов, айдентика и графика.">
   <meta name="theme-color" content="#1c1c1c">
   <title>Berzhanin Denis — личный сайт</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%231c1c1c'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial,sans-serif' font-size='23' fill='white'%3EBD%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=portfolio-2">
-  <script src="app.js?v=portfolio-2" defer></script>
+  <link rel="stylesheet" href="styles.css?v=portfolio-3">
+  <script src="app.js?v=portfolio-3" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#about">Перейти к содержанию</a>
@@ -42,83 +42,70 @@
     <section id="projects" class="projects section-light" aria-labelledby="projects-title">
       <div class="section-top"><p class="eyebrow">Портфолио</p><span class="subtle">Berzhanin Denis</span></div>
       <h2 id="projects-title" class="portfolio-heading">Избранные работы.</h2>
-      <p class="portfolio-intro">Интерфейсы приложений, логотипы, графика и презентации.</p>
-      <div class="portfolio-filters" role="group" aria-label="Фильтры работ" hidden>
-        <button type="button" data-filter="all" aria-pressed="true">Все работы <span>12</span></button>
-        <button type="button" data-filter="interfaces" aria-pressed="false">Интерфейсы <span>2</span></button>
-        <button type="button" data-filter="logos" aria-pressed="false">Логотипы <span>2</span></button>
-        <button type="button" data-filter="graphics" aria-pressed="false">Графика <span>1</span></button>
-        <button type="button" data-filter="presentations" aria-pressed="false">Презентации <span>7</span></button>
+      <p class="portfolio-intro">Презентации, интерфейсы, айдентика и графика.</p>
+      <div class="portfolio-filters" role="group" aria-label="Фильтры работ">
+        <div class="category-top"><span class="eyebrow">Направления</span><button class="all-filter" type="button" data-filter="all" aria-pressed="true" aria-controls="portfolio-grid" hidden>Все <span aria-hidden="true">↗</span></button></div>
+        <button class="category-row" type="button" data-filter="presentations" data-preview="0" aria-pressed="false" aria-controls="portfolio-grid" hidden><span class="category-name">Презентации</span><span class="category-description">Деловые и творческие<br><span>7 работ</span></span><span class="category-arrow" aria-hidden="true">↗</span></button>
+        <button class="category-row" type="button" data-filter="interfaces" data-preview="1" aria-pressed="false" aria-controls="portfolio-grid" hidden><span class="category-name">Интерфейсы</span><span class="category-description">Веб и приложения<br><span>2 работы</span></span><span class="category-arrow" aria-hidden="true">↗</span></button>
+        <button class="category-row" type="button" data-filter="identity" data-preview="2" aria-pressed="false" aria-controls="portfolio-grid" aria-label="Айдентика и графика" hidden><span class="category-name">Айдентика<br class="identity-break"> и графика</span><span class="category-description">Логотипы и постер<br><span>3 работы</span></span><span class="category-arrow" aria-hidden="true">↗</span></button>
       </div>
+      <div class="portfolio-grid-heading"><p id="selected-category">Все работы</p><span id="visible-count">9 работ</span></div>
       <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
-      <section class="portfolio-group" data-category="interfaces" aria-labelledby="group-interfaces">
-        <div class="portfolio-group-heading"><h3 id="group-interfaces">Интерфейсы</h3><span>2 работы</span></div>
-        <div class="project-gallery portfolio-grid">
-          <figure class="portfolio-card featured">
-            <a class="slide-open" href="assets/design/atlas.png" data-work="0" aria-label="Смотреть: Learning Atlas" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/atlas.png" alt="Learning Atlas — карта подготовки к экзаменам, карточки предметов и мобильная версия" loading="lazy" width="1134" height="713"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h4>Learning Atlas</h4><p>Концепт учебного сервиса · Веб и мобильный экран</p></figcaption>
+      <div id="portfolio-grid" class="project-gallery portfolio-grid">
+          <figure class="portfolio-card  lead" data-category="presentations">
+            <a class="slide-open" href="assets/presentations/insurance.png" data-work="0" aria-label="Смотреть: Страховой рынок" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/insurance.png" alt="Российский страховой рынок: I полугодие 2026 — слайд с ключевыми показателями" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Страховой рынок</h3><p>Аналитический слайд</p></figcaption>
           </figure>
-          <figure class="portfolio-card panorama">
-            <a class="slide-open" href="assets/design/eon.png" data-work="1" aria-label="Смотреть: EON VPN" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/eon.png" alt="EON VPN — экраны подключения, тарифов, входа, подтверждения email, восстановления пароля и настроек" loading="lazy" width="1075" height="276"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h4>EON VPN</h4><p>Дизайн мобильного приложения</p></figcaption>
+          <figure class="portfolio-card " data-category="presentations">
+            <a class="slide-open" href="assets/presentations/orders.png" data-work="1" aria-label="Смотреть: Обработка заказов" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/orders.png" alt="Бизнес-процесс обработки заказов в небольшом интернет-магазине — чёрно-розовая обложка" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Обработка заказов</h3><p>Обложка · Бизнес-процесс</p></figcaption>
           </figure>
-        </div>
-      </section>
-      <section class="portfolio-group" data-category="logos" aria-labelledby="group-logos">
-        <div class="portfolio-group-heading"><h3 id="group-logos">Логотипы</h3><span>2 работы</span></div>
-        <div class="project-gallery portfolio-grid">
-          <figure class="portfolio-card logo">
-            <a class="slide-open" href="assets/design/faux.png" data-work="2" aria-label="Смотреть: .FAUX" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/faux.png" alt=".FAUX — чёрный геометрический логотип на белом фоне" loading="lazy" width="1254" height="1254"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h4>.FAUX</h4><p>Логотип · Геометрический знак</p></figcaption>
+          <figure class="portfolio-card " data-category="presentations">
+            <a class="slide-open" href="assets/presentations/creator.png" data-work="2" aria-label="Смотреть: Creator Gym" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/creator.png" alt="Creator Gym — чёрная обложка с хромированными 3D-фигурами" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Creator Gym</h3><p>Обложка · 3D-графика</p></figcaption>
           </figure>
-          <figure class="portfolio-card logo lettering">
-            <a class="slide-open" href="assets/design/lettering.png" data-work="3" aria-label="Смотреть: Голубой леттеринг" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/lettering.png" alt="Голубой логотип с рисованными буквами и многослойным контуром" loading="lazy" width="314" height="150"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h4>Голубой леттеринг</h4><p>Логотип · Рисованные буквы</p></figcaption>
+          <figure class="portfolio-card " data-category="presentations">
+            <a class="slide-open" href="assets/presentations/unity.png" data-work="3" aria-label="Смотреть: Unity of Command" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/unity.png" alt="Unity of Command — бордовая типографическая обложка. Ekaterina Singilevtseva и Denis Berhzhanin" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Unity of Command</h3><p>Обложка · Совместная работа</p></figcaption>
           </figure>
-        </div>
-      </section>
-      <section class="portfolio-group" data-category="graphics" aria-labelledby="group-graphics">
-        <div class="portfolio-group-heading"><h3 id="group-graphics">Графика</h3><span>1 работа</span></div>
-        <div class="project-gallery portfolio-grid">
-          <figure class="portfolio-card poster">
-            <a class="slide-open" href="assets/design/angel.png" data-work="4" aria-label="Смотреть: Я устал" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/angel.png" alt="Я устал — постер со статуей ангела, светлым нимбом и ярко-розовой типографикой" loading="lazy" width="1280" height="1280"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h4>Я устал</h4><p>Постер · Типографика и коллаж</p></figcaption>
+        <details id="more-presentations" class="more-presentations">
+          <summary><span class="more-label">Ещё <span aria-hidden="true">+</span></span><span class="more-count">3 презентации</span></summary>
+          <div class="extra-grid">
+          <figure class="portfolio-card " data-category="presentations">
+            <a class="slide-open" href="assets/presentations/russia.png" data-work="4" aria-label="Смотреть: Россия и русская культура" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/russia.png" alt="Россия — коллаж из архитектуры и культурных символов" loading="lazy" width="1486" height="835"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Россия и русская культура</h3><p>Коллажи · 3 слайда</p></figcaption>
           </figure>
-        </div>
-      </section>
-      <section class="portfolio-group" data-category="presentations" aria-labelledby="group-presentations">
-        <div class="portfolio-group-heading"><h3 id="group-presentations">Презентации</h3><span>7 работ</span></div>
-        <div class="project-gallery portfolio-grid">
-          <figure class="portfolio-card ">
-            <a class="slide-open" href="assets/presentations/creator.png" data-work="5" aria-label="Смотреть: Creator Gym" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/creator.png" alt="Creator Gym — чёрная обложка с хромированными 3D-фигурами" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h4>Creator Gym</h4><p>Обложка · 3D-графика</p></figcaption>
+          <figure class="portfolio-card " data-category="presentations">
+            <a class="slide-open" href="assets/presentations/palaces.png" data-work="5" aria-label="Смотреть: Дворцовые здания" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/palaces.png" alt="Дворцовые здания — чёрно-белый архитектурный коллаж" loading="lazy" width="1919" height="1077"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Дворцовые здания</h3><p>Коллаж · Текстуры</p></figcaption>
           </figure>
-          <figure class="portfolio-card ">
-            <a class="slide-open" href="assets/presentations/unity.png" data-work="6" aria-label="Смотреть: Unity of Command" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/unity.png" alt="Unity of Command — бордовая типографическая обложка. Ekaterina Singilevtseva и Denis Berhzhanin" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h4>Unity of Command</h4><p>Обложка · Совместная работа</p></figcaption>
+          <figure class="portfolio-card " data-category="presentations">
+            <a class="slide-open" href="assets/presentations/closing.png" data-work="6" aria-label="Смотреть: 3D-композиция" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/closing.png" alt="Thank you — финальный слайд с фиолетовыми и зелёными 3D-фигурами" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>3D-композиция</h3><p>Финальный слайд</p></figcaption>
           </figure>
-          <figure class="portfolio-card ">
-            <a class="slide-open" href="assets/presentations/insurance.png" data-work="7" aria-label="Смотреть: Страховой рынок" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/insurance.png" alt="Российский страховой рынок: I полугодие 2026 — слайд с ключевыми показателями" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h4>Страховой рынок</h4><p>Аналитический слайд</p></figcaption>
+          </div>
+        </details>
+          <figure class="portfolio-card interface" data-category="interfaces">
+            <a class="slide-open" href="assets/design/atlas-upscaled.png" data-work="7" aria-label="Смотреть: Learning Atlas" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/atlas.png" alt="Learning Atlas — карта подготовки к экзаменам, карточки предметов и мобильная версия" loading="lazy" width="1134" height="713"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Learning Atlas</h3><p>Концепт учебного сервиса · Веб и мобильный экран</p></figcaption>
           </figure>
-          <figure class="portfolio-card ">
-            <a class="slide-open" href="assets/presentations/orders.png" data-work="8" aria-label="Смотреть: Обработка заказов" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/orders.png" alt="Бизнес-процесс обработки заказов в небольшом интернет-магазине — чёрно-розовая обложка" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h4>Обработка заказов</h4><p>Обложка · Бизнес-процесс</p></figcaption>
+          <figure class="portfolio-card panorama" data-category="interfaces">
+            <a class="slide-open" href="assets/design/eon-upscaled.png" data-work="8" aria-label="Смотреть: EON VPN" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/eon.png" alt="EON VPN — экраны подключения, тарифов, входа, подтверждения email, восстановления пароля и настроек" loading="lazy" width="1075" height="276"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>EON VPN</h3><p>Дизайн мобильного приложения</p></figcaption>
           </figure>
-          <figure class="portfolio-card ">
-            <a class="slide-open" href="assets/presentations/russia.png" data-work="9" aria-label="Смотреть: Россия и русская культура" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/russia.png" alt="Россия — коллаж из архитектуры и культурных символов" loading="lazy" width="1486" height="835"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h4>Россия и русская культура</h4><p>Коллажи · 3 слайда</p></figcaption>
+          <figure class="portfolio-card logo" data-category="identity">
+            <a class="slide-open" href="assets/design/faux.png" data-work="9" aria-label="Смотреть: .FAUX" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/faux.png" alt=".FAUX — чёрный геометрический логотип на белом фоне" loading="lazy" width="1254" height="1254"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>.FAUX</h3><p>Логотип · Геометрический знак</p></figcaption>
           </figure>
-          <figure class="portfolio-card ">
-            <a class="slide-open" href="assets/presentations/palaces.png" data-work="10" aria-label="Смотреть: Дворцовые здания" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/palaces.png" alt="Дворцовые здания — чёрно-белый архитектурный коллаж" loading="lazy" width="1919" height="1077"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h4>Дворцовые здания</h4><p>Коллаж · Текстуры</p></figcaption>
+          <figure class="portfolio-card logo lettering" data-category="identity">
+            <a class="slide-open" href="assets/design/lettering.png" data-work="10" aria-label="Смотреть: Голубой леттеринг" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/lettering.png" alt="Голубой логотип с рисованными буквами и многослойным контуром" loading="lazy" width="314" height="150"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Голубой леттеринг</h3><p>Логотип · Рисованные буквы</p></figcaption>
           </figure>
-          <figure class="portfolio-card ">
-            <a class="slide-open" href="assets/presentations/closing.png" data-work="11" aria-label="Смотреть: 3D-композиция" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/closing.png" alt="Thank you — финальный слайд с фиолетовыми и зелёными 3D-фигурами" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
-            <figcaption><h4>3D-композиция</h4><p>Финальный слайд</p></figcaption>
+          <figure class="portfolio-card poster" data-category="identity">
+            <a class="slide-open" href="assets/design/angel.png" data-work="11" aria-label="Смотреть: Я устал" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/design/angel.png" alt="Я устал — постер со статуей ангела, светлым нимбом и ярко-розовой типографикой" loading="lazy" width="1280" height="1280"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
+            <figcaption><h3>Я устал</h3><p>Постер · Типографика и коллаж</p></figcaption>
           </figure>
-        </div>
-      </section>
+      </div>
     </section>
     <section id="contact" class="contact">
       <div class="section-top"><p class="eyebrow">Контакты</p><span class="subtle">Berzhanin Denis</span></div>
@@ -128,14 +115,20 @@
       <footer><span>© 2026 Berzhanin Denis</span><span>Резюме & портфолио</span><a href="https://dennissnellenberg.com/" target="_blank" rel="noopener noreferrer">Дизайн-референс ↗</a></footer>
     </section>
   </main>
+  <div class="category-preview" aria-hidden="true"><div class="category-preview-inner"><div class="category-preview-track">
+    <div class="category-preview-slide"><img src="assets/presentations/insurance.png" alt="" width="1919" height="1079" loading="lazy"></div>
+    <div class="category-preview-slide"><img src="assets/design/atlas.png" alt="" width="1134" height="713" loading="lazy"></div>
+    <div class="category-preview-slide"><img src="assets/design/faux.png" alt="" width="1254" height="1254" loading="lazy"></div>
+  </div></div><span class="category-preview-badge">К работам</span></div>
   <dialog id="slide-viewer" class="slide-viewer" aria-labelledby="slide-title">
     <div class="slide-viewer-header"><h2 id="slide-title"></h2><button class="slide-close" type="button" aria-label="Закрыть просмотр">×</button></div>
     <div class="slide-stage" tabindex="0" aria-label="Изображение работы"><img id="slide-image" class="slide-image" alt=""></div>
     <p class="panorama-hint" hidden>Прокрутите вправо, чтобы посмотреть все экраны.</p>
     <p class="slide-load-status" role="status" hidden>Загрузка изображения…</p>
     <div class="slide-controls"><button class="slide-prev" type="button" aria-label="Предыдущее изображение">←</button><p id="slide-status" role="status" aria-live="polite"></p><button class="slide-next" type="button" aria-label="Следующее изображение">→</button></div>
+    <a class="slide-source" href="" target="_blank" rel="noopener" hidden>Исходное изображение ↗</a>
     <a class="slide-original" href="" target="_blank" rel="noopener">Открыть изображение ↗</a>
   </dialog>
-  <script id="portfolio-data" type="application/json">[{"title": "Learning Atlas", "detail": "Концепт учебного сервиса · Веб и мобильный экран", "layout": "featured", "view": "", "slides": [{"src": "assets/design/atlas.png", "alt": "Learning Atlas — карта подготовки к экзаменам, карточки предметов и мобильная версия"}]}, {"title": "EON VPN", "detail": "Дизайн мобильного приложения", "layout": "panorama", "view": "panorama", "slides": [{"src": "assets/design/eon.png", "alt": "EON VPN — экраны подключения, тарифов, входа, подтверждения email, восстановления пароля и настроек"}]}, {"title": ".FAUX", "detail": "Логотип · Геометрический знак", "layout": "logo", "view": "", "slides": [{"src": "assets/design/faux.png", "alt": ".FAUX — чёрный геометрический логотип на белом фоне"}]}, {"title": "Голубой леттеринг", "detail": "Логотип · Рисованные буквы", "layout": "logo lettering", "view": "", "slides": [{"src": "assets/design/lettering.png", "alt": "Голубой логотип с рисованными буквами и многослойным контуром"}]}, {"title": "Я устал", "detail": "Постер · Типографика и коллаж", "layout": "poster", "view": "", "slides": [{"src": "assets/design/angel.png", "alt": "Я устал — постер со статуей ангела, светлым нимбом и ярко-розовой типографикой"}]}, {"title": "Creator Gym", "slides": [{"src": "assets/presentations/creator.png", "alt": "Creator Gym — чёрная обложка с хромированными 3D-фигурами"}], "detail": "Обложка · 3D-графика"}, {"title": "Unity of Command", "slides": [{"src": "assets/presentations/unity.png", "alt": "Unity of Command — бордовая типографическая обложка. Ekaterina Singilevtseva и Denis Berhzhanin"}], "detail": "Обложка · Совместная работа"}, {"title": "Страховой рынок", "slides": [{"src": "assets/presentations/insurance.png", "alt": "Российский страховой рынок: I полугодие 2026 — слайд с ключевыми показателями"}], "detail": "Аналитический слайд"}, {"title": "Обработка заказов", "slides": [{"src": "assets/presentations/orders.png", "alt": "Бизнес-процесс обработки заказов в небольшом интернет-магазине — чёрно-розовая обложка"}], "detail": "Обложка · Бизнес-процесс"}, {"title": "Россия и русская культура", "slides": [{"src": "assets/presentations/russia.png", "alt": "Россия — коллаж из архитектуры и культурных символов"}, {"src": "assets/presentations/culture.png", "alt": "Русская культура / Russian Culture — бело-синяя обложка с цветами"}, {"src": "assets/presentations/words.png", "alt": "Первые слова / Words you can use today — красный слайд с русскими словами и переводами"}], "detail": "Коллажи · 3 слайда"}, {"title": "Дворцовые здания", "slides": [{"src": "assets/presentations/palaces.png", "alt": "Дворцовые здания — чёрно-белый архитектурный коллаж"}], "detail": "Коллаж · Текстуры"}, {"title": "3D-композиция", "slides": [{"src": "assets/presentations/closing.png", "alt": "Thank you — финальный слайд с фиолетовыми и зелёными 3D-фигурами"}], "detail": "Финальный слайд"}]</script>
+  <script id="portfolio-data" type="application/json">[{"title": "Страховой рынок", "slides": [{"src": "assets/presentations/insurance.png", "alt": "Российский страховой рынок: I полугодие 2026 — слайд с ключевыми показателями"}], "detail": "Аналитический слайд", "category": "presentations"}, {"title": "Обработка заказов", "slides": [{"src": "assets/presentations/orders.png", "alt": "Бизнес-процесс обработки заказов в небольшом интернет-магазине — чёрно-розовая обложка"}], "detail": "Обложка · Бизнес-процесс", "category": "presentations"}, {"title": "Creator Gym", "slides": [{"src": "assets/presentations/creator.png", "alt": "Creator Gym — чёрная обложка с хромированными 3D-фигурами"}], "detail": "Обложка · 3D-графика", "category": "presentations"}, {"title": "Unity of Command", "slides": [{"src": "assets/presentations/unity.png", "alt": "Unity of Command — бордовая типографическая обложка. Ekaterina Singilevtseva и Denis Berhzhanin"}], "detail": "Обложка · Совместная работа", "category": "presentations"}, {"title": "Россия и русская культура", "slides": [{"src": "assets/presentations/russia.png", "alt": "Россия — коллаж из архитектуры и культурных символов"}, {"src": "assets/presentations/culture.png", "alt": "Русская культура / Russian Culture — бело-синяя обложка с цветами"}, {"src": "assets/presentations/words.png", "alt": "Первые слова / Words you can use today — красный слайд с русскими словами и переводами"}], "detail": "Коллажи · 3 слайда", "category": "presentations"}, {"title": "Дворцовые здания", "slides": [{"src": "assets/presentations/palaces.png", "alt": "Дворцовые здания — чёрно-белый архитектурный коллаж"}], "detail": "Коллаж · Текстуры", "category": "presentations"}, {"title": "3D-композиция", "slides": [{"src": "assets/presentations/closing.png", "alt": "Thank you — финальный слайд с фиолетовыми и зелёными 3D-фигурами"}], "detail": "Финальный слайд", "category": "presentations"}, {"title": "Learning Atlas", "detail": "Концепт учебного сервиса · Веб и мобильный экран", "layout": "interface", "view": "", "slides": [{"src": "assets/design/atlas-upscaled.png", "alt": "Learning Atlas — карта подготовки к экзаменам, карточки предметов и мобильная версия", "original": "assets/design/atlas.png"}], "category": "interfaces"}, {"title": "EON VPN", "detail": "Дизайн мобильного приложения", "layout": "panorama", "view": "panorama", "slides": [{"src": "assets/design/eon-upscaled.png", "alt": "EON VPN — экраны подключения, тарифов, входа, подтверждения email, восстановления пароля и настроек", "original": "assets/design/eon.png"}], "category": "interfaces"}, {"title": ".FAUX", "detail": "Логотип · Геометрический знак", "layout": "logo", "view": "", "slides": [{"src": "assets/design/faux.png", "alt": ".FAUX — чёрный геометрический логотип на белом фоне"}], "category": "identity"}, {"title": "Голубой леттеринг", "detail": "Логотип · Рисованные буквы", "layout": "logo lettering", "view": "", "slides": [{"src": "assets/design/lettering.png", "alt": "Голубой логотип с рисованными буквами и многослойным контуром"}], "category": "identity"}, {"title": "Я устал", "detail": "Постер · Типографика и коллаж", "layout": "poster", "view": "", "slides": [{"src": "assets/design/angel.png", "alt": "Я устал — постер со статуей ангела, светлым нимбом и ярко-розовой типографикой"}], "category": "identity"}]</script>
 </body>
 </html>

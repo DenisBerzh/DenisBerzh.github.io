@@ -56,16 +56,96 @@
     if (reducedMotion.matches) document.querySelectorAll('.magnetic').forEach((element) => { element.style.transform = ''; });
   });
   const filters = document.querySelector('.portfolio-filters');
-  const groups = [...document.querySelectorAll('.portfolio-group')];
-  filters.hidden = false;
-  filters.querySelectorAll('button').forEach((button) => {
-    button.addEventListener('click', () => {
-      const category = button.dataset.filter;
-      filters.querySelectorAll('button').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
-      groups.forEach((group) => { group.hidden = category !== 'all' && group.dataset.category !== category; });
-      const count = groups.filter((group) => !group.hidden).reduce((sum, group) => sum + group.querySelectorAll('.portfolio-card').length, 0);
-      document.querySelector('#filter-status').textContent = `Показано работ: ${count}`;
+  const cards = [...document.querySelectorAll('.portfolio-card')];
+  const more = document.querySelector('#more-presentations');
+  const categoryNames = {all: 'Все работы', presentations: 'Презентации', interfaces: 'Интерфейсы', identity: 'Айдентика и графика'};
+  let activeCategory = 'all';
+  const updateCount = () => {
+    const count = cards.filter(card => !card.hidden && (!card.closest('details') || more.open)).length;
+    const suffix = count === 1 ? 'работа' : count >= 2 && count <= 4 ? 'работы' : 'работ';
+    document.querySelector('#visible-count').textContent = `${count} ${suffix}`;
+    document.querySelector('#filter-status').textContent = `${categoryNames[activeCategory]}. Показано работ: ${count}`;
+  };
+  const animateCards = () => {
+    if (reducedMotion.matches) return;
+    cards.filter(card => !card.hidden && (!card.closest('details') || more.open)).forEach((card, index) => {
+      card.getAnimations().forEach(animation => animation.cancel());
+      card.animate([{opacity: 0, transform: 'translateY(18px)'}, {opacity: 1, transform: 'translateY(0)'}],
+        {duration: 480, delay: Math.min(index, 5) * 45, easing: 'cubic-bezier(.16,1,.3,1)'});
     });
+  };
+  filters.querySelectorAll('[data-filter]').forEach(button => {
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      if (activeCategory === button.dataset.filter) return;
+      activeCategory = button.dataset.filter;
+      filters.querySelectorAll('[data-filter]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      cards.forEach(card => { card.hidden = activeCategory !== 'all' && card.dataset.category !== activeCategory; card.classList.remove('lead'); });
+      more.hidden = activeCategory !== 'all' && activeCategory !== 'presentations';
+      cards.find(card => !card.hidden)?.classList.add('lead');
+      document.querySelector('#selected-category').textContent = categoryNames[activeCategory];
+      updateCount();
+      animateCards();
+    });
+  });
+  more.addEventListener('toggle', () => {
+    more.querySelector('.more-label').firstChild.textContent = more.open ? 'Свернуть ' : 'Ещё ';
+    more.querySelector('.more-label span').textContent = more.open ? '−' : '+';
+    updateCount();
+    if (more.open) animateCards();
+  });
+  updateCount();
+  // Dennis Snellenberg's floating category preview and vertical image switch.
+  // Cursor easing follows Kinetics Pointer Tooltip (lerp per animation frame).
+  const preview = document.querySelector('.category-preview');
+  const previewTrack = preview.querySelector('.category-preview-track');
+  let followFrame = 0;
+  let previewActive = false;
+  let previewX = 0, previewY = 0, targetX = 0, targetY = 0;
+  let lastFrameTime = 0;
+  const hidePreview = () => {
+    previewActive = false;
+    preview.classList.remove('visible');
+    cancelAnimationFrame(followFrame);
+    followFrame = 0;
+    lastFrameTime = 0;
+  };
+  const followPreview = time => {
+    const frames = lastFrameTime ? Math.min((time - lastFrameTime) / 16.67, 3) : 1;
+    const easing = 1 - Math.pow(1 - .18, frames);
+    previewX += (targetX - previewX) * easing;
+    previewY += (targetY - previewY) * easing;
+    preview.style.transform = `translate3d(${previewX}px, ${previewY}px, 0)`;
+    lastFrameTime = time;
+    if (previewActive) followFrame = requestAnimationFrame(followPreview);
+  };
+  const setPreviewTarget = event => {
+    const halfWidth = preview.offsetWidth / 2 + 12;
+    const halfHeight = preview.offsetHeight / 2 + 12;
+    targetX = Math.max(halfWidth, Math.min(innerWidth - halfWidth, event.clientX));
+    targetY = Math.max(halfHeight, Math.min(innerHeight - halfHeight, event.clientY));
+  };
+  document.querySelectorAll('.category-row').forEach(row => {
+    row.addEventListener('pointerenter', event => {
+      if (!finePointer.matches || reducedMotion.matches) return;
+      setPreviewTarget(event);
+      if (!previewActive) { previewX = targetX; previewY = targetY; }
+      previewActive = true;
+      previewTrack.style.transform = `translateY(-${Number(row.dataset.preview) * 100}%)`;
+      preview.classList.add('visible');
+      if (!followFrame) followFrame = requestAnimationFrame(followPreview);
+    });
+    row.addEventListener('pointermove', setPreviewTarget);
+    row.addEventListener('pointerleave', hidePreview);
+    row.addEventListener('click', hidePreview);
+  });
+  addEventListener('scroll', hidePreview, {passive: true});
+  addEventListener('resize', hidePreview);
+  addEventListener('blur', hidePreview);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) hidePreview(); });
+  reducedMotion.addEventListener('change', () => {
+    hidePreview();
+    if (reducedMotion.matches) cards.forEach(card => card.getAnimations().forEach(animation => animation.cancel()));
   });
   const works = JSON.parse(document.querySelector('#portfolio-data').textContent);
   const viewer = document.querySelector('#slide-viewer');
@@ -92,6 +172,9 @@
     slideImage.alt = slide.alt;
     viewer.querySelector('#slide-status').textContent = `${activeSlide + 1} / ${work.slides.length}`;
     viewer.querySelector('.slide-original').href = slide.src;
+    viewer.querySelector('.slide-original').textContent = slide.original ? 'Увеличенная версия ↗' : 'Открыть изображение ↗';
+    viewer.querySelector('.slide-source').hidden = !slide.original;
+    viewer.querySelector('.slide-source').href = slide.original || slide.src;
     previous.disabled = activeSlide === 0;
     next.disabled = activeSlide === work.slides.length - 1;
     viewer.querySelector('.slide-controls').hidden = work.slides.length === 1;
