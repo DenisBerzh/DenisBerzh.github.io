@@ -1,0 +1,72 @@
+[
+  {
+    "id": "branding-award-2026",
+    "title": "Брендинг в эпоху платформенной экономики",
+    "kind": "Диплом · II место",
+    "year": "2026",
+    "pdf": "assets/certificates/branding-award-2026.pdf",
+    "image": "assets/certificates/branding-award-2026.jpg",
+    "original_filename": "Диплом Бержанин Д.А.pdf",
+    "sha256": "66bd5ba6016904b124513d75b864a40d123f20d372ab95a30c52af86a9ae2be0"
+  },
+  {
+    "id": "language-award-2025",
+    "title": "Неделя иностранного языка",
+    "kind": "Диплом · I степени",
+    "year": "2025",
+    "pdf": "assets/certificates/language-award-2025.pdf",
+    "image": "assets/certificates/language-award-2025.jpg",
+    "original_filename": "Бобровницкая_О_С_Сингилейцева_Е_В.pdf",
+    "sha256": "8d4201f44ed26ffa398321ba92b9daaa48a36d2264faead8920fd9af8f3ee3c8"
+  },
+  {
+    "id": "marketing-award-2025",
+    "title": "Маркетинг России",
+    "kind": "Диплом · III степени",
+    "year": "2025",
+    "pdf": "assets/certificates/marketing-award-2025.pdf",
+    "image": "assets/certificates/marketing-award-2025.jpg",
+    "original_filename": "03_Diplom_Berzhanin.pdf",
+    "sha256": "ead57fc62790cc0098c8b1ff22460810c2883e113258234fd8d9eb2f7932964c"
+  },
+  {
+    "id": "summer-school-2026",
+    "title": "Международная Евразийская летняя школа",
+    "kind": "Сертификат · 72 часа",
+    "year": "2026",
+    "pdf": "assets/certificates/summer-school-2026.pdf",
+    "image": "assets/certificates/summer-school-2026.jpg",
+    "original_filename": "Бержанин Денис Алексеевич.pdf",
+    "sha256": "b0e671c310ebaa7fe3d4194f3b37cf418c435e70d24e315c33fc00a355a053e3"
+  },
+  {
+    "id": "marketing-speaker-2025",
+    "title": "Маркетинг России",
+    "kind": "Сертификат докладчика",
+    "year": "2025",
+    "pdf": "assets/certificates/marketing-speaker-2025.pdf",
+    "image": "assets/certificates/marketing-speaker-2025.jpg",
+    "original_filename": "Бержанин_Сертификат_XIII_МНПК_Маркетинг_России.pdf",
+    "sha256": "b66e0ca2c14da231f2dee639a3c670d7c3b40bc24504f54d3ea96aaec7d74e73"
+  },
+  {
+    "id": "economic-psychology-2025",
+    "title": "Экономическая психология",
+    "kind": "Сертификат участника",
+    "year": "2025",
+    "pdf": "assets/certificates/economic-psychology-2025.pdf",
+    "image": "assets/certificates/economic-psychology-2025.jpg",
+    "original_filename": "Бержанин Д.А.pdf",
+    "sha256": "104784e411f14a6759dd3c0cb091892cf75c0e5ef7a9080ef9deeb626e2f665e"
+  },
+  {
+    "id": "entrepreneurship-2024",
+    "title": "Я в деле",
+    "kind": "Сертификат · 8 недель",
+    "year": "2024",
+    "pdf": "assets/certificates/entrepreneurship-2024.pdf",
+    "image": "assets/certificates/entrepreneurship-2024.jpg",
+    "original_filename": "БЕРЖАНИН (3).pdf",
+    "sha256": "ad5bdbaaf2d85127cb6f9bdfd6f6fb0162b09bb2d892c12a7ad5a821451d558b"
+  }
+]

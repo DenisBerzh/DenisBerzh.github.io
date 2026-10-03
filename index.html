@@ -7,27 +7,28 @@
   <meta name="theme-color" content="#1c1c1c">
   <title>Berzhanin Denis — личный сайт</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%231c1c1c'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial,sans-serif' font-size='23' fill='white'%3EBD%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=portfolio-4">
-  <script src="app.js?v=portfolio-4" defer></script>
+  <link rel="stylesheet" href="styles.css?v=resume-1">
+  <script src="site.js?v=resume-1" defer></script>
+  <script src="app.js?v=resume-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#about">Перейти к содержанию</a>
   <header class="header">
     <a class="wordmark" href="#home" aria-label="Berzhanin Denis — на главную"><span class="copyright">©</span><span>Berzhanin Denis</span></a>
-    <nav class="desktop-nav" aria-label="Основная навигация"><a href="#projects">Работы</a><a href="#about">Обо мне</a><a href="#contact">Контакты</a></nav>
+    <nav class="desktop-nav" aria-label="Основная навигация"><a href="#projects">Работы</a><a href="#about">Обо мне</a><a href="resume.html">Резюме</a><a href="#contact">Контакты</a></nav>
   </header>
   <button class="menu-toggle magnetic" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
   <dialog id="menu" class="menu">
     <button class="menu-close" type="button" aria-label="Закрыть меню"><span></span><span></span></button>
     <p class="eyebrow">Навигация</p>
-    <nav aria-label="Меню сайта"><a href="#home">Главная</a><a href="#projects">Работы</a><a href="#about">Обо мне</a><a href="#contact">Контакты</a></nav>
+    <nav aria-label="Меню сайта"><a href="#home">Главная</a><a href="#projects">Работы</a><a href="#about">Обо мне</a><a href="resume.html">Резюме</a><a href="#contact">Контакты</a></nav>
     <p class="menu-caption">Berzhanin Denis<br>Резюме & портфолио</p>
   </dialog>
   <main>
     <section id="home" class="hero" aria-labelledby="name">
       <div class="portrait-wrap"><img class="portrait" src="assets/portrait.png" alt="Чёрно-белый портрет Berzhanin Denis" fetchpriority="high" width="1122" height="1402"></div>
       <div class="hero-label"><span>Личный<br>сайт</span><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19"/><ellipse cx="22" cy="22" rx="9" ry="19"/><path d="M3 22h38M7 10h30M7 34h30"/></svg></div>
-      <div class="hero-intro"><svg class="arrow-diagonal" viewBox="0 0 44 44" aria-hidden="true"><path d="M8 8l27 27M8 35h27V8"/></svg><p>Резюме<br>& портфолио</p></div>
+      <a class="hero-intro hero-resume-link" href="resume.html" aria-label="Резюме и портфолио — обо мне и сертификаты"><svg class="arrow-diagonal" viewBox="0 0 44 44" aria-hidden="true"><path d="M8 8l27 27M8 35h27V8"/></svg><p>Резюме<br>& портфолио</p></a>
       <h1 id="name" class="sr-only">Berzhanin Denis</h1>
       <div class="name-marquee" aria-hidden="true"><div class="name-track"><span>Berzhanin Denis —&nbsp;</span><span>Berzhanin Denis —&nbsp;</span></div></div>
       <div class="hero-bottom"><a class="scroll-link" href="#about">Листайте вниз <span aria-hidden="true">↓</span></a><button class="pause-motion" type="button" aria-pressed="false" aria-label="Остановить движение имени"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg></button></div>
@@ -36,7 +37,7 @@
       <div class="section-top"><p class="eyebrow">Обо мне</p><span class="subtle">Сайт в процессе создания</span></div>
       <div class="about-grid">
         <h2 data-reveal>Опыт, идеи<br>и проекты.<br>В одном месте.</h2>
-        <div class="about-aside" data-reveal><p>Я — Berzhanin Denis.<br>Собираю здесь всё важное обо мне: мой путь, навыки и работы.</p><p class="subtle">Скоро на этой странице появится полное резюме.</p><a class="round-link magnetic" href="#projects"><span>К работам</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 25L25 7M7 7h18v18"/></svg></a></div>
+        <div class="about-aside" data-reveal><p>Я — Berzhanin Denis.<br>Собираю здесь всё важное обо мне: мой путь, навыки и работы.</p><p class="subtle">Резюме и сертификаты — на отдельной странице.</p><a class="round-link magnetic" href="resume.html"><span>Резюме</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 25L25 7M7 7h18v18"/></svg></a></div>
       </div>
     </section>
     <section id="projects" class="projects section-light" aria-labelledby="projects-title">
