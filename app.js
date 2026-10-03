@@ -8,9 +8,9 @@
   let activeCategory = 'all';
   const updateCount = () => {
     const count = cards.filter(card => !card.hidden && (!card.closest('details') || more.open)).length;
-    const suffix = count === 1 ? 'работа' : count >= 2 && count <= 4 ? 'работы' : 'работ';
-    document.querySelector('#visible-count').textContent = `${count} ${suffix}`;
-    document.querySelector('#filter-status').textContent = `${categoryNames[activeCategory]}. Показано работ: ${count}`;
+    const total = cards.filter(card => activeCategory === 'all' || card.dataset.category === activeCategory).length;
+    document.querySelector('#visible-count').textContent = `Показано ${count} из ${total}`;
+    document.querySelector('#filter-status').textContent = `${categoryNames[activeCategory]}. Показано работ: ${count} из ${total}`;
   };
   const animateCards = () => {
     if (reducedMotion.matches) return;

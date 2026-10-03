@@ -8,9 +8,9 @@
       event.preventDefault();
       const card = link.closest('.certificate-card');
       const thumbnail = link.querySelector('img');
-      viewer.querySelector('#certificate-title').textContent = `${card.querySelector('h3').textContent} — ${card.querySelector('.certificate-meta').firstElementChild.textContent}`;
-      image.src = thumbnail.src;
-      image.alt = thumbnail.alt;
+      viewer.querySelector('#certificate-title').textContent = link.dataset.title || `${card.querySelector('h3').textContent} — ${card.querySelector('.certificate-meta').firstElementChild.textContent}`;
+      image.src = link.dataset.image || thumbnail.src;
+      image.alt = link.dataset.title || thumbnail.alt;
       original.href = link.href;
       viewer.showModal();
       document.body.classList.add('viewer-open');
