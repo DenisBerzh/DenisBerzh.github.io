@@ -80,7 +80,7 @@
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
       group = groups[link.dataset.eventPhoto];
-      index = 0;
+      index = Number(link.dataset.eventIndex || 0);
       render();
       viewer.showModal();
       document.body.classList.add('viewer-open');
@@ -107,13 +107,24 @@
   // Move the existing figures, keeping one focusable copy of each photo group.
   const home = document.querySelector('.cv-event-photos');
   const figures = [...home.querySelectorAll('[data-mobile-target]')];
-  const mobile = window.matchMedia('(max-width:720px)');
+  const mobile = window.matchMedia('(max-width:1280px)');
   function placePhotos() {
     figures.forEach(figure => {
       const destination = mobile.matches ? document.getElementById(figure.dataset.mobileTarget) : home;
-      destination.append(figure);
+      if (mobile.matches) destination.append(figure);
+      else {
+        // Restore the photo's original slot between the paired images.
+        const slot = home.querySelector(`[data-photo-slot="${figure.dataset.photoGroup}"]`);
+        slot.after(figure);
+      }
     });
   }
+  figures.forEach(figure => {
+    const slot = document.createElement('span');
+    slot.dataset.photoSlot = figure.dataset.photoGroup;
+    slot.hidden = true;
+    figure.before(slot);
+  });
   placePhotos();
   mobile.addEventListener('change', placePhotos);
 })();
