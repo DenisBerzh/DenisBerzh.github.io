@@ -234,9 +234,12 @@
   addEventListener('scroll',scheduleScroll,{passive:true});addEventListener('resize',scheduleScroll);updateScroll();
   if('ResizeObserver' in window)new ResizeObserver(scheduleScroll).observe(document.querySelector('main'));
   if('IntersectionObserver' in window && canMove()){
+    // What is already on screen when the page opens stays put: hiding it only to fade it
+    // back in reads as the page jumping. Only content reached by scrolling is revealed.
+    document.querySelectorAll('[data-reveal]').forEach(element=>{const r=element.getBoundingClientRect();if(r.top<innerHeight && r.bottom>0)element.classList.add('visible');});
     root.classList.add('motion-ready');
     const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});},{threshold:.1});
-    document.querySelectorAll('[data-reveal]').forEach(element=>observer.observe(element));
+    document.querySelectorAll('[data-reveal]:not(.visible)').forEach(element=>observer.observe(element));
   }
   const resetMotion=()=>{
     hideHover();resetMarquee();cancelAnimationFrame(magnetFrame);magnetFrame=0;magnetTime=0;

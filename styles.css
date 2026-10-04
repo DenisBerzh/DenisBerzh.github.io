@@ -14,9 +14,17 @@
 @font-face{font-family:"Inter Text";font-style:normal;font-weight:400 600;font-display:swap;
   src:url("assets/fonts/Inter-lat.woff2") format("woff2")}
 
+/* Запасные шрифты с пропорциями Inter (замер в браузере, Arial → Inter).
+   Пока Inter загружается, текст рисуется Arial того же размера и высоты строки,
+   поэтому подмена шрифта не сдвигает строки и картинки. */
+@font-face{font-family:"Inter Text Fallback";src:local("Arial"),local("Helvetica"),local("ArialMT");
+  size-adjust:106.4%;ascent-override:91.2%;descent-override:22.6%;line-gap-override:0%}
+@font-face{font-family:"Inter Tight Fallback";src:local("Arial"),local("Helvetica"),local("ArialMT");
+  size-adjust:98.25%;ascent-override:98.73%;descent-override:24.43%;line-gap-override:0%}
+
 :root{--accent:#c8102e;--accent-dark:#a10d26;
-  --font-display:"Inter Tight","Inter Text",system-ui,sans-serif;
-  --font-text:"Inter Text",system-ui,sans-serif;
+  --font-display:"Inter Tight","Inter Tight Fallback","Inter Text",system-ui,sans-serif;
+  --font-text:"Inter Text","Inter Text Fallback",system-ui,sans-serif;
   --font-label:var(--font-text)}
 
 /* ===== ДИЗАЙН v2: токены =====
@@ -794,6 +802,31 @@ button.more-presentations[aria-expanded="false"]:hover .more-label{background:va
 @media(min-width:721px) and (max-width:1000px){
   .cv-summary{grid-template-columns:minmax(0,1fr) minmax(0,1fr);row-gap:32px}
   .cv-thesis{grid-column:1 / -1}
+}
+
+/* 19. Полоса прокрутки. Шторка, меню и просмотрщик запрещают прокрутку, и
+       браузер убирал полосу: страница на миг становилась шире на ~15px и всё
+       прыгало вбок, а потом обратно. Теперь место под полосой сохраняется и
+       закрашивается в цвет того, что открыто поверх. */
+html:has(> body.page-entering),html:has(> body.page-leaving){scrollbar-gutter:stable;background:var(--dark)}
+html:has(> body.menu-open){scrollbar-gutter:stable;background:var(--ink)}
+html:has(> body.viewer-open){scrollbar-gutter:stable;background:#444}
+
+/* 20. «Ищу стажировку» — метка-статус. Точка дублирует смысл, а не заменяет
+       текст (better-accessibility: не только цветом). Не красная: красный на
+       сайте значит действие, а статус — не кнопка (better-colors). */
+.status-dot{width:7px;height:7px;border-radius:50%;background:currentColor;flex:none}
+.hero-intro .hero-status{display:flex;width:fit-content;max-width:100%;text-wrap:balance;align-items:center;gap:10px;margin:0 0 22px;padding:8px 14px 8px 12px;border:1px solid #ffffff73;border-radius:99px;font:500 var(--fs-label)/1.3 var(--font-label);letter-spacing:.01em;color:#fff}
+.resume-heading>.resume-status{display:flex;width:fit-content;max-width:100%;text-wrap:balance;align-items:center;gap:10px;margin-top:24px;padding:8px 14px 8px 12px;border:1px solid var(--line);border-radius:99px;font:500 var(--fs-label)/1.3 var(--font-label);letter-spacing:.01em;color:var(--ink)}
+/* Телефон: метка добавила строку в первый экран — чуть меньше отступ под ней
+   и на 2% ниже портрет, чтобы волосы не касались ссылки «Резюме и опыт». */
+@media(max-width:700px){
+  .hero-intro .hero-status{margin-bottom:14px}
+  .hero--silhouette .portrait-wrap{height:46%}
+}
+@media(max-width:600px){
+  .resume-heading>p:not(.resume-status),.resume-portrait{grid-row:2}
+  .resume-heading>.resume-status{grid-column:1 / -1;grid-row:3;justify-self:start;margin-top:0}
 }
 
 /* Без движения — без сжатия на нажатие. */
