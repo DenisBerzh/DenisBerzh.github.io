@@ -597,3 +597,31 @@ body.motion-paused .globe-sway{animation-play-state:paused!important}
   .cv-entry-facts>div{grid-template-columns:minmax(0,1fr)}
   .cv-entry-tag{width:100%}
 }
+
+/* Правки по аудиту интерфейса (better-interface) ------------------------- */
+
+/* Доступность: красный фокус не виден на сером первом экране (#686868, ~1.05:1)
+   и слабо виден на тёмном. На этих фонах рамка белая (≥3:1). */
+.hero a:focus-visible,.hero button:focus-visible,
+body:not(.resume-page) .header a:focus-visible,
+.contact a:focus-visible,.contact button:focus-visible,
+.menu a:focus-visible,.menu button:focus-visible,
+.slide-viewer a:focus-visible,.slide-viewer button:focus-visible{outline-color:#fff}
+
+/* Зона нажатия логотипа: 19px по высоте → ≥44px, без сдвига вёрстки. */
+.wordmark{position:relative}
+.wordmark::before{content:"";position:absolute;inset:-13px -8px}
+
+/* Типографика: ровные заголовки и абзацы без одиночных слов в последней строке. */
+h1,h2,h3,.cv-thesis{text-wrap:balance}
+p,dd,figcaption{text-wrap:pretty}
+html{-moz-osx-font-smoothing:grayscale}
+
+/* Цифры, которые меняются, не должны «прыгать». */
+#visible-count,#slide-status,#event-photo-counter,.language-score{font-variant-numeric:tabular-nums}
+
+/* Подписи на телефоне не мельче 12px. */
+@media(max-width:600px){
+  .hero--silhouette .hero-eyebrow,.hero--silhouette .hero-link-label,
+  .section-top .subtle,.contact footer{font-size:12px}
+}
