@@ -857,6 +857,18 @@ html:has(> body.viewer-open){scrollbar-gutter:stable;background:#444}
        перенос давал двухэтажный заголовок с пустотой справа. */
 @media(min-width:900px){.resume-section-heading h2 br{display:none}}
 
+/* 25. Награды на планшете: три колонки по ~200px давали названия в три строки
+       и крошечные превью дипломов. Две колонки — как у соседнего блока
+       «Участие и обучение» на этой же ширине. */
+@media(min-width:721px) and (max-width:1000px){.awards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* 26. Фото с мероприятий внутри текста резюме (до 1280px) не крупнее соседних
+       блоков: 520px выбивались из ритма колонки текста. */
+.cv-project>.event-photo,#cv-research>.event-photo{max-width:440px}
+
+/* 27. Страница 404: кнопки меню там нет, поэтому место под неё справа не нужно. */
+@media(max-width:860px){body.plain-page .header{padding-right:24px}}
+
 /* Без движения — без сжатия на нажатие. */
 @media(prefers-reduced-motion:reduce){
   .round-link:active,.header-write:active,.all-filter:active,.download-resume:active,
