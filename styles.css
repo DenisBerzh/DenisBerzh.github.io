@@ -968,11 +968,11 @@ dialog.menu .eyebrow{padding-bottom:20px}
 
 /* 33. Верх резюме: фото по высоте имени — верх по заглавной «Д», низ по нижней
        линии «Бержанин». resume.js передаёт размер шрифта имени в --name-fs.
-       Метрики Inter: верх заглавной 0.152em от верха строки, нижняя линия второй
-       строки 1.909em (line-height 1.03). Метка «Ищу стажировку» лежит на фото. */
+       Замер по пикселям: верх заглавной 0.152em от верха строки, шаг строк 1.13em
+       (у строк есть отступы под маску анимации), высота заглавной 0.727em. Метка «Ищу стажировку» лежит на фото. */
 @media(min-width:601px){
   .resume-intro-grid{align-items:start}
-  .resume-portrait{align-self:start;margin-top:calc(var(--name-fs,0px) * .152);height:calc(var(--name-fs,0px) * 1.757)}
+  .resume-portrait{align-self:start;margin-top:calc(var(--name-fs,0px) * .152);height:calc(var(--name-fs,0px) * 1.857)}
   .resume-portrait img{height:100%;aspect-ratio:auto;object-fit:cover;object-position:50% 22%}
 }
 .resume-portrait{position:relative}
