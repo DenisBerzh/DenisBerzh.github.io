@@ -26,3 +26,68 @@ body.is-over-contact .menu-toggle{border:1px solid #ffffff40}
 body.motion-paused .work-cursor,body.motion-paused .category-preview{display:none!important}body.motion-paused .contact-motion-inner{translate:none!important}body.motion-paused .contact::before{display:none}body.motion-paused .magnetic,body.motion-paused .magnetic>span{translate:none!important}body.motion-paused .name-track{animation-play-state:paused!important}body.motion-paused [data-reveal],body.motion-paused .menu nav a,body.motion-paused .magnetic-fill,body.motion-paused .slide-thumb{transition:none!important}
 
 html[data-motion-entry="intro"] .page-curtain::after{content:"Нажмите, чтобы пропустить";bottom:48px;top:auto;height:auto;background:none;text-align:center;font-size:12px;opacity:.6;border-radius:0}
+
+/* ===== Анимации v3 ====================================================
+   Эффектное движение — только на редких моментах: появление первого экрана
+   и разделов при прокрутке (better-ui: сдержанность для частых действий).
+   Всё на transform / translate / opacity / clip-path — без сдвигов вёрстки.
+   Скрытые начальные состояния действуют только при разрешённом движении:
+   при «уменьшить движение» и при паузе контент сразу виден. */
+
+/* Строки заголовка под маской. Отступы сверху и снизу — чтобы маска не резала
+   «й» и выносные элементы «д», «р», «у». */
+.line{display:block;overflow:hidden;padding:.1em 0 .14em;margin:-.1em 0 -.14em}
+.line-inner{display:block}
+
+@media(prefers-reduced-motion:no-preference){
+  /* 1. Первый экран и верх резюме: один раз, с первого кадра, после шторки. */
+  html.motion-intro .hero-title .line-inner,
+  html.motion-intro .resume-heading h1 .line-inner{animation:line-rise 1s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--intro-delay,0s) + .12s + var(--i,0) * 90ms)}
+  html.motion-intro .hero--silhouette .arrow-diagonal{animation:arrow-in .8s cubic-bezier(.16,1,.3,1) both;animation-delay:var(--intro-delay,0s)}
+  html.motion-intro .hero-intro .hero-status,
+  html.motion-intro .resume-heading>p{animation:blur-in .7s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--intro-delay,0s) + .05s)}
+  html.motion-intro .hero--silhouette .hero-summary,
+  html.motion-intro .resume-heading>.resume-status{animation:blur-in .7s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--intro-delay,0s) + .38s)}
+  html.motion-intro .hero--silhouette .hero-link-label{animation:blur-in .7s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--intro-delay,0s) + .5s)}
+  html.motion-intro .hero--silhouette .name-marquee{animation:rise-in 1.2s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--intro-delay,0s) + .25s)}
+  html.motion-intro .resume-portrait{animation:wipe-up 1.1s cubic-bezier(.65,0,.35,1) both;animation-delay:calc(var(--intro-delay,0s) + .2s)}
+
+  /* 2. Заголовки разделов при прокрутке: строка за строкой. */
+  .motion-ready [data-split] .line-inner{transition:translate 1s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i,0) * 90ms)}
+  .motion-ready [data-split]:not(.visible) .line-inner{translate:0 110%}
+
+  /* 3. Работы, сертификаты, фото: шторка снизу вверх и лёгкое приближение,
+        по очереди в ряду. Задержка только у появления — наведение без задержки. */
+  .motion-ready [data-wipe] :is(.slide-frame,.certificate-preview,.event-photo-link){transition:clip-path 1s cubic-bezier(.65,0,.35,1);transition-delay:calc(var(--d,0) * 110ms)}
+  .motion-ready [data-wipe]:not(.visible) :is(.slide-frame,.certificate-preview,.event-photo-link){clip-path:inset(100% 0 0 0)}
+  .motion-ready [data-wipe] :is(.slide-thumb,.certificate-preview img,.event-photo-link img){transition:scale 1.4s cubic-bezier(.16,1,.3,1),transform .6s var(--ease);transition-delay:calc(var(--d,0) * 110ms),0s}
+  .motion-ready [data-wipe]:not(.visible) :is(.slide-thumb,.certificate-preview img,.event-photo-link img){scale:1.15}
+  .motion-ready .portfolio-card[data-wipe] figcaption{transition:opacity .7s ease-out,translate .7s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--d,0) * 110ms + .25s)}
+  .motion-ready .portfolio-card[data-wipe]:not(.visible) figcaption{opacity:0;translate:0 12px}
+
+  /* 4. Круглые кнопки появляются из точки. Без перелёта (better-ui: bounce 0). */
+  .motion-ready [data-pop]{transition:transform .8s cubic-bezier(.16,1,.3,1),opacity .5s ease-out,background-color .4s var(--ease),scale var(--dur-fast) ease-out}
+  .motion-ready [data-pop]:not(.visible){transform:scale(.3);opacity:0}
+
+  /* 5. «Ищу стажировку»: точка пульсирует, как индикатор «в сети». */
+  body:not(.motion-paused) .status-dot{position:relative}
+  body:not(.motion-paused) .status-dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:currentColor;animation:status-ping 2.4s cubic-bezier(0,0,.2,1) infinite}
+}
+
+/* 6. Прокрутка первого экрана: портрет уходит вниз и уменьшается, текст растворяется.
+      Привязано к прокрутке самим браузером; где это не поддерживается — просто нет. */
+@supports (animation-timeline: scroll()){
+  @media(prefers-reduced-motion:no-preference){
+    body:not(.motion-paused) .hero--silhouette .portrait-wrap{animation:hero-portrait-out linear both;animation-timeline:scroll(root);animation-range:0 100vh}
+    body:not(.motion-paused) .hero--silhouette .hero-intro{animation:hero-intro-out linear both;animation-timeline:scroll(root);animation-range:0 75vh}
+  }
+}
+
+@keyframes line-rise{from{translate:0 110%}}
+@keyframes blur-in{from{opacity:0;translate:0 12px;filter:blur(4px)}}
+@keyframes arrow-in{from{opacity:0;translate:-10px -10px}}
+@keyframes rise-in{from{opacity:0;translate:0 40px}}
+@keyframes wipe-up{from{clip-path:inset(100% 0 0 0)}}
+@keyframes status-ping{0%{transform:scale(1);opacity:.55}75%,100%{transform:scale(2.6);opacity:0}}
+@keyframes hero-portrait-out{to{translate:0 14vh;scale:.92}}
+@keyframes hero-intro-out{to{opacity:0;translate:0 -56px}}

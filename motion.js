@@ -233,6 +233,55 @@
   const scheduleScroll=()=>{hideHover();if(!scrollFrame)scrollFrame=requestAnimationFrame(updateScroll);};
   addEventListener('scroll',scheduleScroll,{passive:true});addEventListener('resize',scheduleScroll);updateScroll();
   if('ResizeObserver' in window)new ResizeObserver(scheduleScroll).observe(document.querySelector('main'));
+  // Scroll entrances: headings rise line by line from a mask, images wipe up, scores count,
+  // round buttons pop. Opt-in like all motion here: nothing hides unless motion is allowed.
+  const splitLines=element=>{
+    const groups=[[]];
+    // A <br> that CSS may hide (classed, or in resume section headings) stays inline.
+    const hard=node=>node.nodeName==='BR' && !node.className && !node.closest('.resume-section-heading');
+    [...element.childNodes].forEach(node=>{if(hard(node))groups.push([]);else groups.at(-1).push(node);});
+    element.textContent='';
+    groups.filter(group=>group.some(node=>node.nodeType!==3 || node.textContent.trim())).forEach((group,i)=>{
+      const line=document.createElement('span');line.className='line';line.style.setProperty('--i',i);
+      const inner=document.createElement('span');inner.className='line-inner';
+      group.forEach(node=>inner.append(node));line.append(inner);element.append(line);
+    });
+  };
+  const countUp=element=>{
+    const node=element.firstChild;
+    if(!node || node.nodeType!==3)return;
+    const text=node.textContent.trim(),target=parseFloat(text),decimals=(text.split('.')[1]||'').length;
+    // Figure spaces keep the width constant while the digits change, so nothing beside it moves.
+    const format=value=>value.toFixed(decimals).padStart(text.length,' ');
+    const start=performance.now(),duration=1300;
+    const tick=now=>{
+      const p=Math.min(1,(now-start)/duration);
+      node.textContent=format(target*(1-Math.pow(1-p,3)));
+      if(p<1 && canMove())requestAnimationFrame(tick);else node.textContent=text;
+    };
+    node.textContent=format(0);requestAnimationFrame(tick);
+  };
+  if('IntersectionObserver' in window && canMove()){
+    document.querySelectorAll('.about h2,.portfolio-heading,.contact h2,.resume-section-heading h2,.category-name,.award-result>span').forEach(element=>{
+      element.removeAttribute('data-reveal');element.setAttribute('data-split','');splitLines(element);
+    });
+    document.querySelectorAll('.portfolio-card:not([hidden]),.certificate-card,.event-photo').forEach(element=>{
+      element.setAttribute('data-wipe','');
+      element.style.setProperty('--d',[...element.parentElement.children].filter(c=>!c.hidden).indexOf(element)%3);
+    });
+    document.querySelectorAll('.language-score').forEach(element=>element.setAttribute('data-count',''));
+    document.querySelectorAll('.round-link').forEach(element=>element.setAttribute('data-pop',''));
+    const entrances=[...document.querySelectorAll('[data-split],[data-wipe],[data-count],[data-pop]')];
+    // On screen at load: shown as is. Only what scrolling reaches gets an entrance.
+    entrances.forEach(element=>{const r=element.getBoundingClientRect();if(r.top<innerHeight && r.bottom>0)element.classList.add('visible');});
+    const entranceObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      entry.target.classList.add('visible');
+      if(entry.target.hasAttribute('data-count') && canMove())countUp(entry.target);
+      entranceObserver.unobserve(entry.target);
+    });},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+    entrances.filter(element=>!element.classList.contains('visible')).forEach(element=>entranceObserver.observe(element));
+  }
   if('IntersectionObserver' in window && canMove()){
     // What is already on screen when the page opens stays put: hiding it only to fade it
     // back in reads as the page jumping. Only content reached by scrolling is revealed.
