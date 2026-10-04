@@ -23,7 +23,8 @@
   size-adjust:98.25%;ascent-override:98.73%;descent-override:24.43%;line-gap-override:0%}
 
 :root{--accent:#c8102e;--accent-dark:#a10d26;
-  --font-display:"Inter Tight","Inter Tight Fallback","Inter Text",system-ui,sans-serif;
+  --font-display:"Inter Text","Inter Text Fallback",system-ui,sans-serif;
+  --font-latin-display:"Inter Tight","Inter Tight Fallback","Inter Text",system-ui,sans-serif;
   --font-text:"Inter Text","Inter Text Fallback",system-ui,sans-serif;
   --font-label:var(--font-text)}
 
@@ -705,7 +706,7 @@ button.more-presentations:active .more-label,.slide-close:active,
 @media(min-width:601px){
   .resume-intro-grid{grid-template-columns:minmax(0,1fr) clamp(220px,24%,380px);align-items:end;gap:clamp(40px,5vw,96px)}
   .resume-heading{container-type:inline-size;min-width:0}
-  .resume-heading h1{font-size:20.4cqi}
+  .resume-heading h1{font-size:20.2cqi}
 }
 
 /* 11. Резюме, основная часть: фото слева фиксированной ширины, текст справа
@@ -890,6 +891,72 @@ html:has(> body.viewer-open){scrollbar-gutter:stable;background:#444}
 @media(min-width:701px) and (max-width:1050px){
   .hero-intro .hero-status{font-size:13px;padding:8px 14px 8px 12px;margin-bottom:20px}
 }
+
+/* 29. Крупная кириллица — обычный Inter с лёгким сжатием. В Inter Tight пары
+       вроде «зю» в «Резюме» вставали почти вплотную (сравнение на снимке:
+       Inter Tight +0.012em / +0.035em / Inter −0.01em / −0.025em). Inter −0.025em
+       даёт ровный ритм; семья шрифта та же. Латинское бегущее имя остаётся Inter Tight. */
+.name-track{font-family:var(--font-latin-display)}
+.about h2,.portfolio-heading,.category-name,.contact h2,.resume-heading h1,.resume-section-heading h2,
+.language-score,.award-result>span,.hero--silhouette .hero-title,.not-found h1,.menu nav a{letter-spacing:-.025em}
+
+/* 30. Полоса разделов резюме — оглавление на всю ширину: номер, название,
+       куда ведёт ссылка, стрелка рядом. Раньше мелкие слова и стрелки,
+       отъехавшие на 40px, читались как разрозненный ряд (better-layout, better-writing:
+       ссылка описывает, куда ведёт). */
+.resume-section-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.resume-section-nav a{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"num arrow" "label label" "meta meta";align-content:start;gap:0;min-height:0;padding:22px clamp(16px,2vw,28px) 26px;border-inline-start:1px solid var(--line);font-size:inherit}
+.resume-section-nav a:first-child{border-inline-start:0;padding-inline-start:0}
+.resume-section-nav .rsn-num{grid-area:num;font:500 var(--fs-label)/1.4 var(--font-label);color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.resume-section-nav .rsn-arrow{grid-area:arrow;font-size:20px;line-height:1;transition:translate .3s var(--ease),color .15s ease-out}
+.resume-section-nav .rsn-label{grid-area:label;margin-top:28px;font:500 clamp(22px,2.1vw,32px)/1.12 var(--font-display);letter-spacing:-.025em;transition:color .15s ease-out}
+.resume-section-nav .rsn-meta{grid-area:meta;margin-top:8px;font-size:var(--fs-small);line-height:1.45;color:var(--text-secondary)}
+.resume-section-nav a:hover :is(.rsn-num,.rsn-label,.rsn-meta){transform:none}
+.resume-section-nav a:hover .rsn-arrow{transform:none}
+@media(hover:hover){
+  .resume-section-nav a:hover .rsn-label,.resume-section-nav a:hover .rsn-arrow{color:var(--accent)}
+  .resume-section-nav a[href^="#"]:hover .rsn-arrow{translate:3px 3px}
+  .resume-section-nav a:not([href^="#"]):hover .rsn-arrow{translate:3px -3px}
+}
+@media(max-width:1000px){.resume-section-nav .rsn-label{margin-top:20px}}
+@media(max-width:600px){
+  .resume-section-nav{grid-template-columns:repeat(2,minmax(0,1fr));padding:0}
+  .resume-section-nav a{padding:18px 16px 20px}
+  .resume-section-nav a:nth-child(odd){border-inline-start:0;padding-inline-start:0}
+  .resume-section-nav a:nth-child(n+3){border-top:1px solid var(--line)}
+  .resume-section-nav .rsn-label{margin-top:14px;font-size:22px}
+  .resume-section-nav .rsn-meta{font-size:var(--fs-label)}
+}
+
+/* 31. Меню: нумерованный список с тонкими линиями вместо пяти огромных слов
+       подряд. Стрелка появляется при наведении, текущая страница отмечена точкой,
+       внизу — контакты. dialog.menu — чтобы перекрыть правила из motion.css. */
+dialog.menu nav{counter-reset:menu;display:block;margin-top:8px}
+dialog.menu nav a{counter-increment:menu;display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:baseline;column-gap:12px;padding:min(14px,1.6vh) 0;border-bottom:1px solid #ffffff1f;font:500 min(clamp(30px,3.4vw,44px),5.4vh)/1.15 var(--font-display);letter-spacing:-.025em}
+dialog.menu nav a:hover{transform:none}
+dialog.menu nav a::before,dialog.menu nav a:hover::before,dialog.menu nav a:focus-visible::before,dialog.menu nav a[aria-current]::before{content:counter(menu,decimal-leading-zero);position:static;width:auto;height:auto;border-radius:0;background:none;transform:none;font:500 var(--fs-label)/1 var(--font-label);letter-spacing:.01em;color:#ffffff80;font-variant-numeric:tabular-nums;transition:color .15s ease-out}
+dialog.menu nav a::after{content:"↗";font-size:20px;line-height:1;opacity:0;translate:-8px 0;transition:opacity .2s ease-out,translate .3s cubic-bezier(.16,1,.3,1)}
+dialog.menu nav a:focus-visible::after{opacity:1;translate:0}
+dialog.menu nav a:focus-visible::before{color:#fff}
+@media(hover:hover){
+  dialog.menu nav a:hover::after{opacity:1;translate:0}
+  dialog.menu nav a:hover::before{color:#fff}
+}
+dialog.menu nav a[aria-current]::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);opacity:1;translate:0;align-self:center}
+dialog.menu .eyebrow{padding-bottom:20px}
+.menu.is-opening nav a:nth-child(6){animation-delay:275ms}
+.menu-contacts{margin-top:auto;padding-top:32px;display:flex;flex-wrap:wrap;gap:16px 40px}
+.menu-contacts a{display:grid;gap:6px;padding:4px 0;font-size:var(--fs-body);color:#fff;overflow-wrap:anywhere}
+.menu-contacts a>span{font:500 var(--fs-label)/1.3 var(--font-label);color:#ffffffa6}
+@media(hover:hover){.menu-contacts a:hover{text-decoration:underline;text-underline-offset:5px}}
+@media(max-width:600px){
+  dialog.menu nav a{grid-template-columns:36px minmax(0,1fr) auto;font-size:min(34px,5vh)}
+  .menu-contacts{gap:16px 28px}
+}
+
+/* 32. Имя в резюме на телефоне: от ширины экрана, без жёсткого минимума 56px —
+       на 320px «Бержанин» в Inter не помещалась на 13px. 15.5vw × 4.825em < ширины колонки. */
+@media(max-width:600px){.resume-heading h1{font-size:clamp(40px,15.5vw,84px)}}
 
 /* Без движения — без сжатия на нажатие. */
 @media(prefers-reduced-motion:reduce){
