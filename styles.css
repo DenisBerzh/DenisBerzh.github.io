@@ -554,3 +554,46 @@ body.motion-paused .globe-sway{animation-play-state:paused!important}
   .event-photo-open{right:12px;bottom:12px}
   .event-photo-viewer .slide-image{height:min(55dvh,600px)}
 }
+
+/* ===== РЕЗЮМЕ 2026-10-04 =====
+   1. Быстрое чтение: факты и контакты с подписями в сайдбаре
+   2. Тезис не переносится внутри <br>: кегль от ширины сайдбара
+   3. Проекты: «Моя роль» / «Задача» отдельными строками
+   4. Фотоколонка тянется до конца колонки текста
+   Откат: удалить этот блок и вернуть разметку сайдбара и проектов. */
+
+/* 2. Сайдбар — контейнер, чтобы тезис считался от своей ширины. */
+.cv-summary{container-type:inline-size;display:flex;flex-direction:column}
+.cv-thesis{font-size:clamp(20px,2.3vw,34px);font-size:min(7.9cqi,34px)}
+
+/* 1. Факты: короткие пары «ярлык — значение», читаются за секунды. */
+.cv-facts{display:grid;gap:14px;margin-top:28px}
+.cv-facts>div{display:grid;gap:4px;min-width:0}
+.cv-facts dt{font:500 12px/1.4 var(--font-label);letter-spacing:.01em;color:var(--muted)}
+.cv-facts dd{margin:0;font-size:14px;line-height:1.6}
+
+/* Контакты с подписями — как в нижней секции, чтобы находились глазом. */
+.cv-contacts a{display:grid;gap:2px}
+.cv-contacts a>span{font:500 11px/1.4 var(--font-label);color:var(--muted)}
+
+/* 3. Проекты: заголовок с меткой, затем «Задача» / «Моя роль». */
+.cv-entry{margin-top:28px}
+.cv-entry:first-of-type{margin-top:0}
+.cv-project{margin-top:28px}
+.cv-entry h4,.cv-project h4{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin:0 0 12px}
+.cv-entry-tag{font:500 13px/1.4 var(--font-label);letter-spacing:.01em;color:var(--muted)}
+.cv-entry-facts{display:grid;gap:10px}
+.cv-entry-facts>div{display:grid;grid-template-columns:92px minmax(0,1fr);gap:4px 16px;align-items:baseline}
+.cv-entry-facts dt{font:500 12px/1.6 var(--font-label);letter-spacing:.01em;color:var(--muted)}
+.cv-entry-facts dd{margin:0;font-size:15px;line-height:1.7;color:var(--muted)}
+.cv-entry-note{margin-top:12px;font-size:14px;line-height:1.6;color:var(--muted)}
+
+/* 4. Фотоколонка заполняет сайдбар до конца колонки текста. */
+.cv-event-photos{flex:1}
+
+@media(max-width:720px){
+  .cv-summary{container-type:normal}
+  .cv-thesis{font-size:clamp(21px,5.4vw,32px)}
+  .cv-entry-facts>div{grid-template-columns:minmax(0,1fr)}
+  .cv-entry-tag{width:100%}
+}
