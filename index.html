@@ -26,24 +26,24 @@
   <link rel="preload" href="assets/fonts/InterTight-lat.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/Inter-cyr.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/Inter-lat.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=design-5">
+  <link rel="stylesheet" href="styles.css?v=design-6">
     <link rel="stylesheet" href="motion.css?v=track-2">
   <script src="motion-boot.js?v=track-2"></script>
   <script src="motion.js?v=track-3" defer></script>
-  <script src="app.js?v=track-2" defer></script>
+  <script src="app.js?v=grid-1" defer></script>
 </head>
 <body>
   <div class="page-curtain" aria-hidden="true"><span class="curtain-label">Портфолио</span></div>
   <a class="skip-link" href="#about">Перейти к содержанию</a>
   <header class="header">
     <a class="wordmark" href="#home" aria-label="Berzhanin Denis — на главную"><span class="copyright">©</span><span>Berzhanin Denis</span></a>
-    <div class="header-actions"><nav class="desktop-nav" aria-label="Основная навигация"><a href="#experience">Опыт</a><a href="#about">Обо мне</a><a href="resume.html">Резюме</a><a href="#contact">Контакты</a></nav><a class="header-write" href="https://t.me/denskoi" target="_blank" rel="noopener">Написать <span aria-hidden="true">↗</span></a></div>
+    <div class="header-actions"><nav class="desktop-nav" aria-label="Основная навигация"><a href="#about">Обо мне</a><a href="#experience">Опыт</a><a href="#projects">Работы</a><a href="resume.html">Резюме</a><a href="#contact">Контакты</a></nav><a class="header-write" href="https://t.me/denskoi" target="_blank" rel="noopener">Написать <span aria-hidden="true">↗</span></a></div>
   </header>
   <button class="menu-toggle magnetic" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
   <dialog id="menu" class="menu" aria-label="Навигация по сайту">
     <button class="menu-close" type="button" aria-label="Закрыть меню"><span></span><span></span></button>
     <p class="eyebrow">Навигация</p>
-    <nav aria-label="Меню сайта"><a href="#home">Главная</a><a href="#experience">Опыт</a><a href="#about">Обо мне</a><a href="resume.html">Резюме</a><a href="#contact">Контакты</a></nav>
+    <nav aria-label="Меню сайта"><a href="#home">Главная</a><a href="#about">Обо мне</a><a href="#experience">Опыт</a><a href="#projects">Работы</a><a href="resume.html">Резюме</a><a href="#contact">Контакты</a></nav>
     <p class="menu-caption">Berzhanin Denis<br>Резюме & портфолио</p>
   </dialog>
   <main>
@@ -84,14 +84,14 @@
       <p class="portfolio-intro">Дизайн — ещё один инструмент: помогает объяснять идеи, результаты исследований и логику решений.</p>
       <div class="portfolio-filters" role="group" aria-label="Фильтры работ">
         <div class="category-top"><span class="eyebrow">Направления</span><button class="all-filter" type="button" data-filter="all" aria-pressed="true" aria-controls="portfolio-grid" hidden>Все <span aria-hidden="true">↗</span></button></div>
-        <button class="category-row" type="button" data-filter="presentations" data-preview="0" aria-pressed="false" aria-controls="portfolio-grid" hidden><span class="category-name">Презентации</span><span class="category-description">Деловые и творческие<br><span>7 работ</span></span><span class="category-arrow" aria-hidden="true">↗</span></button>
-        <button class="category-row" type="button" data-filter="interfaces" data-preview="1" aria-pressed="false" aria-controls="portfolio-grid" hidden><span class="category-name">Интерфейсы</span><span class="category-description">Веб и приложения<br><span>2 работы</span></span><span class="category-arrow" aria-hidden="true">↗</span></button>
-        <button class="category-row" type="button" data-filter="identity" data-preview="2" aria-pressed="false" aria-controls="portfolio-grid" aria-label="Айдентика и графика" hidden><span class="category-name">Айдентика<br class="identity-break"> и графика</span><span class="category-description">Логотипы и постер<br><span>3 работы</span></span><span class="category-arrow" aria-hidden="true">↗</span></button>
+        <button class="category-row" type="button" data-filter="presentations" data-preview="0" aria-pressed="false" aria-controls="portfolio-grid" hidden><span class="category-name">Презентации</span><span class="category-description">Деловые и творческие <br><span>7 работ</span></span><span class="category-arrow" aria-hidden="true">↗</span></button>
+        <button class="category-row" type="button" data-filter="interfaces" data-preview="1" aria-pressed="false" aria-controls="portfolio-grid" hidden><span class="category-name">Интерфейсы</span><span class="category-description">Веб и приложения <br><span>2 работы</span></span><span class="category-arrow" aria-hidden="true">↗</span></button>
+        <button class="category-row" type="button" data-filter="identity" data-preview="2" aria-pressed="false" aria-controls="portfolio-grid" aria-label="Айдентика и графика" hidden><span class="category-name">Айдентика<br class="identity-break"> и графика</span><span class="category-description">Логотипы и постер <br><span>3 работы</span></span><span class="category-arrow" aria-hidden="true">↗</span></button>
       </div>
       <div id="portfolio-results" class="portfolio-grid-heading" tabindex="-1"><p id="selected-category">Все работы</p><div class="portfolio-result-actions"><span id="visible-count">12 работ</span><button id="reset-filter" type="button" hidden>Все работы ↗</button></div></div>
       <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
       <div id="portfolio-grid" class="project-gallery portfolio-grid">
-<figure class="portfolio-card  lead" data-category="presentations">
+<figure class="portfolio-card" data-category="presentations">
             <a class="slide-open" href="assets/presentations/insurance.png" data-work="0" aria-label="Смотреть: Страховой рынок" aria-haspopup="dialog"><span class="slide-frame"><img class="slide-thumb" src="assets/presentations/insurance-1600.webp" srcset="assets/presentations/insurance-400.webp 400w, assets/presentations/insurance-800.webp 800w, assets/presentations/insurance-1200.webp 1200w, assets/presentations/insurance-1600.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 1050px) 85vw, 1200px" decoding="async" alt="Российский страховой рынок: I полугодие 2026 — слайд с ключевыми показателями" loading="lazy" width="1919" height="1079"><span class="slide-open-label" aria-hidden="true">Смотреть ↗</span></span></a>
             <figcaption><h3>Страховой рынок</h3><p>Аналитический слайд</p></figcaption>
           </figure>

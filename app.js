@@ -10,25 +10,10 @@
   let activeCategory = 'all', expanded = false;
   const grid = document.querySelector('#portfolio-grid');
   const canMove = () => !reducedMotion.matches && !document.body.classList.contains('motion-paused');
-  const gridColumns = () => {
-    const template = getComputedStyle(grid).gridTemplateColumns.trim();
-    return template && template !== 'none' ? template.split(/\s+/).length : 1;
-  };
-  // Первая работа занимает строку целиком, поэтому число карточек после неё может
-  // быть нечётным. Кнопка «Ещё» дополняет строку или занимает её целиком, а первая
-  // карточка нечётного хвоста растягивается — иначе в сетке остаётся пустая ячейка.
+  // Все работы одного размера в ровной сетке. Свёрнутая плитка «Ещё» стоит в сетке
+  // как работа; раскрытая превращается в кнопку «Свернуть» на отдельной строке.
   const layoutGrid = () => {
-    cards.forEach(card => card.classList.remove('is-wide'));
-    grid.style.removeProperty('--more-col');
-    if (gridColumns() < 2) return;
-    const items = [...grid.children].filter(item => !item.hidden);
-    const buttonIndex = items.indexOf(more);
-    if (buttonIndex > 0) {
-      const paired = items.slice(1, buttonIndex).length % 2 === 1;
-      grid.style.setProperty('--more-col', paired ? '2' : '1 / -1');
-    }
-    const rest = buttonIndex < 0 ? items.slice(1) : items.slice(buttonIndex + 1);
-    if (rest.length % 2 === 1) rest[0].classList.add('is-wide');
+    grid.style.setProperty('--more-col', expanded ? '1 / -1' : 'auto');
   };
   const updateCount = () => {
     const count = cards.filter(card => !card.hidden).length;
@@ -47,14 +32,12 @@
   const render = () => {
     cards.forEach(card => {
       card.hidden = (activeCategory !== 'all' && card.dataset.category !== activeCategory) || (extraCards.includes(card) && !expanded);
-      card.classList.remove('lead');
     });
     more.hidden = activeCategory !== 'all' && activeCategory !== 'presentations';
     more.setAttribute('aria-expanded', String(expanded));
     more.querySelector('.more-label').innerHTML = expanded ? 'Свернуть презентации <span aria-hidden="true">−</span>' : 'Ещё 5 презентаций <span aria-hidden="true">+</span>';
     filters.querySelectorAll('[data-filter]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === activeCategory)));
     reset.hidden = activeCategory === 'all';
-    cards.find(card => !card.hidden)?.classList.add('lead');
     document.querySelector('#selected-category').textContent = categoryNames[activeCategory];
     layoutGrid();
     updateCount();
