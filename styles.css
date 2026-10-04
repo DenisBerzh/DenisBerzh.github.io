@@ -693,6 +693,48 @@ button.more-presentations:active .more-label,.slide-close:active,
       чем к предыдущей секции (better-layout: группировка пространством). */
 @media(max-width:720px){.cv-layout{margin-top:40px}}
 
+/* 9. Резюме, первый экран: имя и фото — одна группа. Фото стояло у правого
+      края: между ним и именем было ~360px пустоты на 1440px и ~800px на 1920px
+      (better-layout: группировка пространством). */
+@media(min-width:1001px){
+  .resume-intro-grid{grid-template-columns:max-content minmax(240px,320px);justify-content:start;align-items:end;gap:clamp(48px,6vw,96px)}
+}
+
+/* 10. Резюме, основная часть: левая колонка ограничена по ширине, текст забирает
+       остальное. Раньше на широком экране пустота копилась между фото и текстом. */
+@media(min-width:1281px){
+  .cv-layout{grid-template-columns:minmax(0,clamp(280px,28vw,420px)) minmax(0,1fr);gap:clamp(48px,6vw,96px)}
+  .cv-event-photos{max-width:none}
+}
+
+/* 11. Строки резюме: название раздела слева, содержание справа — классическая
+       раскладка CV. Названия разделов читаются как оглавление, а не теряются
+       над более крупными подзаголовками (better-typography: иерархия заголовков). */
+@media(min-width:721px){
+  .cv-row{grid-template-columns:minmax(112px,160px) minmax(0,1fr);column-gap:clamp(24px,3vw,40px);align-items:baseline}
+}
+
+/* 12. На сенсорных экранах нет наведения, поэтому «Смотреть» на работах видно
+       всегда — как уже было у сертификатов (better-layout: видимый признак действия). */
+@media(hover:none){.slide-open-label{opacity:1;transform:none}}
+
+/* 13. Одна красная заливка на экран: «Написать» остаётся акцентной, кнопка меню —
+       чёрная (better-colors: одно главное действие). Над тёмным подвалом — белая. */
+.menu-toggle{background:var(--ink);color:var(--paper)}
+.menu-toggle:hover{background:#484848}
+body.is-over-contact .menu-toggle{background:var(--paper);color:var(--ink);border-color:transparent}
+/* Кнопка меню плавает над серым, белым и тёмным фоном, поэтому кольцо фокуса
+   трёхслойное: чёрный — белый — чёрный. Видно на любом фоне. */
+.menu-toggle:focus-visible{outline:2px solid var(--paper);outline-offset:2px;box-shadow:0 0 0 6px var(--ink)}
+
+/* 14. Страница 404 в стиле сайта. */
+body.plain-page>.header{color:var(--ink)}
+body.plain-page .header a:focus-visible{outline-color:var(--accent)}
+.not-found{min-height:100svh;display:grid;align-content:center;padding-top:160px;padding-bottom:96px}
+.not-found h1{font-family:var(--font-display);font-weight:500;font-size:clamp(56px,9vw,140px);line-height:1.03;letter-spacing:.012em;margin:24px 0 0}
+.not-found-text{max-width:46ch;margin:32px 0 40px;font-size:var(--fs-lead);line-height:1.55;color:var(--text-secondary)}
+.not-found-links{display:flex;flex-wrap:wrap;gap:12px}
+
 /* Без движения — без сжатия на нажатие. */
 @media(prefers-reduced-motion:reduce){
   .round-link:active,.header-write:active,.all-filter:active,.download-resume:active,
