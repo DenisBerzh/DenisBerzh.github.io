@@ -809,7 +809,7 @@ html:has(> body.viewer-open){scrollbar-gutter:stable;background:#444}
        сайте значит действие, а статус — не кнопка (better-colors). */
 .status-dot{width:7px;height:7px;border-radius:50%;background:currentColor;flex:none}
 .hero-intro .hero-status{display:flex;width:fit-content;max-width:100%;text-wrap:balance;align-items:center;gap:10px;margin:0 0 22px;padding:8px 14px 8px 12px;border:1px solid #ffffff73;border-radius:99px;font:500 var(--fs-label)/1.3 var(--font-label);letter-spacing:.01em;color:#fff}
-.resume-heading>.resume-status{display:flex;width:fit-content;max-width:100%;text-wrap:balance;align-items:center;gap:10px;margin-top:24px;padding:8px 14px 8px 12px;border:1px solid var(--line);border-radius:99px;font:500 var(--fs-label)/1.3 var(--font-label);letter-spacing:.01em;color:var(--ink)}
+.resume-heading>.resume-status,.resume-portrait .portrait-status{display:flex;width:fit-content;max-width:100%;text-wrap:balance;align-items:center;gap:10px;margin-top:24px;padding:8px 14px 8px 12px;border:1px solid var(--line);border-radius:99px;font:500 var(--fs-label)/1.3 var(--font-label);letter-spacing:.01em;color:var(--ink)}
 /* Телефон: метка добавила строку в первый экран — чуть меньше отступ под ней
    и на 2% ниже портрет, чтобы волосы не касались ссылки «Резюме и опыт». */
 @media(max-width:700px){
@@ -957,6 +957,28 @@ dialog.menu .eyebrow{padding-bottom:20px}
 /* 32. Имя в резюме на телефоне: от ширины экрана, без жёсткого минимума 56px —
        на 320px «Бержанин» в Inter не помещалась на 13px. 15.5vw × 4.825em < ширины колонки. */
 @media(max-width:600px){.resume-heading h1{font-size:clamp(40px,15.5vw,84px)}}
+
+/* 33. Верх резюме: фото по высоте имени — верх по заглавной «Д», низ по нижней
+       линии «Бержанин». resume.js передаёт размер шрифта имени в --name-fs.
+       Метрики Inter: верх заглавной 0.152em от верха строки, нижняя линия второй
+       строки 1.909em (line-height 1.03). Метка «Ищу стажировку» лежит на фото. */
+@media(min-width:601px){
+  .resume-intro-grid{align-items:start}
+  .resume-portrait{align-self:start;margin-top:calc(var(--name-fs,0px) * .152);height:calc(var(--name-fs,0px) * 1.757)}
+  .resume-portrait img{height:100%;aspect-ratio:auto;object-fit:cover;object-position:50% 22%}
+}
+.resume-portrait{position:relative}
+.resume-portrait .portrait-status{position:absolute;left:12px;bottom:12px;margin:0;max-width:calc(100% - 24px);background:#fff;border-color:#fff;box-shadow:0 4px 16px #0000001f}
+/* Планшет: фото маленькое — метка под фото, от его правого края. */
+@media(min-width:601px) and (max-width:1000px){
+  .resume-portrait .portrait-status{top:calc(100% + 28px);bottom:auto;left:auto;right:0;max-width:none;white-space:nowrap;background:none;border-color:var(--line);box-shadow:none}
+}
+/* Телефон: фото узкое (112px) — метка отдельной строкой под фото и подписью. */
+@media(max-width:600px){
+  .resume-portrait{display:contents}
+  .resume-portrait img{grid-column:2;grid-row:2;width:100%}
+  .resume-portrait .portrait-status{position:static;grid-column:1 / -1;grid-row:3;justify-self:start;max-width:100%;background:none;border-color:var(--line);box-shadow:none}
+}
 
 /* Без движения — без сжатия на нажатие. */
 @media(prefers-reduced-motion:reduce){

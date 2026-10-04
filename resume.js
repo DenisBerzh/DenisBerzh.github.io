@@ -1,3 +1,13 @@
+// The portrait matches the name's height: pass the name's font size to CSS.
+(() => {
+  const name = document.querySelector('.resume-heading h1'), grid = document.querySelector('.resume-intro-grid');
+  if (!name || !grid) return;
+  const sync = () => grid.style.setProperty('--name-fs', getComputedStyle(name).fontSize);
+  sync();
+  if ('ResizeObserver' in window) new ResizeObserver(sync).observe(name);
+  document.fonts?.ready.then(sync);
+})();
+
 (() => {
   const viewer = document.querySelector('#certificate-viewer');
   const image = viewer.querySelector('#certificate-image');
