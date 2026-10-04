@@ -115,14 +115,16 @@
       event.preventDefault();
       activeWork = Number(link.dataset.work);
       activeSlide = 0;
+      slideImage.style.setProperty('--dir', 0);
       renderSlide();
       viewer.showModal();
       document.body.classList.add('viewer-open');
       viewer.querySelector('.slide-close').focus();
     });
   });
-  previous.addEventListener('click', () => { if (activeSlide > 0) { activeSlide--; renderSlide(); } });
-  next.addEventListener('click', () => { if (activeSlide < works[activeWork].slides.length - 1) { activeSlide++; renderSlide(); } });
+  // The incoming image slides in from the side of the arrow that was pressed.
+  previous.addEventListener('click', () => { if (activeSlide > 0) { activeSlide--; slideImage.style.setProperty('--dir', -1); renderSlide(); } });
+  next.addEventListener('click', () => { if (activeSlide < works[activeWork].slides.length - 1) { activeSlide++; slideImage.style.setProperty('--dir', 1); renderSlide(); } });
   viewer.querySelector('.slide-close').addEventListener('click', () => viewer.close());
   viewer.addEventListener('close', () => document.body.classList.remove('viewer-open'));
   viewer.addEventListener('click', (event) => {

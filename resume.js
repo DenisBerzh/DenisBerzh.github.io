@@ -71,6 +71,7 @@
   function render() {
     const [file, description] = group.photos[index];
     viewer.querySelector('#event-photo-title').textContent = group.title;
+    image.classList.add('is-loading');
     image.src = `${base}${file}.webp`;
     image.alt = description;
     caption.textContent = description;
@@ -83,6 +84,7 @@
   function step(delta) {
     if (!group || index + delta < 0 || index + delta >= group.photos.length) return;
     index += delta;
+    image.style.setProperty('--dir', delta);
     render();
   }
   document.querySelectorAll('[data-event-photo]').forEach(link => {
@@ -91,12 +93,15 @@
       event.preventDefault();
       group = groups[link.dataset.eventPhoto];
       index = Number(link.dataset.eventIndex || 0);
+      image.style.setProperty('--dir', 0);
       render();
       viewer.showModal();
       document.body.classList.add('viewer-open');
       viewer.querySelector('.slide-close').focus();
     });
   });
+  image.addEventListener('load', () => image.classList.remove('is-loading'));
+  image.addEventListener('error', () => image.classList.remove('is-loading'));
   previous.addEventListener('click', () => step(-1));
   next.addEventListener('click', () => step(1));
   viewer.querySelector('.slide-close').addEventListener('click', () => viewer.close());

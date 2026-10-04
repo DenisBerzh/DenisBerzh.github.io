@@ -112,6 +112,16 @@
     if(event.persisted){navigating=false;body.classList.remove('page-leaving');finishEntry();if(menu.open)menu.close();storage.remove('portfolio.navigation');}
   });
 
+  // Text roll on pill buttons: the label slides up and an identical copy rises from below.
+  // The copy is CSS-generated with empty alt text, so screen readers hear the label once.
+  document.querySelectorAll('.header-write,.download-resume,.all-filter,.hero-link-label').forEach(button=>{
+    const node=[...button.childNodes].find(n=>n.nodeType===3 && n.textContent.trim());
+    if(!node)return;
+    const label=node.textContent.trim(),roll=document.createElement('span'),inner=document.createElement('span');
+    roll.className='roll';inner.className='roll-inner';inner.dataset.text=label;inner.textContent=label;
+    roll.append(inner);node.replaceWith(roll,' ');
+  });
+
   // Kinetics Magnetic Button recipe, implemented with our spring and stable original box.
   const magnets=[...document.querySelectorAll('.magnetic')].map(element=>{
     const fill=document.createElement('i');fill.className='magnetic-fill';fill.setAttribute('aria-hidden','true');element.append(fill);
