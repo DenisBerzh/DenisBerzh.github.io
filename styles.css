@@ -210,7 +210,12 @@ button.more-presentations:hover .more-label{background:var(--ink);color:var(--pa
 body{font-family:var(--font-text);font-optical-sizing:auto;text-rendering:optimizeLegibility}
 
 /* 2a. Крупный кегль (≈48px и выше) — Inter Tight 500.
-       Inter Tight узкая гарнитура: на 200px это плюс, на 36px — слипание. */
+       Inter Tight — узкая гарнитура. Отрицательный трекинг на кириллице
+       в этом размере не сужает, а слипает: «Резюме», «Понять», «Найти»
+       читались сплошным блоком. Замер: при −0.006em зазор между соседними
+       глифами Inter Tight 500 на «Резюме» 74.9px — около нуля.
+       Поэтому крупный кириллический кегль идёт с нейтральным трекингом;
+       латиница (.name-track) и меню (.menu nav a) сохраняют свои значения. */
 .name-track,
 .menu nav a,
 .about h2,
@@ -221,7 +226,7 @@ body{font-family:var(--font-text);font-optical-sizing:auto;text-rendering:optimi
 .resume-section-heading h2,
 .language-score,
 .award-result>span
-{font-family:var(--font-display);font-weight:500;letter-spacing:-.006em}
+{font-family:var(--font-display);font-weight:500;letter-spacing:.012em}
 
 /* 2b. Средний кегль (20–48px) — Inter 500. Он шире Inter Tight,
        поэтому на этих размерах буквы не наезжают друг на друга.
@@ -319,7 +324,7 @@ button:focus-visible,a:focus-visible{outline-color:var(--accent)}
         .about h2     75px  −1.35px → −0.60px
         .menu nav a   58px  −1.86px → −0.23px */
 .name-track{letter-spacing:-.004em}
-.about h2{letter-spacing:-.008em;line-height:1.14}
+.about h2{line-height:1.14}
 .menu nav a{letter-spacing:-.004em}
 
 /* 9. Подпись в круглых кнопках: у Onest отрицательный трекинг не нужен,
@@ -471,7 +476,7 @@ body.motion-paused .globe-sway{animation-play-state:paused!important}
    ни на одной ширине окна. Первый размер — запасной вариант без container query. */
 .about-grid{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(40px,4.5vw,72px)}
 .about-lead{container-type:inline-size;min-width:0}
-.about h2{font-size:clamp(26px,4.6vw,80px);font-size:min(9.4cqi,80px)}
+.about h2{font-size:clamp(26px,4.6vw,80px);font-size:min(9.2cqi,80px)}
 .about-aside p{max-width:46ch}
 @media(max-width:1050px){
   .about-grid{gap:32px;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
@@ -479,11 +484,11 @@ body.motion-paused .globe-sway{animation-play-state:paused!important}
 }
 @media(max-width:820px){
   .about-grid{grid-template-columns:minmax(0,1fr);gap:36px}
-  .about h2{font-size:min(9.4cqi,60px)}
+  .about h2{font-size:min(9.2cqi,60px)}
   .about-aside p{font-size:17px}
 }
 @media(max-width:600px){
-  .about h2{font-size:min(9.4cqi,42px)}
+  .about h2{font-size:min(9.2cqi,42px)}
   .about-aside{display:block}
   .about-aside p{font-size:15px}
   .about-aside p+p{margin-top:16px;font-size:12px;grid-column:auto;grid-row:auto}
@@ -503,6 +508,21 @@ body.motion-paused .globe-sway{animation-play-state:paused!important}
 /* Первая карточка нечётного хвоста (app.js ставит .is-wide) — иначе пустая ячейка. */
 .portfolio-card.is-wide{grid-column:1 / -1}
 .portfolio-card.is-wide.poster .slide-frame{aspect-ratio:16/9}
+
+/* 6. Трекинг крупного кириллического кегля. Замер: при −0.006em зазор между
+   соседними глифами Inter Tight 500 в «Резюме» 74.9px — около нуля, буквы
+   слипались. Группа .name-track/.menu nav a и латиница сохраняют свои
+   значения, здесь — только кириллические заголовки. */
+.resume-section-heading h2,
+.resume-heading h1,
+.portfolio-heading,
+.category-name,
+.contact h2,
+.language-score,
+.award-result>span{letter-spacing:.012em}
+/* С таким трекингом «Как я оформляю идеи» на 320px перестаёт помещаться
+   в две строки — 89/181/83px. Немного уменьшаем кегль на узких экранах. */
+@media(max-width:420px){.portfolio-heading{font-size:clamp(30px,10.5vw,40px)}}
 
 /* 5. Шапка на телефоне: «Написать» и меню не должны стоять вплотную. */
 @media(max-width:720px){.header{padding-right:104px}}
