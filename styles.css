@@ -988,6 +988,19 @@ dialog.menu .eyebrow{padding-bottom:20px}
   .resume-portrait .portrait-status{position:static;grid-column:1 / -1;grid-row:3;justify-self:start;max-width:100%;background:none;border-color:var(--line);box-shadow:none}
 }
 
+/* 34. Переключатель звука. Звук выключен по умолчанию; состояние видно
+       и иконкой (волны), и словом «вкл/выкл» (better-accessibility: не только иконкой). */
+.hero-controls{display:flex;align-items:center;gap:12px}
+.sound-toggle{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 12px;border:1px solid #ffffff80;border-radius:99px;background:transparent;color:inherit;font:500 var(--fs-label)/1 var(--font-label);transition:background-color .2s,color .2s,border-color .2s}
+.sound-toggle svg{width:16px;height:16px;stroke-width:1.5}
+.sound-toggle .sound-wave{opacity:.35;transition:opacity .2s}
+.sound-toggle[aria-pressed="true"] .sound-wave{opacity:1}
+.sound-toggle .sound-state{opacity:.7;font-variant-numeric:tabular-nums}
+@media(hover:hover){.hero .sound-toggle:hover{background:#fff;color:var(--ink);border-color:#fff}}
+.menu-sound{align-self:flex-start;margin-top:auto;border-color:#ffffff40;color:#fff}
+.menu-sound+.menu-contacts{margin-top:24px}
+@media(hover:hover){.menu-sound:hover{background:#fff;color:var(--ink);border-color:#fff}}
+
 /* Без движения — без сжатия на нажатие. */
 @media(prefers-reduced-motion:reduce){
   .round-link:active,.header-write:active,.all-filter:active,.download-resume:active,
