@@ -1,7 +1,8 @@
-/* ===== ТИПОГРАФИКА v1 (начало) =====
-   Inter Tight — заголовки · Inter — текст · Onest — подписи.
-   Все гарнитуры с кириллическими сабсетами.
-   Чтобы откатить: удалите этот блок и блок «ТИПОГРАФИКА v1» в конце файла. */
+/* ===== ТИПОГРАФИКА =====
+   Inter Tight — крупные заголовки · Inter — текст и подписи.
+   Onest убран в дизайне v2: рядом с Inter он почти неотличим, а пара из
+   двух похожих гротесков читается как ошибка. Одна семья — одна система.
+   Все гарнитуры с кириллическими сабсетами. */
 @font-face{font-family:"Inter Tight";font-style:normal;font-weight:400 700;font-display:swap;
   src:url("assets/fonts/InterTight-cyr.woff2") format("woff2");
   unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
@@ -12,16 +13,27 @@
   unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:"Inter Text";font-style:normal;font-weight:400 600;font-display:swap;
   src:url("assets/fonts/Inter-lat.woff2") format("woff2")}
-@font-face{font-family:"Onest";font-style:normal;font-weight:400 700;font-display:swap;
-  src:url("assets/fonts/Onest-cyr.woff2") format("woff2");
-  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"Onest";font-style:normal;font-weight:400 700;font-display:swap;
-  src:url("assets/fonts/Onest-lat.woff2") format("woff2")}
 
 :root{--accent:#c8102e;--accent-dark:#a10d26;
   --font-display:"Inter Tight","Inter Text",system-ui,sans-serif;
   --font-text:"Inter Text",system-ui,sans-serif;
-  --font-label:"Onest","Inter Text",system-ui,sans-serif}
+  --font-label:var(--font-text)}
+
+/* ===== ДИЗАЙН v2: токены =====
+   Шкала текста по ролям. Компоненты берут размер отсюда, а не придумывают свой.
+   label 13 — подписи, метки, даты, счётчики (Inter 500)
+   small 14 — второстепенные фразы, ссылки, кнопки
+   body  16 — основной текст
+   lead  18 — вводный абзац
+   Цвет текста по ролям: primary — содержание, secondary — пояснения и метки. */
+:root{
+  --fs-label:13px;--fs-small:14px;--fs-body:16px;--fs-lead:18px;--fs-h4:20px;
+  --lh-label:1.45;--lh-body:1.6;
+  --text-primary:var(--ink);--text-secondary:var(--muted);--text-on-dark-secondary:#b4b4b4;
+  --image-outline:#0000001a;   /* чистый чёрный 10%: край картинки на светлом фоне */
+  --press-scale:.96;           /* отклик на нажатие */
+  --dur-fast:150ms
+}
 
 :root{color-scheme:light;--ink:#1c1c1c;--paper:#fff;--muted:#686868;--line:#d2d2d2;--dark:#141414;--hero:#686868;--ease:cubic-bezier(.7,0,.3,1);--space:clamp(24px,7.5vw,120px)}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-weight:400;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}button,a{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible{outline:2px solid currentColor;outline-offset:6px}button{border:0}img{display:block;max-width:100%}svg{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}h1,h2,p{margin:0}.sr-only{position:absolute!important;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip-link{position:fixed;top:16px;left:16px;transform:translateY(-200%);padding:12px 16px;background:white;color:black;z-index:100}.skip-link:focus{transform:none}
@@ -245,7 +257,7 @@ body{font-family:var(--font-text);font-optical-sizing:auto;text-rendering:optimi
 /* 2c. Ссылки-приглашения остаются с нейтральным трекингом. */
 .hero-intro p{letter-spacing:0}
 
-/* 3. Подписи — Onest 500, 15px, без разрядки.
+/* 3. Подписи — шрифт подписей (--font-label), 500, без разрядки. Размер — в «ДИЗАЙН v2».
       Короткие подписи (1–3 слова). Описания и длинные фразы сюда НЕ попадают:
       для них Inter ниже. */
 .eyebrow,
@@ -298,7 +310,7 @@ button:focus-visible,a:focus-visible{outline-color:var(--accent)}
 #reset-filter:hover,.cv-contacts a:hover,.contact-links a:hover{color:var(--accent)}
 
 /* 5. Акцентные кнопки: красные вместо чёрных/белых.
-      Круглые кнопки — Onest 500 18px вместо 14px системного. */
+      Круглые кнопки — шрифт подписей 500 18px. */
 .header-write{background:var(--accent)}
 .header-write:hover{background:var(--accent-dark)}
 .round-link{background:var(--accent);font-family:var(--font-label);font-weight:500;font-size:18px}
@@ -325,7 +337,7 @@ button:focus-visible,a:focus-visible{outline-color:var(--accent)}
 .about h2{line-height:1.14}
 .menu nav a{letter-spacing:-.004em}
 
-/* 9. Подпись в круглых кнопках: у Onest отрицательный трекинг не нужен,
+/* 9. Подпись в круглых кнопках: отрицательный трекинг не нужен,
       наоборот — слегка разводим, иначе «Резюме» слипается. */
 .round-link span{letter-spacing:.01em}
 
@@ -580,3 +592,111 @@ html{-moz-osx-font-smoothing:grayscale}
   .hero--silhouette .hero-eyebrow,.hero--silhouette .hero-link-label,
   .section-top .subtle,.contact footer{font-size:12px}
 }
+
+/* ==========================================================================
+   ДИЗАЙН v2 — система вместо слоёв
+   1. Подписи: одна роль — один размер (13px) вместо 11/12/13/14/15px.
+   2. Предложения не мельче 14px; кнопки, бейджи и ссылки 13–14px.
+   3. Резюме: содержание основным цветом, метки вторичным.
+   4. Поверхности: нейтральная обводка 1px у изображений и сертификатов.
+   5. Отклик на нажатие: кнопки сжимаются до 0.96.
+   6. Наведение: без масштаба текста, без серого 2.4:1, без «залипания» на телефоне.
+   Откат: удалить этот блок целиком.
+   ========================================================================== */
+
+/* 1. Подписи (better-typography: меньше размеров, шкала по ролям). */
+.eyebrow,
+.category-top .eyebrow,
+.experience-item>.eyebrow,
+.menu .eyebrow,
+.section-top .subtle,
+.portfolio-card figcaption p:not(.work-context),
+.portfolio-grid-heading p,
+.portfolio-result-actions,
+.category-description>span,
+.certificate-meta,
+.language-card .certificate-meta,
+.certificate-issuer,
+.language-level,
+.award-result small,
+.cv-row h3,
+.cv-entry-tag,
+.cv-facts dt,
+.cv-entry-facts dt,
+.cv-contacts a>span,
+.contact-links a>span,
+.event-photo figcaption
+{font-family:var(--font-label);font-weight:500;font-size:var(--fs-label);line-height:var(--lh-label);letter-spacing:.01em}
+
+/* 2. Предложения и ссылки (better-typography: размерные пороги). */
+.certificate-description{font-size:var(--fs-small);line-height:1.55}
+.language-copy-note{font-size:var(--fs-label);line-height:1.5}
+.text-link,.certificate-pdf{font-size:var(--fs-small)}
+.slide-open-label,.certificate-preview>span,.event-photo-open{font-size:var(--fs-label)}
+.hero--silhouette .hero-link-label{font-size:var(--fs-label)}
+.hero--silhouette .hero-summary{font-size:clamp(15px,1.15vw,19px)}
+.resume-section-nav a{font-size:var(--fs-small)}
+.download-meta{opacity:.7;font-weight:400}
+@media(max-width:1050px){.category-description{font-size:var(--fs-label)}}
+.resume-section-heading>.subtle{font-size:var(--fs-label)}
+@media(max-width:720px){.download-resume{font-size:var(--fs-label)}}
+@media(max-width:600px){.resume-section-nav a,.all-filter,.category-description{font-size:var(--fs-label)}}
+
+/* 3. Резюме (better-colors: токен по роли). Раньше метка и значение были
+      одного серого цвета, и глазу не за что было зацепиться. */
+.cv-row p,.cv-entry-facts dd{font-size:var(--fs-body);line-height:var(--lh-body);color:var(--text-primary)}
+.cv-facts dd{color:var(--text-primary)}
+.cv-row .cv-entry-note{font-size:var(--fs-small);color:var(--text-secondary)}
+
+/* 4. Поверхности (better-ui: обводка изображений чистым чёрным 10%). */
+.slide-frame,.certificate-preview,.event-photo-link,.resume-portrait{outline:1px solid var(--image-outline);outline-offset:-1px}
+
+/* 5. Отклик на нажатие (better-ui: scale 0.96, 150ms, ease-out). */
+.round-link{transition:transform .15s ease-out,background-color .4s var(--ease),scale var(--dur-fast) ease-out}
+.header-write{transition:background-color .3s,scale var(--dur-fast) ease-out}
+.all-filter,.download-resume,.more-label{transition:background-color .3s,color .3s,border-color .3s,scale var(--dur-fast) ease-out}
+.slide-close,.slide-controls button,.pause-motion,.menu-close{transition:scale var(--dur-fast) ease-out}
+.round-link:active,.header-write:active,.all-filter:active,.download-resume:active,
+button.more-presentations:active .more-label,.slide-close:active,
+.slide-controls button:not(:disabled):active,.pause-motion:active,.menu-close:active{scale:var(--press-scale)}
+
+/* 6a. Навигация: цвет без масштаба. scale(1.07) мылит текст и сдвигает строку;
+       для частого наведения достаточно цвета за 150ms (better-ui: сдержанность). */
+.desktop-nav a{transition:color var(--dur-fast) ease-out}
+.desktop-nav a:hover,.desktop-nav a:focus-visible{transform:none}
+
+/* 6b. Наведение на категорию: #a8a8a8 на белом — 2.4:1, ниже порога.
+       Вторичный цвет даёт 5.5:1 (better-colors: замер пары). */
+@media(hover:hover) and (pointer:fine){
+  .category-row:hover .category-name,.category-row:hover .category-description{color:var(--text-secondary)}
+}
+
+/* 6c. Сенсорные экраны: эффекты наведения не остаются после касания
+       (better-accessibility: hover только при hover:hover). */
+@media(hover:none){
+  .menu nav a:hover,.certificate-preview:hover img,.resume-section-nav a:hover span,
+  .hero-resume-link:hover .arrow-diagonal,.wordmark:hover .copyright{transform:none}
+  .round-link:hover,.contact-line .round-link:hover,.header-write:hover{background:var(--accent)}
+  .download-resume:hover,button.more-presentations:hover .more-label{background:none;color:inherit;border-color:var(--line)}
+  .contact-links a:hover,.cv-contacts a:hover{text-decoration:none;color:inherit}
+  #reset-filter:hover{color:var(--ink)}
+}
+
+/* 7. Опыт: метка, заголовок и текст карточек одного ряда стоят на общих линиях.
+      Двухстрочный заголовок больше не сдвигает текст под собой ниже соседей
+      (better-layout: выравнивание по общим краям). */
+@media(min-width:901px){
+  .experience-item{display:grid;grid-template-rows:subgrid;grid-row:span 3;row-gap:0;align-content:start}
+}
+
+/* 8. Резюме на телефоне: заголовок с кнопкой ближе к своему содержанию,
+      чем к предыдущей секции (better-layout: группировка пространством). */
+@media(max-width:720px){.cv-layout{margin-top:40px}}
+
+/* Без движения — без сжатия на нажатие. */
+@media(prefers-reduced-motion:reduce){
+  .round-link:active,.header-write:active,.all-filter:active,.download-resume:active,
+  button.more-presentations:active .more-label,.slide-close:active,
+  .slide-controls button:not(:disabled):active,.pause-motion:active,.menu-close:active{scale:none}
+}
+/* ДИЗАЙН v2 — конец */
