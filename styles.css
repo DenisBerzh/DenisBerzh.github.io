@@ -396,13 +396,14 @@ body.motion-paused .globe-sway{animation-play-state:paused!important}
 
 /* Marketing experience precedes the supporting visual portfolio. */
 .marketing-experience{padding-top:24px;padding-bottom:clamp(72px,8vw,120px)}
-.experience-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:56px}
-.experience-item{border-top:1px solid var(--line);padding-top:24px;min-width:0}
+.experience-list{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:40px;margin-top:56px}
+.experience-item{grid-column:span 2;border-top:1px solid var(--line);padding-top:24px;min-width:0}
+.experience-item:nth-last-child(-n+2){grid-column:span 3}
 .experience-item>.eyebrow{font-size:11px;color:var(--muted);line-height:1.6}
 .experience-item h3{font-size:clamp(24px,2.4vw,36px);font-weight:400;line-height:1.15;letter-spacing:-.035em;margin:32px 0 20px}
 .experience-item>p:last-child{font-size:16px;line-height:1.65;color:var(--muted);max-width:38em}
 .experience-link{display:inline-flex;margin-top:40px;gap:20px}
-@media(max-width:900px){.experience-list{grid-template-columns:1fr;gap:36px;margin-top:40px}.experience-item h3{margin-top:20px;font-size:30px}.experience-item>p:last-child{font-size:15px}.marketing-experience .portfolio-heading{font-size:clamp(36px,7vw,64px)}}
+@media(max-width:900px){.experience-list{grid-template-columns:1fr;gap:36px;margin-top:40px}.experience-item,.experience-item:nth-last-child(-n+2){grid-column:1 / -1}.experience-item h3{margin-top:20px;font-size:30px}.experience-item>p:last-child{font-size:15px}.marketing-experience .portfolio-heading{font-size:clamp(36px,7vw,64px)}}
 
 /* Selected hero concept 2: clean silhouette, real text and controls. */
 .hero--silhouette{height:max(760px,100svh);min-height:760px}
