@@ -528,3 +528,26 @@ body.motion-paused .globe-sway{animation-play-state:paused!important}
 @media(max-width:720px){.header{padding-right:104px}}
 @media(max-width:380px){.header{padding-right:96px}}
 /* РЕВЬЮ 2026-10-04 — конец */
+
+/* Event photos complement the resume; source images keep their full framing. */
+.cv-event-photos{display:grid;gap:40px;max-width:420px;margin-top:56px}
+.cv-event-photos:empty{display:none}
+.event-photo{margin:0;min-width:0}
+.event-photo-link{display:block;position:relative;overflow:hidden;background:var(--ink)}
+.event-photo-link img{display:block;width:100%;height:auto;filter:grayscale(1)}
+.event-photo-open{position:absolute;right:16px;bottom:16px;background:var(--paper);color:var(--ink);padding:10px 14px;font:400 12px/1.4 var(--font-label)}
+.event-photo-link:hover .event-photo-open,.event-photo-link:focus-visible .event-photo-open{text-decoration:underline;text-underline-offset:4px}
+.event-photo figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-top:12px;font:400 12px/1.5 var(--font-label);color:var(--muted)}
+.event-photo figcaption>span:last-child{white-space:nowrap}
+.cv-project{margin-top:24px}
+.cv-project+.text-link{display:inline-flex;margin-top:20px}
+.event-photo-viewer{max-width:1200px}
+.event-photo-viewer .slide-image{height:min(62dvh,760px);aspect-ratio:auto;object-fit:contain}
+.event-photo-caption{font:400 13px/1.5 var(--font-text);color:#ddd}
+.event-photo-viewer .event-photo-original{align-self:center}
+@media(max-width:720px){
+  .cv-event-photos{margin-top:32px;gap:28px}
+  .cv-project>.event-photo,#cv-research>.event-photo{margin-top:24px;width:100%;max-width:420px}
+  .event-photo-open{right:12px;bottom:12px}
+  .event-photo-viewer .slide-image{height:min(55dvh,600px)}
+}

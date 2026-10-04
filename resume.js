@@ -24,3 +24,96 @@
     if (event.target === viewer && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) viewer.close();
   });
 })();
+
+(() => {
+  const viewer = document.querySelector('#event-photo-viewer');
+  if (!viewer) return;
+  const base = 'assets/events/';
+  const groups = {
+    teams: {
+      title: '«Я в деле»',
+      photos: [
+        ['team-meeting', 'Встреча с участниками проекта'],
+        ['team-discussion', 'Разбор формулировки проблемы с командой'],
+        ['team-workshop', 'Обсуждение проекта с аудиторией'],
+        ['team-group', 'Групповая фотография после встречи'],
+        ['project-discussion', 'Обсуждение проекта за общим столом']
+      ]
+    },
+    vtb: {
+      title: 'ВТБ · обучение и кейс',
+      photos: [
+        ['vtb-stage', 'Участники мероприятия ВТБ на сцене'],
+        ['vtb-team', 'Командная фотография на мероприятии ВТБ'],
+        ['vtb-learning', 'Обучение на мероприятии ВТБ']
+      ]
+    },
+    events: {title: 'Мероприятия', photos: [['event-visit', 'Фотография у стенда на мероприятии']]}
+  };
+  const image = viewer.querySelector('#event-photo-image');
+  const caption = viewer.querySelector('#event-photo-caption');
+  const counter = viewer.querySelector('#event-photo-counter');
+  const original = viewer.querySelector('.event-photo-original');
+  const previous = viewer.querySelector('.event-photo-prev');
+  const next = viewer.querySelector('.event-photo-next');
+  let group, index = 0;
+
+  function render() {
+    const [file, description] = group.photos[index];
+    viewer.querySelector('#event-photo-title').textContent = group.title;
+    image.src = `${base}${file}.webp`;
+    image.alt = description;
+    caption.textContent = description;
+    original.href = `${base}${file}.jpg`;
+    counter.textContent = `${index + 1} / ${group.photos.length}`;
+    previous.disabled = index === 0;
+    next.disabled = index === group.photos.length - 1;
+    viewer.querySelector('.slide-controls').hidden = group.photos.length === 1;
+  }
+  function step(delta) {
+    if (!group || index + delta < 0 || index + delta >= group.photos.length) return;
+    index += delta;
+    render();
+  }
+  document.querySelectorAll('[data-event-photo]').forEach(link => {
+    link.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      group = groups[link.dataset.eventPhoto];
+      index = 0;
+      render();
+      viewer.showModal();
+      document.body.classList.add('viewer-open');
+      viewer.querySelector('.slide-close').focus();
+    });
+  });
+  previous.addEventListener('click', () => step(-1));
+  next.addEventListener('click', () => step(1));
+  viewer.querySelector('.slide-close').addEventListener('click', () => viewer.close());
+  viewer.addEventListener('close', () => {
+    if (!document.querySelector('dialog[open]')) document.body.classList.remove('viewer-open');
+  });
+  viewer.addEventListener('keydown', event => {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      event.preventDefault();
+      step(event.key === 'ArrowRight' ? 1 : -1);
+    }
+  });
+  viewer.addEventListener('click', event => {
+    const rect = viewer.getBoundingClientRect();
+    if (event.target === viewer && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) viewer.close();
+  });
+
+  // Move the existing figures, keeping one focusable copy of each photo group.
+  const home = document.querySelector('.cv-event-photos');
+  const figures = [...home.querySelectorAll('[data-mobile-target]')];
+  const mobile = window.matchMedia('(max-width:720px)');
+  function placePhotos() {
+    figures.forEach(figure => {
+      const destination = mobile.matches ? document.getElementById(figure.dataset.mobileTarget) : home;
+      destination.append(figure);
+    });
+  }
+  placePhotos();
+  mobile.addEventListener('change', placePhotos);
+})();

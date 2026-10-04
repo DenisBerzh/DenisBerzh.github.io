@@ -25,11 +25,11 @@
   <link rel="preload" href="assets/fonts/InterTight-cyr.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/Inter-cyr.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/Onest-cyr.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=track-2">
+  <link rel="stylesheet" href="styles.css?v=track-2-events-1">
     <link rel="stylesheet" href="motion.css?v=track-2">
   <script src="motion-boot.js?v=track-2"></script>
   <script src="motion.js?v=track-2" defer></script>
-  <script src="resume.js?v=track-2" defer></script>
+  <script src="resume.js?v=track-2-events-1" defer></script>
 </head>
 <body class="resume-page" id="top">
   <div class="page-curtain" aria-hidden="true"><span class="curtain-label">Резюме</span></div>
@@ -57,18 +57,33 @@
     <section id="resume" class="resume-document section-light" aria-labelledby="resume-title">
       <div class="resume-section-heading"><h2 id="resume-title">Резюме</h2><a class="download-resume" href="assets/denis-berzhanin-resume.pdf" download>Скачать PDF <span aria-hidden="true">↓</span></a></div>
       <div class="cv-layout">
-        <aside class="cv-summary" data-reveal><p class="cv-thesis">Изучаю людей.<br>Нахожу закономерности.<br>Объясняю решения.</p><p class="subtle">Денис Бержанин<br>Студент 3-го курса<br>Финансового университета</p><div class="cv-contacts"><a href="https://t.me/denskoi" target="_blank" rel="noopener">@denskoi ↗</a><a href="mailto:den.berzhanin@mail.ru">den.berzhanin@mail.ru</a><a href="tel:+79160593839">+7 916 059 38 39</a></div></aside>
+        <aside class="cv-summary" data-reveal><p class="cv-thesis">Изучаю людей.<br>Нахожу закономерности.<br>Объясняю решения.</p><p class="subtle">Денис Бержанин<br>Студент 3-го курса<br>Финансового университета</p><div class="cv-contacts"><a href="https://t.me/denskoi" target="_blank" rel="noopener">@denskoi ↗</a><a href="mailto:den.berzhanin@mail.ru">den.berzhanin@mail.ru</a><a href="tel:+79160593839">+7 916 059 38 39</a></div>
+          <div class="cv-event-photos" aria-label="Фотографии с проектов и мероприятий">
+            <figure class="event-photo" data-reveal data-photo-group="teams" data-mobile-target="cv-project-teams">
+              <a class="event-photo-link" href="assets/events/team-meeting.jpg" data-event-photo="teams" aria-label="Открыть 5 фотографий: Я в деле" aria-haspopup="dialog"><img src="assets/events/team-meeting-420.webp" srcset="assets/events/team-meeting-420.webp 420w, assets/events/team-meeting-840.webp 840w" sizes="(max-width:720px) calc(100vw - 48px), 420px" width="1280" height="960" loading="lazy" decoding="async" alt="Встреча с участниками проекта «Я в деле» за общим столом"><span class="event-photo-open" aria-hidden="true">Смотреть ↗</span></a>
+              <figcaption><span>«Я в деле»</span><span>5 фото</span></figcaption>
+            </figure>
+            <figure class="event-photo" data-reveal data-photo-group="vtb" data-mobile-target="cv-project-vtb">
+              <a class="event-photo-link" href="assets/events/vtb-stage.jpg" data-event-photo="vtb" aria-label="Открыть 3 фотографии: ВТБ" aria-haspopup="dialog"><img src="assets/events/vtb-stage-420.webp" srcset="assets/events/vtb-stage-420.webp 420w, assets/events/vtb-stage-840.webp 840w" sizes="(max-width:720px) calc(100vw - 48px), 420px" width="1274" height="718" loading="lazy" decoding="async" alt="Участники мероприятия ВТБ на сцене"><span class="event-photo-open" aria-hidden="true">Смотреть ↗</span></a>
+              <figcaption><span>ВТБ · обучение и кейс</span><span>3 фото</span></figcaption>
+            </figure>
+            <figure class="event-photo" data-reveal data-photo-group="events" data-mobile-target="cv-research">
+              <a class="event-photo-link" href="assets/events/event-visit.jpg" data-event-photo="events" aria-label="Открыть фотографию с мероприятия" aria-haspopup="dialog"><img src="assets/events/event-visit-420.webp" srcset="assets/events/event-visit-420.webp 420w, assets/events/event-visit-840.webp 840w" sizes="(max-width:720px) calc(100vw - 48px), 420px" width="1280" height="720" loading="lazy" decoding="async" alt="Фотография у стенда на мероприятии"><span class="event-photo-open" aria-hidden="true">Смотреть ↗</span></a>
+              <figcaption><span>Мероприятия</span><span>1 фото</span></figcaption>
+            </figure>
+          </div>
+        </aside>
         <div class="cv-sections">
           <section class="cv-row" data-reveal><h3>Образование</h3><div><h4>Финансовый университет при Правительстве РФ</h4><p>3-й курс · Высшая школа управления · группа МК24-3</p></div></section>
           <section class="cv-row" data-reveal><h3>Проектный опыт</h3><div>
             <h4>ООО «Неровилль» · исследование и брендинг</h4><p>Университетское исследование по заказу компании: рынок и потребители, рекомендации по ребрендингу и репозиционированию. Участвовал в подготовке, презентации и защите результатов.</p>
             <h4>Aviasales · курсовая работа, 2026</h4><p>Проанализировал позиционирование B2B-направления по открытым источникам с помощью PESTEL, SWOT и портфельных матриц. Разработал предложения по коммуникации с корпоративной аудиторией, шестимесячный план продвижения, бюджет и систему KPI. <strong>Защищена на отлично.</strong> Финансовые показатели — сценарные оценки; программа не запускалась.</p>
             <h4>Базовая линейка одежды · курсовая работа, 2025</h4><p>На основе анализа рынка и практик Lime разработал концепцию собственной линейки из пяти товарных категорий. Описал целевую аудиторию и ценностное предложение, сформировал ассортимент, предложил цены и каналы продаж, подготовил бюджет запуска. <strong>Защищена на отлично.</strong> Работа представляет концепцию выхода на рынок.</p>
-            <h4>«Я в деле» · наставник двух команд</h4><p>Обучал участников, ставил задачи и сроки, сопровождал проекты и готовил отчётность. Ранее — участник проекта «БЕЗ ТАБУ».</p>
-            <h4>Кейс-чемпионат ВТБ · командный проект</h4><p>Модель выбора мест для банкоматов и защита решения. Неделя обучения и три дня на подготовку кейса.</p><a class="text-link" href="index.html#experience">Проекты на главной ↗</a>
+            <article class="cv-project" id="cv-project-teams"><h4>«Я в деле» · наставник двух команд</h4><p>Обучал участников, ставил задачи и сроки, сопровождал проекты и готовил отчётность. Ранее — участник проекта «БЕЗ ТАБУ».</p></article>
+            <article class="cv-project" id="cv-project-vtb"><h4>Кейс-чемпионат ВТБ · командный проект</h4><p>Модель выбора мест для банкоматов и защита решения. Неделя обучения и три дня на подготовку кейса.</p></article><a class="text-link" href="index.html#experience">Проекты на главной ↗</a>
           </div></section>
           <section class="cv-row" data-reveal><h3>Компетенции</h3><div><h4>Исследования и стратегия</h4><p>Анализ рынка и конкурентов, сегментация, опросы и глубинные интервью. Первичные и вторичные данные, позиционирование, SWOT / PEST, 4P / 7P.</p><h4>Данные и инструменты</h4><p>Excel, PowerPoint, Figma, нейросети. R и Python — базовый уровень.</p><h4>Работа с людьми и решениями</h4><p>Сопровождение команд, постановка задач и дедлайнов, отчётность, презентация и защита результатов.</p></div></section>
-          <section class="cv-row" data-reveal><h3>Исследования</h3><div><p>Соавтор опубликованной статьи о брендинге на рынке безалкогольных напитков в журнале из перечня ВАК. Исследовательские работы и выступления на конференциях — от брендинга до потребительского поведения.</p></div></section>
+          <section class="cv-row" data-reveal><h3>Исследования</h3><div id="cv-research"><p>Соавтор опубликованной статьи о брендинге на рынке безалкогольных напитков в журнале из перечня ВАК. Исследовательские работы и выступления на конференциях — от брендинга до потребительского поведения.</p></div></section>
           <section class="cv-row" data-reveal><h3>Дополнительный навык</h3><div><h4>Визуальная подача</h4><p>Самостоятельно изучаю дизайн: презентации, концепты интерфейсов, логотипы и графика. Для меня важно и содержание, и то, насколько понятно оно представлено.</p><a class="text-link" href="index.html#projects">Визуальные работы ↗</a></div></section>
           <section class="cv-row" data-reveal><h3>Награды</h3><div><p><strong>I степень</strong> · Неделя иностранного языка, 2025. Совместная работа с Екатериной Сингилейцевой.</p><p><strong>II место</strong> · «Брендинг в эпоху платформенной экономики», 2026.</p><p><strong>III степень</strong> · «Маркетинг России», 2025.</p><a class="text-link" href="#certificates">Посмотреть дипломы ↘</a></div></section>
           <section class="cv-row" data-reveal><h3>Обучение и язык</h3><div><p>Международная Евразийская летняя школа ННГУ · 72 часа · 2026</p><p>«Я в деле» · предпринимательский курс · 8 недель · 2024</p><p>Английский · CEFR B2<br>IELTS Academic — 6.0 / 9<br>Duolingo English Test — 110 / 160</p></div></section>
@@ -152,6 +167,13 @@
     <div class="slide-viewer-header"><h2 id="certificate-title"></h2><button class="slide-close" type="button" aria-label="Закрыть сертификат">×</button></div>
     <img class="slide-image" id="certificate-image" alt="">
     <a class="certificate-original" href="" target="_blank" rel="noopener">Открыть PDF ↗</a>
+  </dialog>
+  <dialog class="slide-viewer event-photo-viewer" id="event-photo-viewer" aria-labelledby="event-photo-title" aria-describedby="event-photo-caption">
+    <div class="slide-viewer-header"><h2 id="event-photo-title"></h2><button class="slide-close" type="button" aria-label="Закрыть фотографии">×</button></div>
+    <img class="slide-image" id="event-photo-image" alt="" decoding="async">
+    <p id="event-photo-caption" class="event-photo-caption"></p>
+    <div class="slide-controls"><button type="button" class="event-photo-prev" aria-label="Предыдущая фотография">←</button><p id="event-photo-counter" aria-live="polite" aria-atomic="true"></p><button type="button" class="event-photo-next" aria-label="Следующая фотография">→</button></div>
+    <a class="slide-original event-photo-original" href="" target="_blank" rel="noopener">Открыть оригинал ↗</a>
   </dialog>
 </body>
 </html>
