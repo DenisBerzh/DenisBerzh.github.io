@@ -112,6 +112,9 @@
     if(event.persisted){navigating=false;body.classList.remove('page-leaving');finishEntry();if(menu.open)menu.close();storage.remove('portfolio.navigation');}
   });
 
+  // Every skill bar knows its value, so the end dot can sit at the end of the fill.
+  document.querySelectorAll('.skill-track').forEach(track=>{const fill=track.querySelector('.skill-fill');if(fill)track.style.setProperty('--v',getComputedStyle(fill).getPropertyValue('--p'));});
+
   // Text roll on pill buttons: the label slides up and an identical copy rises from below.
   // The copy is CSS-generated with empty alt text, so screen readers hear the label once.
   document.querySelectorAll('.header-write,.download-resume,.all-filter,.hero-link-label').forEach(button=>{
@@ -263,11 +266,18 @@
     const text=node.textContent.trim(),target=parseFloat(text),decimals=(text.split('.')[1]||'').length;
     // Figure spaces keep the width constant while the digits change, so nothing beside it moves.
     const format=value=>value.toFixed(decimals).padStart(text.length,' ');
-    const start=performance.now(),duration=1300;
+    // A tool row drives its bar from the same clock as the number, so the bar reaches 90%
+    // exactly when the counter reads 90. Rows start one after another.
+    const row=element.closest('.tool'),fill=row?.querySelector('.skill-fill');
+    const delay=row?Number(getComputedStyle(row).getPropertyValue('--d')||0)*90:0;
+    const duration=row?1600:1300,start=performance.now()+delay;
+    const ease=p=>1-Math.pow(1-p,3);
     const tick=now=>{
-      const p=Math.min(1,(now-start)/duration);
-      node.textContent=format(target*(1-Math.pow(1-p,3)));
-      if(p<1 && canMove())requestAnimationFrame(tick);else node.textContent=text;
+      const p=Math.max(0,Math.min(1,(now-start)/duration)),v=ease(p);
+      node.textContent=format(target*v);
+      if(fill){fill.style.transform=`scaleX(${(target/100)*v})`;fill.parentElement.style.setProperty('--v',(target/100)*v);}
+      if(p<1 && canMove())requestAnimationFrame(tick);
+      else{node.textContent=text;if(fill){fill.style.transform='';fill.parentElement.style.setProperty('--v',target/100);}}
     };
     node.textContent=format(0);requestAnimationFrame(tick);
   };
@@ -284,6 +294,8 @@
     const entrances=[...document.querySelectorAll('[data-split],[data-wipe],[data-count],[data-pop]')];
     // On screen at load: shown as is. Only what scrolling reaches gets an entrance.
     entrances.forEach(element=>{const r=element.getBoundingClientRect();if(r.top<innerHeight && r.bottom>0)element.classList.add('visible');});
+    // Bars of tools still below the fold start empty; countUp fills them in step with the number.
+    document.querySelectorAll('.skill-pct[data-count]:not(.visible)').forEach(element=>{const fill=element.closest('.tool')?.querySelector('.skill-fill');if(fill){fill.style.transform='scaleX(0)';fill.parentElement.style.setProperty('--v',0);}});
     const entranceObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{
       if(!entry.isIntersecting)return;
       entry.target.classList.add('visible');
