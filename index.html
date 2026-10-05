@@ -26,12 +26,11 @@
   <link rel="preload" href="assets/fonts/Inter-cyr.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/InterDisplay500-cyr.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/Inter-lat.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=design-19">
-    <link rel="stylesheet" href="motion.css?v=motion-6">
-  <script src="motion-boot.js?v=motion-3"></script>
-  <script src="motion.js?v=motion-8" defer></script>
+  <link rel="stylesheet" href="styles.css?v=design-20">
+    <link rel="stylesheet" href="motion.css?v=motion-9">
+  <script src="motion-boot.js?v=motion-9"></script>
+  <script src="motion.js?v=motion-9" defer></script>
   <script src="app.js?v=grid-2" defer></script>
-  <script src="sound.js?v=sound-1" defer></script>
 </head>
 <body>
   <div class="page-curtain" aria-hidden="true"><span class="curtain-label">Портфолио</span></div>
@@ -45,7 +44,7 @@
     <button class="menu-close" type="button" aria-label="Закрыть меню"><span></span><span></span></button>
     <p class="eyebrow">Навигация</p>
     <nav aria-label="Меню сайта"><a href="#home">Главная</a><a href="#about">Обо мне</a><a href="#experience">Опыт</a><a href="#projects">Работы</a><a href="resume.html">Резюме</a><a href="#contact">Контакты</a></nav>
-    <button class="sound-toggle menu-sound" type="button" aria-pressed="false" aria-label="Звуки интерфейса"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h2.5L8 3v10L4.5 10H2z"/><path class="sound-wave" d="M10.5 5.5a3.5 3.5 0 0 1 0 5M12.5 3.8a6 6 0 0 1 0 8.4"/></svg><span aria-hidden="true">Звук <span class="sound-state">выкл</span></span></button><div class="menu-contacts"><a href="https://t.me/denskoi" target="_blank" rel="noopener"><span>Telegram</span>@denskoi ↗</a><a href="mailto:den.berzhanin@mail.ru"><span>Почта</span>den.berzhanin@mail.ru</a></div>
+    <div class="menu-contacts"><a href="https://t.me/denskoi" target="_blank" rel="noopener"><span>Telegram</span>@denskoi ↗</a><a href="mailto:den.berzhanin@mail.ru"><span>Почта</span>den.berzhanin@mail.ru</a></div>
   </dialog>
   <main>
     <section id="home" class="hero hero--silhouette" aria-labelledby="name">
@@ -54,11 +53,11 @@
         <svg class="arrow-diagonal" viewBox="0 0 44 44" aria-hidden="true"><path d="M8 8l27 27M8 35h27V8"/></svg>
         <p class="hero-status"><span class="status-dot" aria-hidden="true"></span>Ищу стажировку в&nbsp;сфере маркетинга</p>
         <h1 id="name" class="hero-title"><span class="sr-only">Денис Бержанин — </span><span class="line" style="--i:0"><span class="line-inner">Исследования</span></span><span class="line" style="--i:1"><span class="line-inner">& брендинг</span></span></h1>
-        <p class="hero-summary">Изучаю рынки и поведение людей. <br>Работаю с данными и позиционированием.</p>
+        <p class="hero-summary">Специализируюсь на анализе рынков, потребительском поведении и&nbsp;позиционировании продуктов.</p>
         <span class="hero-link-label">Резюме и опыт <span aria-hidden="true">↗</span></span>
       </a>
       <div class="name-marquee" aria-hidden="true"><div class="name-track"><span>Berzhanin Denis —&nbsp;</span><span>Berzhanin Denis —&nbsp;</span><span>Berzhanin Denis —&nbsp;</span></div></div>
-      <div class="hero-bottom"><a class="scroll-link" href="#about">Листайте вниз <span aria-hidden="true">↓</span></a><span class="hero-controls"><button class="sound-toggle" type="button" aria-pressed="false" aria-label="Звуки интерфейса"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h2.5L8 3v10L4.5 10H2z"/><path class="sound-wave" d="M10.5 5.5a3.5 3.5 0 0 1 0 5M12.5 3.8a6 6 0 0 1 0 8.4"/></svg><span aria-hidden="true">Звук <span class="sound-state">выкл</span></span></button><button class="pause-motion" type="button" aria-pressed="false" aria-label="Остановить движение имени"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg></button></span></div>
+      <div class="hero-bottom"><a class="scroll-link" href="#about">Листайте вниз <span aria-hidden="true">↓</span></a><button class="pause-motion" type="button" aria-pressed="false" aria-label="Остановить движение имени"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg></button></div>
     </section>
     <section id="about" class="about section-light">
       <div class="section-top"><p class="eyebrow">Обо мне</p><span class="subtle">Маркетинг · исследования · брендинг</span></div>

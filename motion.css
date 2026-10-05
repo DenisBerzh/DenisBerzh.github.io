@@ -4,7 +4,7 @@
 .page-curtain::before{top:-12vh;border-radius:50% 50% 0 0}.page-curtain::after{bottom:-12vh;border-radius:0 0 50% 50%}
 .page-curtain.is-active,html[data-motion-entry] .page-curtain{display:flex}.page-curtain.is-active{pointer-events:auto}
 .curtain-label{display:flex;gap:18px;align-items:center;font-size:clamp(26px,4vw,52px);letter-spacing:-.035em;opacity:0}.page-curtain.is-active .curtain-label{opacity:1}.curtain-label::before{content:"";width:7px;height:7px;background:currentColor;border-radius:50%;flex:none}
-html[data-motion-entry] .page-curtain:not(.is-active){animation:curtain-failsafe .4s ease 3s forwards}@keyframes curtain-failsafe{to{visibility:hidden;transform:translateY(-125vh)}}
+html[data-motion-entry] .page-curtain:not(.is-active){animation:curtain-failsafe .4s ease 4.2s forwards}@keyframes curtain-failsafe{to{visibility:hidden;transform:translateY(-125vh)}}
 body.page-leaving,body.page-entering{overflow:hidden}
 .menu[open]{animation:none;overflow:visible;will-change:transform}.menu::before{content:"";position:absolute;left:-80px;top:0;width:80px;height:100%;border-radius:100% 0 0 100%;background:inherit;transform:scaleX(0);transform-origin:right;pointer-events:none}
 .menu.is-opening::before{animation:menu-edge .65s var(--ease)}.menu.is-closing::before{animation:menu-edge .42s var(--ease) reverse}@keyframes menu-edge{from{transform:scaleX(1)}to{transform:scaleX(0)}}

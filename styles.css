@@ -988,42 +988,16 @@ dialog.menu .eyebrow{padding-bottom:20px}
   .resume-portrait .portrait-status{position:static;grid-column:1 / -1;grid-row:3;justify-self:start;max-width:100%;background:none;border-color:var(--line);box-shadow:none}
 }
 
-/* 34. Переключатель звука. Звук выключен по умолчанию; состояние видно
-       и иконкой (волны), и словом «вкл/выкл» (better-accessibility: не только иконкой). */
-.hero-controls{display:flex;align-items:center;gap:12px}
-.sound-toggle{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 12px;border:1px solid #ffffff80;border-radius:99px;background:transparent;color:inherit;font:500 var(--fs-label)/1 var(--font-label);transition:background-color .2s,color .2s,border-color .2s}
-.sound-toggle svg{width:16px;height:16px;stroke-width:1.5}
-.sound-toggle .sound-wave{opacity:.35;transition:opacity .2s}
-.sound-toggle[aria-pressed="true"] .sound-wave{opacity:1}
-.sound-toggle .sound-state{opacity:.7;font-variant-numeric:tabular-nums}
-@media(hover:hover){.hero .sound-toggle:hover{background:#fff;color:var(--ink);border-color:#fff}}
-.menu-sound{align-self:flex-start;margin-top:auto;border-color:#ffffff40;color:#fff}
-.menu-sound+.menu-contacts{margin-top:24px}
-@media(hover:hover){.menu-sound:hover{background:#fff;color:var(--ink);border-color:#fff}}
-
-/* 35. Инструменты в резюме — строки, как таблица характеристик: иконка, название,
-       шкала, процент у конца шкалы. Плотные данные — строками, без карточек;
-       группы разделены пространством, линии только между строками (better-layout).
-       Иконки — значки приложений: фирменный фон и знак. */
-.cv-tools .tools-title{margin:0 0 6px;font:500 var(--fs-label)/1.4 var(--font-label);color:var(--text-secondary);letter-spacing:.01em}
-.cv-tools .tools+.tools-title{margin-top:36px}
-.tools{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(28px,4vw,56px)}
-.tool{display:grid;grid-template-columns:28px minmax(0,1fr) minmax(56px,.9fr) 3.2em;align-items:center;column-gap:14px;min-height:52px;padding:10px 0;border-bottom:1px solid var(--line)}
-.skill-icon{display:grid;place-items:center;width:28px;height:28px;border-radius:7px;background:var(--brand);color:var(--glyph,#fff);transition:scale var(--dur-fast) ease-out}
-.skill-icon svg{width:15px;height:15px;fill:currentColor}
-.skill-mono{font:600 9px/1 var(--font-text);letter-spacing:-.01em}
-.skill-mono-ya{font-size:14px}
-.tool-name{font:500 var(--fs-small)/1.3 var(--font-text);color:var(--text-primary)}
-.tool-note{display:block;font:500 12px/1.3 var(--font-label);color:var(--text-secondary)}
-.skill-track{display:block;position:relative;height:4px;border-radius:2px;background:#ececec}
-.skill-fill{display:block;height:100%;border-radius:2px;background:var(--ink);transform-origin:left;transform:scaleX(var(--p))}
-/* Точка на конце шкалы едет вместе с заполнением (позиция — от той же переменной). */
-.skill-track::after{content:"";position:absolute;top:50%;left:calc(var(--v,0) * 100%);width:8px;height:8px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 3px var(--paper);translate:-50% -50%;pointer-events:none}
-.skill-track:not([style])::after{display:none}
-.tool-level{justify-self:end;font:500 var(--fs-label)/1 var(--font-label);color:var(--text-primary);font-variant-numeric:tabular-nums}
-.tool-level-text{grid-column:3 / -1;color:var(--text-secondary)}
-@media(hover:hover){.tool:hover .skill-icon{scale:1.08}}
-@media(max-width:1000px){.tools{grid-template-columns:minmax(0,1fr)}}
+/* 36. Описание на первом экране: строки ровной длины, без одинокого слова. */
+.hero--silhouette .hero-summary{text-wrap:balance;max-width:34em}
+/* Невысокие экраны ноутбуков: описание в 3 строки — компактнее стрелка и отступы,
+   чтобы кнопка не подходила к бегущему имени. */
+@media(min-width:701px) and (max-height:820px){
+  .hero--silhouette .arrow-diagonal{width:32px;height:32px;margin-bottom:12px}
+  .hero-intro .hero-status{margin-bottom:16px}
+  .hero--silhouette .hero-summary{margin-top:16px}
+  .hero--silhouette .hero-link-label{margin-top:22px}
+}
 
 /* Без движения — без сжатия на нажатие. */
 @media(prefers-reduced-motion:reduce){

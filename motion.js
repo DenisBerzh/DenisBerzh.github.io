@@ -68,16 +68,28 @@
   if(!mode || !canMove())finishEntry();
   else{
     curtain.classList.add('is-active');body.classList.add('page-entering');label.textContent=mode==='intro'?'Исследовать.':pageName;
+    // Words cross-fade: the old one rises and fades out, the next rises in from below.
+    const swap=text=>{
+      if(entryStopped)return;
+      const out=label.animate([{opacity:1,transform:'translateY(0)',filter:'blur(0)'},{opacity:0,transform:'translateY(-14px)',filter:'blur(4px)'}],{duration:220,easing:'cubic-bezier(.4,0,1,1)',fill:'forwards'});
+      out.finished.catch(()=>{}).then(()=>{
+        if(entryStopped)return;
+        label.textContent=text;out.cancel();
+        label.animate([{opacity:0,transform:'translateY(14px)',filter:'blur(4px)'},{opacity:1,transform:'translateY(0)',filter:'blur(0)'}],{duration:320,easing:'cubic-bezier(.22,1,.36,1)'});
+      });
+    };
     if(mode==='intro'){
-      entryTimers.push(setTimeout(()=>{label.textContent='Создавать.';},130));
-      entryTimers.push(setTimeout(()=>{label.textContent='Денис Бержанин';},270));
+      label.animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'translateY(0)'}],{duration:320,easing:'cubic-bezier(.22,1,.36,1)'});
+      entryTimers.push(setTimeout(()=>swap('Создавать.'),420));
+      entryTimers.push(setTimeout(()=>swap('Денис Бержанин'),860));
     }
     entryTimers.push(setTimeout(async()=>{
       if(entryStopped)return;
-      await animate(curtain,[{transform:'translateY(0)'},{transform:'translateY(-125vh)'}],{duration:420,easing:'cubic-bezier(.65,0,.2,1)'});
+      label.animate([{opacity:1},{opacity:0}],{duration:300,easing:'ease-out',fill:'forwards'});
+      await animate(curtain,[{transform:'translateY(0)'},{transform:'translateY(-125vh)'}],{duration:900,easing:'cubic-bezier(.76,0,.24,1)'});
       finishEntry();
-    },mode==='intro'?430:120));
-    entryTimers.push(setTimeout(finishEntry,2800));
+    },mode==='intro'?1400:120));
+    entryTimers.push(setTimeout(finishEntry,4000));
   }
   // Let visitors dismiss the short intro without activating a covered link.
   curtain.addEventListener('click', event => {if(root.dataset.motionEntry==='intro'){event.preventDefault();event.stopPropagation();finishEntry();}});

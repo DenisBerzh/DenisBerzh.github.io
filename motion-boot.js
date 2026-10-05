@@ -12,5 +12,5 @@
   // and waits for the curtain when there is one.
   const root = document.documentElement, entry = root.dataset.motionEntry;
   root.classList.add('motion-intro');
-  root.style.setProperty('--intro-delay', entry === 'intro' ? '.85s' : entry === 'page' ? '.5s' : '0s');
+  root.style.setProperty('--intro-delay', entry === 'intro' ? '1.75s' : entry === 'page' ? '.5s' : '0s');
 })();
