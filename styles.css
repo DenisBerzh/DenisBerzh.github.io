@@ -1001,15 +1001,15 @@ dialog.menu .eyebrow{padding-bottom:20px}
 .menu-sound+.menu-contacts{margin-top:24px}
 @media(hover:hover){.menu-sound:hover{background:#fff;color:var(--ink);border-color:#fff}}
 
-/* 35. Инструменты: плитки с иконкой, названием и шкалой. Иконки чёрно-белые,
-       при наведении — фирменный цвет. Шкала заполняется при прокрутке. */
+/* 35. Инструменты: плитки с иконкой, названием и шкалой. Иконки — как значки
+       приложений: фирменный фон и знак, чтобы узнавались с первого взгляда. Шкала заполняется при прокрутке. */
 .skills{padding-top:var(--gap-section)}
 .skill-group{margin-top:56px}
 .skill-group+.skill-group{margin-top:48px}
 .skill-group-title{margin:0 0 20px;font:500 var(--fs-label)/1.4 var(--font-label);color:var(--text-secondary);letter-spacing:.01em}
 .skill-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
 .skill{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"icon name" "level level";align-items:center;column-gap:14px;row-gap:18px;padding:22px 22px 20px;box-shadow:inset 0 0 0 .5px var(--line),0 0 0 .5px var(--line)}
-.skill-icon{grid-area:icon;display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:#f2f2f2;color:var(--ink);transition:color .2s ease-out,background-color .2s ease-out}
+.skill-icon{grid-area:icon;display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:var(--brand);color:var(--glyph,#fff);transition:scale var(--dur-fast) ease-out}
 .skill-icon svg{width:20px;height:20px;fill:currentColor}
 .skill-mono{font:600 12px/1 var(--font-text);letter-spacing:-.01em}
 .skill-mono-ya{font-size:19px}
@@ -1022,7 +1022,7 @@ dialog.menu .eyebrow{padding-bottom:20px}
 .skill-level-text{align-self:end;padding-top:2px}
 .skill-note{color:var(--text-secondary)}
 @media(hover:hover){
-  .skill:hover .skill-icon{color:#fff;background:var(--brand)}
+  .skill:hover .skill-icon{scale:1.06}
   .skill:hover .skill-fill{background:var(--brand)}
 }
 .motion-ready .skill-group:not(.visible) .skill-fill{transform:scaleX(0)}
