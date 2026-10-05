@@ -279,7 +279,7 @@
       element.setAttribute('data-wipe','');
       element.style.setProperty('--d',[...element.parentElement.children].filter(c=>!c.hidden).indexOf(element)%3);
     });
-    document.querySelectorAll('.language-score').forEach(element=>element.setAttribute('data-count',''));
+    document.querySelectorAll('.language-score,.skill-pct').forEach(element=>element.setAttribute('data-count',''));
     document.querySelectorAll('.round-link').forEach(element=>element.setAttribute('data-pop',''));
     const entrances=[...document.querySelectorAll('[data-split],[data-wipe],[data-count],[data-pop]')];
     // On screen at load: shown as is. Only what scrolling reaches gets an entrance.
