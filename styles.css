@@ -1001,32 +1001,27 @@ dialog.menu .eyebrow{padding-bottom:20px}
 .menu-sound+.menu-contacts{margin-top:24px}
 @media(hover:hover){.menu-sound:hover{background:#fff;color:var(--ink);border-color:#fff}}
 
-/* 35. Инструменты: плитки с иконкой, названием и шкалой. Иконки — как значки
-       приложений: фирменный фон и знак, чтобы узнавались с первого взгляда. Шкала заполняется при прокрутке. */
-.skills{padding-top:var(--gap-section)}
-.skill-group{margin-top:56px}
-.skill-group+.skill-group{margin-top:48px}
-.skill-group-title{margin:0 0 20px;font:500 var(--fs-label)/1.4 var(--font-label);color:var(--text-secondary);letter-spacing:.01em}
-.skill-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
-.skill{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"icon name" "level level";align-items:center;column-gap:14px;row-gap:18px;padding:22px 22px 20px;box-shadow:inset 0 0 0 .5px var(--line),0 0 0 .5px var(--line)}
-.skill-icon{grid-area:icon;display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:var(--brand);color:var(--glyph,#fff);transition:scale var(--dur-fast) ease-out}
-.skill-icon svg{width:20px;height:20px;fill:currentColor}
-.skill-mono{font:600 12px/1 var(--font-text);letter-spacing:-.01em}
-.skill-mono-ya{font-size:19px}
-.skill-name{grid-area:name;margin:0;font:500 var(--fs-body)/1.3 var(--font-text)}
-.skill-meter{grid-area:level;display:block}
-.skill-track{display:block;height:3px;border-radius:2px;background:var(--line);overflow:hidden}
-.skill-fill{display:block;height:100%;background:var(--ink);transform-origin:left;transform:scaleX(var(--p));transition:transform 1.2s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--d,0) * 60ms)}
-.skill-level{grid-area:level;margin:0;font:500 var(--fs-label)/1 var(--font-label);color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.skill-meter+.skill-level{grid-area:auto;grid-column:1 / -1;margin-top:-8px}
-.skill-level-text{align-self:end;padding-top:2px}
-.skill-note{color:var(--text-secondary)}
-@media(hover:hover){
-  .skill:hover .skill-icon{scale:1.06}
-  .skill:hover .skill-fill{background:var(--brand)}
-}
-.motion-ready .skill-group:not(.visible) .skill-fill{transform:scaleX(0)}
-@media(max-width:600px){.skill-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.skill{padding:16px 14px;column-gap:10px}.skill-icon{width:34px;height:34px}.skill-name{font-size:var(--fs-small)}}
+/* 35. Инструменты в резюме — строки, как таблица характеристик: иконка, название,
+       шкала, процент у конца шкалы. Плотные данные — строками, без карточек;
+       группы разделены пространством, линии только между строками (better-layout).
+       Иконки — значки приложений: фирменный фон и знак. */
+.cv-tools .tools-title{margin:0 0 6px;font:500 var(--fs-label)/1.4 var(--font-label);color:var(--text-secondary);letter-spacing:.01em}
+.cv-tools .tools+.tools-title{margin-top:36px}
+.tools{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(28px,4vw,56px)}
+.tool{display:grid;grid-template-columns:28px minmax(0,1fr) minmax(56px,.9fr) 3.2em;align-items:center;column-gap:14px;min-height:52px;padding:10px 0;border-bottom:1px solid var(--line)}
+.skill-icon{display:grid;place-items:center;width:28px;height:28px;border-radius:7px;background:var(--brand);color:var(--glyph,#fff);transition:scale var(--dur-fast) ease-out}
+.skill-icon svg{width:15px;height:15px;fill:currentColor}
+.skill-mono{font:600 9px/1 var(--font-text);letter-spacing:-.01em}
+.skill-mono-ya{font-size:14px}
+.tool-name{font:500 var(--fs-small)/1.3 var(--font-text);color:var(--text-primary)}
+.tool-note{display:block;font:500 12px/1.3 var(--font-label);color:var(--text-secondary)}
+.skill-track{display:block;height:2px;background:var(--line);overflow:hidden}
+.skill-fill{display:block;height:100%;background:var(--ink);transform-origin:left;transform:scaleX(var(--p));transition:transform 1.2s cubic-bezier(.22,1,.36,1),background-color .2s ease-out;transition-delay:calc(var(--d,0) * 70ms),0s}
+.tool-level{justify-self:end;font:500 var(--fs-label)/1 var(--font-label);color:var(--text-primary);font-variant-numeric:tabular-nums}
+.tool-level-text{grid-column:3 / -1;color:var(--text-secondary)}
+@media(hover:hover){.tool:hover .skill-icon{scale:1.08}}
+.motion-ready .cv-tools:not(.visible) .skill-fill{transform:scaleX(0)}
+@media(max-width:1000px){.tools{grid-template-columns:minmax(0,1fr)}}
 
 /* Без движения — без сжатия на нажатие. */
 @media(prefers-reduced-motion:reduce){
