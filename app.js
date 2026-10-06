@@ -3,7 +3,10 @@
   const filters = document.querySelector('.portfolio-filters');
   const cards = [...document.querySelectorAll('.portfolio-card')];
   const more = document.querySelector('#more-presentations');
-  const categoryNames = {all: 'Все работы', presentations: 'Презентации', interfaces: 'Интерфейсы', identity: 'Айдентика и графика'};
+  const en = document.documentElement.lang === 'en';
+  const categoryNames = en
+    ? {all: 'All work', presentations: 'Presentations', interfaces: 'Interfaces', identity: 'Identity & graphics'}
+    : {all: 'Все работы', presentations: 'Презентации', interfaces: 'Интерфейсы', identity: 'Айдентика и графика'};
   const extraCards = cards.filter(card => card.hasAttribute('data-extra-presentation'));
   const results = document.querySelector('#portfolio-results');
   const reset = document.querySelector('#reset-filter');
@@ -18,8 +21,8 @@
   const updateCount = () => {
     const count = cards.filter(card => !card.hidden).length;
     const total = cards.filter(card => activeCategory === 'all' || card.dataset.category === activeCategory).length;
-    document.querySelector('#visible-count').textContent = `Показано ${count} из ${total}`;
-    document.querySelector('#filter-status').textContent = `${categoryNames[activeCategory]}. Показано работ: ${count} из ${total}`;
+    document.querySelector('#visible-count').textContent = en ? `Showing ${count} of ${total}` : `Показано ${count} из ${total}`;
+    document.querySelector('#filter-status').textContent = en ? `${categoryNames[activeCategory]}. Showing ${count} of ${total} works` : `${categoryNames[activeCategory]}. Показано работ: ${count} из ${total}`;
   };
   const animateCards = () => {
     if (!canMove()) return;
@@ -35,7 +38,9 @@
     });
     more.hidden = activeCategory !== 'all' && activeCategory !== 'presentations';
     more.setAttribute('aria-expanded', String(expanded));
-    more.querySelector('.more-label').innerHTML = expanded ? 'Свернуть презентации <span aria-hidden="true">−</span>' : 'Ещё 5 презентаций <span aria-hidden="true">+</span>';
+    more.querySelector('.more-label').innerHTML = expanded
+      ? (en ? 'Show fewer presentations' : 'Свернуть презентации') + ' <span aria-hidden="true">−</span>'
+      : (en ? '5 more presentations' : 'Ещё 5 презентаций') + ' <span aria-hidden="true">+</span>';
     filters.querySelectorAll('[data-filter]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === activeCategory)));
     reset.hidden = activeCategory === 'all';
     document.querySelector('#selected-category').textContent = categoryNames[activeCategory];
@@ -82,7 +87,7 @@
   const slideImage = viewer.querySelector('#slide-image');
   const loadStatus = viewer.querySelector('.slide-load-status');
   slideImage.addEventListener('load', () => { slideImage.classList.remove('is-loading'); loadStatus.hidden = true; });
-  slideImage.addEventListener('error', () => { loadStatus.textContent = 'Не удалось загрузить изображение. Откройте изображение по ссылке ниже.'; loadStatus.hidden = false; });
+  slideImage.addEventListener('error', () => { loadStatus.textContent = en ? 'The image could not load. Open it with the link below.' : 'Не удалось загрузить изображение. Откройте изображение по ссылке ниже.'; loadStatus.hidden = false; });
   const previous = viewer.querySelector('.slide-prev');
   const next = viewer.querySelector('.slide-next');
   let activeWork = 0;
@@ -96,13 +101,13 @@
     viewer.querySelector('.slide-stage').tabIndex = work.view === 'panorama' ? 0 : -1;
     viewer.querySelector('.slide-stage').scrollLeft = 0;
     slideImage.classList.add('is-loading');
-    loadStatus.textContent = 'Загрузка изображения…';
+    loadStatus.textContent = en ? 'Loading image…' : 'Загрузка изображения…';
     loadStatus.hidden = false;
     slideImage.src = slide.src;
     slideImage.alt = slide.alt;
     viewer.querySelector('#slide-status').textContent = `${activeSlide + 1} / ${work.slides.length}`;
     viewer.querySelector('.slide-original').href = slide.src;
-    viewer.querySelector('.slide-original').textContent = slide.original ? 'Увеличенная версия ↗' : 'Открыть изображение ↗';
+    viewer.querySelector('.slide-original').textContent = slide.original ? (en ? 'Upscaled version ↗' : 'Увеличенная версия ↗') : (en ? 'Open image ↗' : 'Открыть изображение ↗');
     viewer.querySelector('.slide-source').hidden = !slide.original;
     viewer.querySelector('.slide-source').href = slide.original || slide.src;
     previous.disabled = activeSlide === 0;

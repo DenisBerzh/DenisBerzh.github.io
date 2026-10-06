@@ -26,6 +26,7 @@ body.is-over-contact .menu-toggle{border:1px solid #ffffff40}
 body.motion-paused .work-cursor,body.motion-paused .category-preview{display:none!important}body.motion-paused .contact-motion-inner{translate:none!important}body.motion-paused .contact::before{display:none}body.motion-paused .magnetic,body.motion-paused .magnetic>span{translate:none!important}body.motion-paused .name-track{animation-play-state:paused!important}body.motion-paused [data-reveal],body.motion-paused .menu nav a,body.motion-paused .magnetic-fill,body.motion-paused .slide-thumb{transition:none!important}
 
 html[data-motion-entry="intro"] .page-curtain::after{content:"Нажмите, чтобы пропустить";bottom:48px;top:auto;height:auto;background:none;text-align:center;font-size:12px;opacity:.6;border-radius:0}
+html[lang="en"][data-motion-entry="intro"] .page-curtain::after{content:"Click to skip"}
 
 /* ===== Анимации v3 ====================================================
    Эффектное движение — только на редких моментах: появление первого экрана

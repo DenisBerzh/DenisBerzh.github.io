@@ -1023,6 +1023,18 @@ dialog.menu .eyebrow{padding-bottom:20px}
 @media(hover:hover){.tool:hover .skill-icon{scale:1.08}}
 @media(max-width:1000px){.tools{grid-template-columns:minmax(0,1fr)}}
 
+/* 37. Переключатель языка RU · EN: текущий язык — точкой, второй — ссылкой. */
+.lang-switch{display:inline-flex;align-items:center;gap:2px;font:500 var(--fs-label)/1 var(--font-label);letter-spacing:.04em}
+.lang-switch>*{display:inline-grid;place-items:center;min-width:32px;min-height:32px;padding:0 6px;border-radius:99px}
+.lang-switch [aria-current]{box-shadow:inset 0 0 0 1px currentColor}
+.lang-switch a{opacity:.7;transition:opacity var(--dur-fast) ease-out}
+@media(hover:hover){.lang-switch a:hover{opacity:1}}
+.menu-lang{margin-top:auto;align-self:flex-start;color:#fff}
+.menu-lang+.menu-contacts{margin-top:20px}
+@media(max-width:600px){.header .lang-switch{display:none}}
+.not-found-en{margin-top:28px;font-size:var(--fs-small);color:var(--text-secondary)}
+.not-found-en a{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+
 /* Без движения — без сжатия на нажатие. */
 @media(prefers-reduced-motion:reduce){
   .round-link:active,.header-write:active,.all-filter:active,.download-resume:active,

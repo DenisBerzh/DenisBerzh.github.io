@@ -38,8 +38,30 @@
 (() => {
   const viewer = document.querySelector('#event-photo-viewer');
   if (!viewer) return;
-  const base = 'assets/events/';
-  const groups = {
+  // Photo folder relative to this page (works from / and from /en/).
+  const base = (document.querySelector('[data-event-photo]')?.getAttribute('href') || 'assets/events/x').replace(/[^/]+$/, '');
+  const en = document.documentElement.lang === 'en';
+  const groups = en ? {
+    teams: {
+      title: 'Ya v Dele',
+      photos: [
+        ['team-meeting', 'Meeting with project participants'],
+        ['team-discussion', 'Working through a problem statement with a team'],
+        ['team-workshop', 'Discussing a project with the audience'],
+        ['team-group', 'Group photo after a session'],
+        ['project-discussion', 'Project discussion around a table']
+      ]
+    },
+    vtb: {
+      title: 'VTB · training and case',
+      photos: [
+        ['vtb-stage', 'VTB event participants on stage'],
+        ['vtb-team', 'Team photo at the VTB event'],
+        ['vtb-learning', 'Training at the VTB event']
+      ]
+    },
+    events: {title: 'Events', photos: [['event-visit', 'Photo at a stand during an event']]}
+  } : {
     teams: {
       title: '«Я в деле»',
       photos: [

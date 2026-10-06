@@ -56,7 +56,10 @@
 
   // Introduction and page changes share a curved curtain. All wording is the user's own.
   const curtain=document.querySelector('.page-curtain'), label=curtain.querySelector('.curtain-label');
-  const pageName=body.classList.contains('resume-page')?'Резюме':'Портфолио';
+  const en=root.lang==='en';
+  const L=en?{cv:'CV',portfolio:'Portfolio',w1:'Research.',w2:'Create.',name:'Denis Berzhanin',pick:'Select',view:'View',play:'Resume animations',stop:'Pause animations'}
+           :{cv:'Резюме',portfolio:'Портфолио',w1:'Исследовать.',w2:'Создавать.',name:'Денис Бержанин',pick:'Выбрать',view:'Смотреть',play:'Включить анимации',stop:'Остановить анимации'};
+  const pageName=body.classList.contains('resume-page')?L.cv:L.portfolio;
   let entryStopped=false, entryTimers=[];
   const finishEntry=()=>{
     entryStopped=true;entryTimers.forEach(clearTimeout);entryTimers=[];
@@ -67,7 +70,7 @@
   const mode=root.dataset.motionEntry;
   if(!mode || !canMove())finishEntry();
   else{
-    curtain.classList.add('is-active');body.classList.add('page-entering');label.textContent=mode==='intro'?'Исследовать.':pageName;
+    curtain.classList.add('is-active');body.classList.add('page-entering');label.textContent=mode==='intro'?L.w1:pageName;
     // Words cross-fade: the old one rises and fades out, the next rises in from below.
     const swap=text=>{
       if(entryStopped)return;
@@ -80,8 +83,8 @@
     };
     if(mode==='intro'){
       label.animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'translateY(0)'}],{duration:320,easing:'cubic-bezier(.22,1,.36,1)'});
-      entryTimers.push(setTimeout(()=>swap('Создавать.'),420));
-      entryTimers.push(setTimeout(()=>swap('Денис Бержанин'),860));
+      entryTimers.push(setTimeout(()=>swap(L.w2),420));
+      entryTimers.push(setTimeout(()=>swap(L.name),860));
     }
     entryTimers.push(setTimeout(async()=>{
       if(entryStopped)return;
@@ -113,7 +116,7 @@
     event.preventDefault();if(navigating)return;navigating=true;
     finishEntry();await closeMenu();
     if(canMove()){
-      label.textContent=/resume\.html$/.test(url.pathname)?'Резюме':'Портфолио';
+      label.textContent=/resume\.html$/.test(url.pathname)?L.cv:L.portfolio;
       curtain.classList.add('is-active');body.classList.add('page-leaving');
       storage.set('portfolio.navigation',JSON.stringify({path:url.pathname,time:Date.now()}));
       await animate(curtain,[{transform:'translateY(125vh)'},{transform:'translateY(0)'}],{duration:640,easing:'cubic-bezier(.65,0,.35,1)'});
@@ -195,7 +198,7 @@
     if(preview){const hw=preview.offsetWidth/2+12,hh=preview.offsetHeight/2+12;position.ptx=Math.max(hw,Math.min(innerWidth-hw,event.clientX));position.pty=Math.max(hh,Math.min(innerHeight-hh,event.clientY));}
     if(fresh){position.x=position.tx;position.y=position.ty;position.px=position.ptx;position.py=position.pty;}
     if(target!==hoverTarget){
-      hoverTarget=target;cursorText.textContent=category?'Выбрать':'Смотреть';
+      hoverTarget=target;cursorText.textContent=category?L.pick:L.view;
       if(category && preview){track.style.transform=`translateY(-${Number(target.dataset.preview)*100}%)`;preview.classList.add('visible');}else preview?.classList.remove('visible');
       cursor.classList.toggle('is-visible',!category);body.classList.toggle('cursor-over-work',!category);
     }
@@ -335,7 +338,7 @@
   };
   const pause=document.querySelector('.pause-motion');
   const updatePause=()=>{
-    const paused=body.classList.contains('motion-paused');pause?.setAttribute('aria-pressed',String(paused));pause?.setAttribute('aria-label',paused?'Включить анимации':'Остановить анимации');
+    const paused=body.classList.contains('motion-paused');pause?.setAttribute('aria-pressed',String(paused));pause?.setAttribute('aria-label',paused?L.play:L.stop);
     pause?.querySelector('path').setAttribute('d',paused?'M5 3l8 5-8 5V3Z':'M5 3v10M11 3v10');
   };
   pause?.addEventListener('click',()=>{body.classList.toggle('motion-paused');storage.set('portfolio.motionPaused',String(body.classList.contains('motion-paused')));resetMotion();updatePause();});updatePause();
