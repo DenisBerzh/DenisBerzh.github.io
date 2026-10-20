@@ -39,3 +39,5 @@ Copy update (2026-10-05), facts confirmed by the user: bio «студент-ма
 English version (2026-10-06): /en/index.html and /en/resume.html are GENERATED from the Russian pages by tools/build_en.py with the dictionary tools/en.py. Edit the Russian page, add any new strings to en.py, then run `python tools/build_en.py`; never hand-edit /en/. Scripts pick strings by <html lang>. English PDF (2026-10-20): assets/denis-berzhanin-cv-en.pdf is rendered from tools/cv-en.html by `node tools/cv-pdf.js`; the English CV button links it. Keep its facts in sync with en/resume.html.
 
 LinkedIn (2026-10-20): https://www.linkedin.com/in/denisberzhanin/ — in menu contacts, CV contacts and footer contacts on both pages. Publication link: «Практический маркетинг», 2025, № 3, pp. 26–33, DOI 10.24412/2071-3762-2025-3333-26-33. Tool meters: the user set ChatGPT, Claude and PowerPoint to 90%.
+
+Analytics (2026-10-20): Yandex Metrica counter 113702455 (webvisor, clickmap, trackLinks) is in <head> of index.html, resume.html and 404.html; /en/ pages get it via build_en.py. Requested by the user.
