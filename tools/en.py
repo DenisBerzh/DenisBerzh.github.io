@@ -182,7 +182,7 @@ T = {
 "3 диплома и 3 сертификата": "3 award diplomas and 3 certificates",
 "Презентации, интерфейсы, графика": "Presentations, interfaces, graphics",
 "Скачать резюме": "Download CV",
-"PDF · 2,9 МБ": "PDF · RU",
+"PDF · 2,9 МБ": "PDF · 330 KB",
 "Изучаю людей.": "I study people.",
 "Нахожу закономерности.": "I find patterns.",
 "Объясняю решения.": "I explain decisions.",
@@ -355,4 +355,9 @@ T = {
 "Программа развития молодёжного предпринимательства · Москва": "Moscow youth entrepreneurship programme",
 "Предпринимательский курс.": "Entrepreneurship course.",
 ": Я в деле": ": Ya v Dele",
+# publication link (2026-10-20)
+"Соавтор статьи «Рынок безалкогольных напитков: аспекты правового регулирования и брендинг для нового поколения потребителей» — «Практический маркетинг», 2025, № 3, журнал из перечня ВАК.":
+ "Co-author of “The Non-Alcoholic Beverage Market: Legal Regulation and Branding for a New Generation of Consumers”, Prakticheskiy Marketing journal, 2025, No. 3 (peer-reviewed, on Russia’s Higher Attestation Commission list).",
+"Читать статью ↗": "Read the article (in Russian) ↗",
+"Исследовательские работы и выступления на конференциях.": "Research papers and conference talks.",
 }

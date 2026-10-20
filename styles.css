@@ -1036,3 +1036,8 @@ dialog.menu .eyebrow{padding-bottom:20px}
   .slide-controls button:not(:disabled):active,.pause-motion:active,.menu-close:active{scale:none}
 }
 /* ДИЗАЙН v2 — конец */
+
+/* Ссылка на статью в «Публикациях»: подчёркнута, чтобы читалась как ссылка внутри текста. */
+.cv-article-link{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;white-space:nowrap}
+@media(hover:hover){.cv-article-link:hover{color:var(--accent)}}
+#cv-research p+p{margin-top:12px}
