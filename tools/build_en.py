@@ -58,6 +58,8 @@ def paths(src, page):
     src = re.sub(r'<span class="(lang-switch[^"]*)" aria-label="[^"]*"><span aria-current="true">RU</span><a href="\.\./en/([a-z]+\.html)" hreflang="en" lang="en">EN</a></span>',
                  r'<span class="\1" aria-label="Site language"><a href="../\2" hreflang="ru" lang="ru">RU</a><span aria-current="true">EN</span></span>', src)
     src = src.replace('href="../https:', 'href="https:')
+    # The English CV page offers the English PDF (source: tools/cv-en.html).
+    src = src.replace('href="../assets/denis-berzhanin-resume.pdf"', 'href="../assets/denis-berzhanin-cv-en.pdf"')
     src = src.replace('og:locale" content="ru_RU"', 'og:locale" content="en_US"')
     url = 'https://denisberzh.github.io/en/' + ('' if page == 'index.html' else page)
     src = re.sub(r'(<link rel="canonical" href=")[^"]*', r'\1' + url, src)
