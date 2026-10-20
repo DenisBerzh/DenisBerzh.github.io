@@ -22,7 +22,7 @@
     const count = cards.filter(card => !card.hidden).length;
     const total = cards.filter(card => activeCategory === 'all' || card.dataset.category === activeCategory).length;
     document.querySelector('#visible-count').textContent = en ? `Showing ${count} of ${total}` : `Показано ${count} из ${total}`;
-    document.querySelector('#filter-status').textContent = en ? `${categoryNames[activeCategory]}. Showing ${count} of ${total} works` : `${categoryNames[activeCategory]}. Показано работ: ${count} из ${total}`;
+    document.querySelector('#filter-status').textContent = en ? `${categoryNames[activeCategory]}. Showing ${count} of ${total} pieces` : `${categoryNames[activeCategory]}. Показано работ: ${count} из ${total}`;
   };
   const animateCards = () => {
     if (!canMove()) return;

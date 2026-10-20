@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://denisberzh.github.io/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://denisberzh.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://denisberzh.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://denisberzh.github.io/"/>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://denisberzh.github.io/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://denisberzh.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://denisberzh.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://denisberzh.github.io/"/>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://denisberzh.github.io/resume.html</loc>
-    <lastmod>2026-10-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://denisberzh.github.io/resume.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://denisberzh.github.io/en/resume.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://denisberzh.github.io/resume.html"/>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://denisberzh.github.io/en/resume.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://denisberzh.github.io/resume.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://denisberzh.github.io/en/resume.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://denisberzh.github.io/resume.html"/>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
