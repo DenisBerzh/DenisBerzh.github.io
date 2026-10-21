@@ -73,6 +73,46 @@
       first.scrollIntoView({behavior: canMove() ? 'smooth' : 'instant', block: 'start'});
     } else {showResults();}
   });
+  // Телефон и планшет: работы — компактные строки, раскрываются по нажатию (по одной).
+  // Без JS и на десктопе остаётся обычная сетка.
+  const compact = matchMedia('(max-width: 1100px)');
+  const labels = en ? {open: 'Expand', close: 'Collapse'} : {open: 'Развернуть', close: 'Свернуть'};
+  const setOpen = (card, open) => {
+    const toggle = card.querySelector('.work-toggle');
+    const image = card.querySelector('.slide-thumb');
+    card.classList.toggle('is-collapsed', !open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', `${open ? labels.close : labels.open}: ${card.querySelector('h3').textContent}`);
+    image.sizes = open ? image.dataset.sizes : '96px';
+  };
+  cards.forEach(card => {
+    const image = card.querySelector('.slide-thumb');
+    image.dataset.sizes = image.sizes;
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'work-toggle';
+    toggle.innerHTML = '<span aria-hidden="true"></span>';
+    card.append(toggle);
+    toggle.addEventListener('click', () => {
+      const open = card.classList.contains('is-collapsed');
+      cards.forEach(other => { if (other !== card) setOpen(other, false); });
+      setOpen(card, open);
+      if (!open) return;
+      requestAnimationFrame(() => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < 72 || rect.bottom > innerHeight) card.scrollIntoView({behavior: canMove() ? 'smooth' : 'instant', block: rect.height > innerHeight - 100 ? 'start' : 'center'});
+      });
+    });
+  });
+  const applyCompact = () => {
+    grid.classList.toggle('is-accordion', compact.matches);
+    cards.forEach(card => {
+      if (compact.matches) setOpen(card, false);
+      else { card.classList.remove('is-collapsed'); card.querySelector('.slide-thumb').sizes = card.querySelector('.slide-thumb').dataset.sizes; }
+    });
+  };
+  compact.addEventListener('change', applyCompact);
+  applyCompact();
   render();
   let resizeFrame = 0;
   addEventListener('resize', () => {
