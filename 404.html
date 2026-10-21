@@ -12,7 +12,7 @@
   <link rel="preload" href="/assets/fonts/InterDisplay500-cyr.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/InterTight-lat.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/Inter-lat.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/styles.css?v=design-27">
+  <link rel="stylesheet" href="/styles.css?v=design-28">
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -28,21 +28,48 @@
   <!-- /Yandex.Metrika counter -->
 </head>
 <body class="plain-page">
-  <a class="skip-link" href="#main">Перейти к содержанию</a>
+  <a class="skip-link" href="#main" data-ru="Перейти к содержанию" data-en="Skip to content">Перейти к содержанию</a>
   <header class="header">
-    <a class="wordmark" href="/" aria-label="Berzhanin Denis — на главную"><span class="copyright">©</span><span>Berzhanin Denis</span></a>
-    <div class="header-actions"><a class="header-write" href="https://t.me/denskoi" target="_blank" rel="noopener">Написать <span aria-hidden="true">↗</span></a></div>
+    <a class="wordmark" href="/" aria-label="Berzhanin Denis — на главную" data-home><span class="copyright">©</span><span>Berzhanin Denis</span></a><span class="lang-switch" aria-label="Язык страницы"><a href="/" hreflang="ru" lang="ru" data-lang="ru" aria-current="true">RU</a><a href="/en/" hreflang="en" lang="en" data-lang="en">EN</a></span>
+    <div class="header-actions"><a class="header-write" href="https://t.me/denskoi" target="_blank" rel="noopener"><span data-ru="Написать" data-en="Message me">Написать</span> <span aria-hidden="true">↗</span></a></div>
   </header>
+  <!-- GitHub Pages отдаёт один 404.html на любой адрес. Язык выбирается по адресу (/en/…)
+       или переключателем; без JavaScript страница русская со строкой на английском. -->
   <main id="main" class="not-found section-light">
-    <p class="eyebrow">Ошибка 404</p>
-    <h1>Такой страницы нет</h1>
-    <p class="not-found-text">Возможно, ссылка устарела или в адресе опечатка. Откройте главную страницу или резюме.</p>
-    <nav class="not-found-links" aria-label="Куда перейти">
+    <p class="eyebrow" data-ru="Ошибка 404" data-en="Error 404">Ошибка 404</p>
+    <h1 data-ru="Такой страницы нет" data-en="Page not found">Такой страницы нет</h1>
+    <p class="not-found-text" data-ru="Возможно, ссылка устарела или в адресе опечатка. Откройте главную страницу или резюме." data-en="The link may be out of date, or there may be a typo in the address. Go to the home page or the CV.">Возможно, ссылка устарела или в адресе опечатка. Откройте главную страницу или резюме.</p>
+    <nav class="not-found-links" aria-label="Куда перейти" data-ru-label="Куда перейти" data-en-label="Where to go">
       <!-- Те же «пилюли», что у кнопки скачивания резюме. -->
-      <a class="download-resume" href="/">На главную <span aria-hidden="true">↗</span></a>
-      <a class="download-resume" href="/resume.html">Резюме <span aria-hidden="true">↗</span></a>
+      <a class="download-resume" href="/" data-ru-href="/" data-en-href="/en/"><span data-ru="На главную" data-en="Home">На главную</span> <span aria-hidden="true">↗</span></a>
+      <a class="download-resume" href="/resume.html" data-ru-href="/resume.html" data-en-href="/en/resume.html"><span data-ru="Резюме" data-en="CV">Резюме</span> <span aria-hidden="true">↗</span></a>
     </nav>
     <p class="not-found-en" lang="en">Page not found. <a href="/en/">Go to the English version ↗</a></p>
   </main>
+  <script src="/analytics.js?v=goals-1" defer></script>
+  <script>
+    (() => {
+      const set = lang => {
+        const en = lang === 'en';
+        document.documentElement.lang = lang;
+        document.title = en ? 'Page not found — Denis Berzhanin' : 'Страница не найдена — Денис Бержанин';
+        document.querySelectorAll('[data-ru]').forEach(el => { el.textContent = el.dataset[lang]; });
+        document.querySelectorAll('[data-ru-href]').forEach(el => { el.href = el.dataset[lang + 'Href']; });
+        document.querySelectorAll('[data-ru-label]').forEach(el => el.setAttribute('aria-label', el.dataset[lang + 'Label']));
+        document.querySelector('[data-home]').href = en ? '/en/' : '/';
+        document.querySelector('[data-home]').setAttribute('aria-label', en ? 'Berzhanin Denis — home' : 'Berzhanin Denis — на главную');
+        document.querySelector('.lang-switch').setAttribute('aria-label', en ? 'Page language' : 'Язык страницы');
+        document.querySelectorAll('[data-lang]').forEach(el => el.toggleAttribute('aria-current', el.dataset.lang === lang));
+        document.querySelector('.not-found-en').hidden = true;
+      };
+      set(location.pathname.startsWith('/en/') ? 'en' : 'ru');
+      // On this page the switch changes the language in place instead of leaving it.
+      document.querySelectorAll('[data-lang]').forEach(el => el.addEventListener('click', event => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        set(el.dataset.lang);
+      }));
+    })();
+  </script>
 </body>
 </html>

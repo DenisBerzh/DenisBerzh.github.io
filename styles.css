@@ -796,7 +796,7 @@ button.more-presentations[aria-expanded="false"]:hover .more-label{background:va
        справа. Теперь это полоса во всю ширину: тезис | инструменты | контакты. */
 @media(min-width:721px) and (max-width:1280px){
   .cv-summary{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);column-gap:clamp(32px,4vw,64px);align-items:start;max-width:none}
-  .cv-thesis{font-size:clamp(22px,2.6vw,32px)}
+  .cv-thesis{font-size:clamp(20px,2.2vw,30px)}
   .cv-facts,.cv-contacts{margin-top:0}
 }
 @media(min-width:721px) and (max-width:1000px){
@@ -967,11 +967,11 @@ dialog.menu .eyebrow{padding-bottom:20px}
   .resume-portrait img{height:100%;aspect-ratio:auto;object-fit:cover;object-position:50% 22%}
 }
 .resume-portrait{position:relative}
-.resume-portrait .portrait-status{position:absolute;left:0;top:calc(100% + 14px);margin:0;padding:0;max-width:none;white-space:nowrap;border:0;border-radius:0;background:none;box-shadow:none}
+.resume-portrait .portrait-status{position:absolute;left:0;right:0;top:calc(100% + 14px);margin:0;padding:0;width:auto;max-width:none;white-space:normal;border:0;border-radius:0;background:none;box-shadow:none}
 .resume-portrait .portrait-status .status-dot{display:none}
 /* Планшет: фото маленькое — метка под фото, от его правого края. */
 @media(min-width:601px) and (max-width:1000px){
-  .resume-portrait .portrait-status{top:calc(100% + 14px);left:0;right:auto}
+  .resume-portrait .portrait-status{top:calc(100% + 14px);left:0;right:0}
 }
 /* Телефон: фото узкое (112px) — метка отдельной строкой под фото и подписью. */
 @media(max-width:600px){
@@ -1019,7 +1019,7 @@ dialog.menu .eyebrow{padding-bottom:20px}
 .lang-switch{display:inline-flex;align-items:center;gap:2px;font:500 var(--fs-label)/1 var(--font-label);letter-spacing:.04em}
 .lang-switch>*{display:inline-grid;place-items:center;min-width:32px;min-height:32px;padding:0 6px;border-radius:99px}
 .lang-switch [aria-current]{box-shadow:inset 0 0 0 1px currentColor}
-.lang-switch a{opacity:.7;transition:opacity var(--dur-fast) ease-out}
+.lang-switch a{opacity:.86;transition:opacity var(--dur-fast) ease-out}
 @media(hover:hover){.lang-switch a:hover{opacity:1}}
 /* В шапке переключатель стоит рядом с именем, меню и «Написать» — справа (вариант B). */
 .header .lang-switch{margin-left:20px;margin-right:auto}
@@ -1041,3 +1041,12 @@ dialog.menu .eyebrow{padding-bottom:20px}
 .cv-article-link{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;white-space:nowrap}
 @media(hover:hover){.cv-article-link:hover{color:var(--accent)}}
 #cv-research p+p{margin-top:12px}
+
+/* Полировка 2026-10-21: «/ 160» не рвётся на две строки на узком экране. */
+.language-score>span{white-space:nowrap}
+/* 404: текущий язык не приглушён; переключатель виден и на телефоне (меню там нет). */
+.lang-switch a[aria-current]{opacity:1}
+@media(max-width:600px){body.plain-page .header .lang-switch{display:inline-flex}}
+/* Телефон: у фигуры с фото display:contents, поэтому её прозрачность из анимации появления
+   ни на что не влияет, но проверки доступности считали подпись под фото невидимой. */
+@media(max-width:600px){.resume-portrait{opacity:1!important}}
