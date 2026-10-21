@@ -1050,3 +1050,6 @@ dialog.menu .eyebrow{padding-bottom:20px}
 /* Телефон: у фигуры с фото display:contents, поэтому её прозрачность из анимации появления
    ни на что не влияет, но проверки доступности считали подпись под фото невидимой. */
 @media(max-width:600px){.resume-portrait{opacity:1!important}}
+/* Зоны нажатия не меньше 24×24 (WCAG 2.2): невидимое поле вокруг коротких ссылок, вёрстка не сдвигается. */
+.desktop-nav a,.cv-article-link,footer a[href="#top"]{position:relative}
+.desktop-nav a::before,.cv-article-link::before,footer a[href="#top"]::before{content:"";position:absolute;inset:-10px -8px}

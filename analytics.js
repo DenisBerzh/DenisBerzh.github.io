@@ -18,6 +18,7 @@
     else if (href.startsWith('tel:')) goal('phone_click', { place });
     else if (link.matches('.download-resume') && href.endsWith('.pdf')) goal('resume_download', { file: href.split('/').pop() });
     else if (href.includes('doi.org/')) goal('article_click');
+    else if (href.includes('assets/certificates/') && href.endsWith('.pdf')) goal('certificate_open', { file: href.split('/').pop() });
     else if (link.closest('.lang-switch')) goal('language_switch', { to: link.getAttribute('hreflang') });
   }, { capture: true });
 })();
