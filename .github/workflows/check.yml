@@ -1,0 +1,24 @@
+# Runs on every pull request: broken links and files, then Lighthouse on the main pages.
+name: Site checks
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/check_site.py
+      - name: English pages are up to date with the Russian ones
+        run: python tools/build_en.py && git diff --exit-code -- en/
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./.github/lighthouserc.json
+          uploadArtifacts: true
