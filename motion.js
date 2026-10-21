@@ -63,14 +63,15 @@
   let entryStopped=false, entryTimers=[];
   const finishEntry=()=>{
     entryStopped=true;entryTimers.forEach(clearTimeout);entryTimers=[];
-    curtain.getAnimations().forEach(animation=>animation.cancel());
-    curtain.classList.remove('is-active');body.classList.remove('page-entering');curtain.style.transform='';delete root.dataset.motionEntry;
+    // subtree: the label keeps its fade-out (fill: forwards) otherwise, and the next curtain shows no word.
+    curtain.getAnimations({subtree:true}).forEach(animation=>animation.cancel());
+    curtain.classList.remove('is-active');body.classList.remove('page-entering');root.classList.remove('page-transition');curtain.style.transform='';delete root.dataset.motionEntry;
     storage.set('portfolio.introSeen','true');
   };
   const mode=root.dataset.motionEntry;
   if(!mode || !canMove())finishEntry();
   else{
-    curtain.classList.add('is-active');body.classList.add('page-entering');label.textContent=mode==='intro'?L.w1:pageName;
+    curtain.classList.add('is-active');body.classList.add('page-entering');root.classList.add('page-transition');label.textContent=mode==='intro'?L.w1:pageName;
     // Words cross-fade: the old one rises and fades out, the next rises in from below.
     const swap=text=>{
       if(entryStopped)return;
@@ -116,15 +117,24 @@
     event.preventDefault();if(navigating)return;navigating=true;
     finishEntry();await closeMenu();
     if(canMove()){
-      label.textContent=/resume\.html$/.test(url.pathname)?L.cv:L.portfolio;
-      curtain.classList.add('is-active');body.classList.add('page-leaving');
+      // The word is in the language of the page being opened, so the language switch does not swap it under the curtain.
+      const toEn=/^\/en\//.test(url.pathname), toCv=/resume\.html$/.test(url.pathname);
+      label.textContent=toCv?(toEn?'CV':'Резюме'):(toEn?'Portfolio':'Портфолио');
+      curtain.classList.add('is-active');body.classList.add('page-leaving');root.classList.add('page-transition');
       storage.set('portfolio.navigation',JSON.stringify({path:url.pathname,time:Date.now()}));
       await animate(curtain,[{transform:'translateY(125vh)'},{transform:'translateY(0)'}],{duration:640,easing:'cubic-bezier(.65,0,.35,1)'});
     }
     location.assign(url.href);
   });
   addEventListener('pageshow',event=>{
-    if(event.persisted){navigating=false;body.classList.remove('page-leaving');finishEntry();if(menu.open)menu.close();storage.remove('portfolio.navigation');}
+    if(!event.persisted)return;
+    // Back/forward cache restores the page still covered: lift the curtain instead of cutting it away.
+    navigating=false;storage.remove('portfolio.navigation');if(menu.open)menu.close();
+    const covered=curtain.classList.contains('is-active') && canMove();
+    body.classList.remove('page-leaving');
+    if(!covered){finishEntry();return;}
+    label.animate([{opacity:1},{opacity:0}],{duration:300,easing:'ease-out',fill:'forwards'});
+    animate(curtain,[{transform:'translateY(0)'},{transform:'translateY(-125vh)'}],{duration:900,easing:'cubic-bezier(.76,0,.24,1)'}).then(finishEntry);
   });
 
   // Every skill bar knows its value, so the end dot can sit at the end of the fill.
