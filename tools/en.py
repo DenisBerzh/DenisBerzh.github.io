@@ -5,6 +5,11 @@ T = {
 "Денис Бержанин — студент-маркетолог, ищу стажировку в сфере маркетинга. Исследования рынка и потребителей, позиционирование, брендинг. Опыт, резюме и сертификаты.":
  "Denis Berzhanin — marketing student looking for a marketing internship. Market and consumer research, positioning, branding. Projects, CV and certificates.",
 "Денис Бержанин": "Denis Berzhanin",
+"Чем могу быть полезен": "How I can help",
+"Исследования рынка и аудитории: опросы, интервью, выводы для команды": "Market and audience research: surveys, interviews, takeaways for the team",
+"Анализ конкурентов и позиционирование": "Competitor analysis and positioning",
+"Помощь с брендингом и маркетинговой аналитикой": "Help with branding and marketing analytics",
+"Формат и график гибкие, готов начать сразу": "Flexible format and schedule, ready to start right away",
 "Денис Бержанин — маркетолог · исследования и брендинг": "Denis Berzhanin — marketing · research & branding",
 "Денис Бержанин (Denis Berzhanin) — маркетолог · исследования и брендинг": "Denis Berzhanin — marketing · research & branding",
 "Денис Бержанин — маркетолог · исследования и брендинг, портрет и направления работ": "Denis Berzhanin — marketing · research & branding, portrait and areas of work",
