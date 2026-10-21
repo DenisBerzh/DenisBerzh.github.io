@@ -1234,39 +1234,42 @@ dialog.menu .eyebrow{padding-bottom:20px}
 @media(max-width:700px){.about-useful{grid-template-columns:1fr}.about-useful ul{grid-column:auto}}
 /* 20. Резюме тремя колонками, как в резюме-сайтах с тонкой типографикой: мелкая строка
        с датой или контекстом, название заглавными, описание серым, между пунктами — линии.
-       Инструменты со шкалами — в той же сетке: первая группа на две колонки, вторая — в третьей.
+       Инструменты — в колонке «Навыки»: маленькие иконки, тонкая шкала под названием, два столбца.
        Фото с проектов — отдельным разделом в конце страницы. */
 .cv-columns{--cv-gap:clamp(32px,4vw,64px)}
 .cv-head{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-bottom:12px;margin-bottom:clamp(40px,5vw,64px);border-bottom:1px solid var(--line)}
 .cv-head h2{margin:0;font:500 13px/1.4 var(--font-label);letter-spacing:.08em;text-transform:uppercase;color:var(--text-secondary)}
 .cv-pdf{display:inline-flex;align-items:center;gap:6px;min-height:44px;font:500 13px/1.4 var(--font-label);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:underline 1px var(--line);text-underline-offset:.35em}
 .cv-pdf:hover{color:var(--accent);text-decoration-color:currentColor}
-.cv-cols,.cv-tools-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--cv-gap)}
-.cv-col,.cv-tools-group{min-width:0}
-.cv-col h3,.cv-tools-block>h3{margin:0 0 8px;font:400 clamp(20px,1.7vw,26px)/1.2 var(--font-display);letter-spacing:.01em;text-transform:uppercase;color:var(--ink)}
+.cv-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--cv-gap)}
+.cv-col{min-width:0}
+.cv-col h3{margin:0 0 8px;font:400 clamp(20px,1.7vw,26px)/1.2 var(--font-display);letter-spacing:.01em;text-transform:uppercase;color:var(--ink)}
 .cv-col article{padding:20px 0 22px;border-bottom:1px solid var(--line)}
 .cv-col article:last-child{border-bottom:0}
 .cv-meta{margin:0 0 6px;font:600 11px/1.4 var(--font-label);letter-spacing:.02em;text-transform:uppercase;color:var(--text-primary)}
 .cv-col h4{margin:0;font:600 13px/1.4 var(--font-label);letter-spacing:.07em;text-transform:uppercase;color:var(--ink)}
 .cv-col article>p:not(.cv-meta){margin:10px 0 0;font-size:14px;line-height:1.6;color:var(--text-secondary);max-width:46ch}
-.cv-tools-block{margin-top:clamp(56px,7vw,96px)}
-.cv-tools-block>h3{margin-bottom:20px}
-.cv-tools-wide{grid-column:span 2}
-.cv-tools-grid .tools{grid-template-columns:minmax(0,1fr);column-gap:var(--cv-gap)}
-.cv-tools-wide .tools{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cv-tools-mini{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;row-gap:2px;margin-top:12px}
+.cv-tools-mini .tool{grid-template-columns:18px minmax(0,1fr) auto;grid-template-rows:auto auto;align-content:end;column-gap:8px;row-gap:5px;min-height:0;padding:6px 0;border-bottom:0}
+.cv-tools-mini .skill-icon{grid-row:1 / 3;align-self:center;width:18px;height:18px;border-radius:5px}
+.cv-tools-mini .skill-icon svg{width:10px;height:10px}
+.cv-tools-mini .skill-mono{font-size:6px}
+.cv-tools-mini .skill-mono-ya{font-size:10px}
+.cv-tools-mini .tool-name{font-size:13px;line-height:1.25}
+.cv-tools-mini .tool-note{font-size:11px}
+.cv-tools-mini .tool-level{font-size:11px;color:var(--text-secondary)}
+.cv-tools-mini .tool-meter{grid-column:2 / -1;grid-row:2}
+.cv-tools-mini .skill-track{height:2px}
+.cv-tools-mini .skill-track::after{width:6px;height:6px;box-shadow:0 0 0 2px var(--paper)}
 .resume-photos{padding-top:0;padding-bottom:clamp(64px,6vw,112px)}
 .cv-photo-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,24px)}
 .cv-photo-row .event-photo-link img{aspect-ratio:4/3;object-fit:cover}
 @media(max-width:1000px){
-  .cv-cols,.cv-tools-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .cv-tools-group{grid-column:1 / -1}
-  .cv-tools-grid .tools{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cv-cols{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 /* На телефоне всё в одну колонку, фото — лентой с прокруткой вбок. */
 @media(max-width:640px){
   .cv-cols{grid-template-columns:minmax(0,1fr);gap:40px}
-  .cv-tools-grid,.cv-tools-grid .tools{grid-template-columns:minmax(0,1fr)}
-  .cv-tools-grid{gap:32px}
   .cv-col article{padding:16px 0 18px}
   .cv-photo-row{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
   .cv-photo-row>*{scroll-snap-align:start}

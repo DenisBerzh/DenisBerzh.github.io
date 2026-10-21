@@ -280,7 +280,6 @@ T = {
 "с проектов": "photos",
 "9 фото": "9 photos",
 "Инструменты": "Tools",
-"Анализ, исследования и AI": "Analysis, research and AI",
 "Google Sheets и Forms": "Google Sheets & Forms",
 "Google Sheets и Forms: 80%": "Google Sheets & Forms: 80%",
 "изучаю": "learning",
@@ -289,7 +288,6 @@ T = {
 "Яндекс Метрика": "Yandex Metrica",
 "Яндекс Метрика: 40%": "Yandex Metrica: 40%",
 "базовый уровень": "basic",
-"Визуальная подача и организация": "Visual presentation and organisation",
 "уверенно": "confident",
 # skills
 "Навыки": "Skills",
