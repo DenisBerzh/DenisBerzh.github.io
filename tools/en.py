@@ -6,6 +6,7 @@ T = {
  "Denis Berzhanin — marketing student looking for a marketing internship. Market and consumer research, positioning, branding. Projects, CV and certificates.",
 "Денис Бержанин": "Denis Berzhanin",
 "Денис Бержанин — маркетолог · исследования и брендинг": "Denis Berzhanin — marketing · research & branding",
+"Денис Бержанин (Denis Berzhanin) — маркетолог · исследования и брендинг": "Denis Berzhanin — marketing · research & branding",
 "Денис Бержанин — маркетолог · исследования и брендинг, портрет и направления работ": "Denis Berzhanin — marketing · research & branding, portrait and areas of work",
 "Резюме — Денис Бержанин · исследования и брендинг": "CV — Denis Berzhanin · research & branding",
 "Портфолио": "Portfolio",
