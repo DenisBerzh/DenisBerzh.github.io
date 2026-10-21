@@ -1,160 +1,143 @@
 <!doctype html>
-<!-- Source of assets/denis-berzhanin-cv-en.pdf (one A4 page). Facts mirror en/resume.html.
-     Rebuild: node tools/cv-pdf.js -->
+<!-- Source of assets/denis-berzhanin-cv-en.pdf (one A4 page). Facts mirror en/resume.html and en/index.html.
+     Shared styles: tools/cv.css. Rebuild: node tools/cv-pdf.js -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <title>Denis Berzhanin — CV</title>
-<style>
-@font-face{font-family:"Inter Text";font-weight:400 600;src:url("../assets/fonts/Inter-lat.woff2") format("woff2")}
-@font-face{font-family:"Inter Display";font-weight:500;src:url("../assets/fonts/InterDisplay500-lat.woff2") format("woff2")}
-@page{size:A4;margin:0}
-:root{--ink:#1c1c1c;--muted:#5f5f5f;--line:#d2d2d2;--paper:#fff}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{width:210mm;height:297mm;overflow:hidden;font:400 8.3pt/1.4 "Inter Text",Arial,sans-serif;color:var(--ink);background:var(--paper);-webkit-print-color-adjust:exact;print-color-adjust:exact}
-a{color:inherit;text-decoration:none}
-p,h1,h2,h3,ul{margin:0;padding:0}
-ul{list-style:none}
-
-.head{display:grid;grid-template-columns:1fr 30mm;gap:10mm;align-items:end;padding:10mm 14mm 7mm;background:var(--ink);color:#fff}
-.head h1{font:500 30pt/1 "Inter Display","Inter Text",Arial,sans-serif;letter-spacing:-.035em}
-.head .role{margin-top:3mm;font-size:11pt;letter-spacing:-.01em}
-.head .goal{display:inline-flex;align-items:center;gap:2mm;margin-top:3mm;font-size:8.6pt;color:#e6e6e6}
-.head .goal::before{content:"";width:1.6mm;height:1.6mm;border-radius:50%;background:#fff}
-.contacts{display:flex;flex-wrap:wrap;gap:1.2mm 5mm;margin-top:4mm;font-size:8.2pt;color:#d6d6d6}
-.contacts b{font-weight:500;color:#fff}
-.photo{width:30mm;height:37mm;object-fit:cover;object-position:50% 22%;filter:grayscale(1);display:block}
-
-.body{display:grid;grid-template-columns:1fr 60mm;gap:4.5mm 9mm;padding:6mm 14mm 0}
-.summary{grid-column:1 / -1;font-size:9.4pt;line-height:1.42;letter-spacing:-.005em;padding-bottom:4mm;border-bottom:1px solid var(--line)}
-h2{font:600 7.4pt/1 "Inter Text",Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 3mm}
-section+section{margin-top:4.5mm}
-
-.job+.job{margin-top:3mm}
-.job h3{font-size:9.4pt;font-weight:600;letter-spacing:-.005em}
-.job h3 span{font-weight:400;color:var(--muted)}
-.job p{margin-top:.8mm}
-.job .res{margin-top:.8mm}
-.job .res b{font-weight:600}
-.job .note{margin-top:.6mm;font-size:7.6pt;color:var(--muted)}
-
-.side p+p,.side li+li{margin-top:1.2mm}
-.side .k{display:block;font-weight:600}
-.side .m{color:var(--muted)}
-.side li .m{white-space:nowrap}
-.tools li{display:flex;justify-content:space-between;gap:3mm}
-.tools li span:last-child{color:var(--muted);white-space:nowrap}
-.tools li+li{margin-top:.9mm}
-
-.foot{position:absolute;left:14mm;right:14mm;bottom:8mm;display:flex;justify-content:space-between;font-size:7.4pt;color:var(--muted);border-top:1px solid var(--line);padding-top:2.5mm}
-</style>
+<link rel="stylesheet" href="cv.css">
 </head>
 <body>
-<header class="head">
-  <div>
-    <h1>Denis<br>Berzhanin</h1>
-    <p class="role">Marketing student · Research &amp; branding</p>
-    <p class="goal">Looking for a marketing internship</p>
-    <p class="contacts">
-      <a href="mailto:den.berzhanin@mail.ru"><b>Email</b> den.berzhanin@mail.ru</a>
-      <a href="tel:+79160593839"><b>Phone</b> +7 916 059 38 39</a>
-      <a href="https://www.linkedin.com/in/denisberzhanin/"><b>LinkedIn</b> linkedin.com/in/denisberzhanin</a>
-      <a href="https://denisberzh.github.io/en/"><b>Portfolio</b> denisberzh.github.io/en</a>
-      <a href="https://t.me/denskoi"><b>Telegram</b> @denskoi</a>
-    </p>
-  </div>
-  <img class="photo" src="../assets/portrait-800.webp" alt="Portrait of Denis Berzhanin">
-</header>
+<aside>
+  <img class="photo" src="cv-photo.jpg" alt="Portrait of Denis Berzhanin">
 
-<div class="body">
-  <p class="summary">Marketing student at the Financial University. I specialise in market analysis, consumer behaviour and product positioning: surveys and in-depth interviews, segmentation, and turning data into recommendations I can present and defend.</p>
+  <section>
+    <h2>Contacts</h2>
+    <ul>
+      <li><span class="lbl">LinkedIn</span><a href="https://www.linkedin.com/in/denisberzhanin/">linkedin.com/in/denisberzhanin</a></li>
+      <li><span class="lbl">Email</span><a href="mailto:den.berzhanin@mail.ru">den.berzhanin@mail.ru</a></li>
+      <li><span class="lbl">Phone</span><a href="tel:+79160593839">+7 916 059 38 39</a></li>
+      <li><span class="lbl">Portfolio</span><a href="https://denisberzh.github.io/en/?utm_source=cv">denisberzh.github.io/en</a></li>
+      <li><span class="lbl">Telegram</span><a href="https://t.me/denskoi">@denskoi</a></li>
+    </ul>
+  </section>
 
-  <main>
-    <section>
-      <h2>Project experience</h2>
-      <div class="job">
-        <h3>Nerovill LLC <span>· market &amp; consumer research, rebranding</span></h3>
-        <p>Research commissioned by the company: a survey of ~100 people and 7 in-depth interviews. Showed, with brand examples, that branding alone can make water from the same well differ in price by more than 2×.</p>
-        <p class="res"><b>Result:</b> personally presented the rebranding recommendations; the client accepted all of them.</p>
-      </div>
-      <div class="job">
-        <h3>Aviasales <span>· coursework, 2026 · top grade</span></h3>
-        <p>Strategy for a new B2B line: PESTEL, SWOT and portfolio-matrix analysis, positioning and communication with corporate clients, a 6-month promotion plan, budget and KPI system. Built the financial case for its viability.</p>
-        <p class="note">Financial figures are scenario estimates; the programme was not launched.</p>
-      </div>
-      <div class="job">
-        <h3>Basic apparel line <span>· coursework, 2025 · top grade</span></h3>
-        <p>Based on market analysis and Lime’s practices, built a go-to-market model for 5 product categories: target audience, value proposition, range, pricing, sales channels and launch budget.</p>
-      </div>
-      <div class="job">
-        <h3>VTB Bank case championship <span>· team project</span></h3>
-        <p>In three days our team built a data model covering all of Moscow that identifies the best ATM locations, and pitched it to the bank’s representatives.</p>
-      </div>
-      <div class="job">
-        <h3>Ya v Dele <span>· youth entrepreneurship programme, mentor to two teams</span></h3>
-        <p>Trained participants, set tasks and deadlines, guided projects and prepared reports. Both teams took their projects through to the final pitch. Earlier: participant in the “BEZ TABU” educational project.</p>
-      </div>
-    </section>
+  <section>
+    <h2>Languages</h2>
+    <ul>
+      <li><b>English:</b> B2 (IELTS&nbsp;6.0, Duolingo&nbsp;110)</li>
+      <li><b>Russian:</b> native</li>
+    </ul>
+  </section>
 
-    <section>
-      <h2>Skills</h2>
-      <p><b>Research and strategy.</b> Market and competitor analysis, segmentation, surveys and in-depth interviews, primary and secondary data, positioning, SWOT / PEST, 4P / 7P.</p>
-      <p style="margin-top:1.4mm"><b>People and decisions.</b> Guiding teams, setting tasks and deadlines, reporting, presenting and defending results.</p>
-      <p style="margin-top:1.4mm"><b>Visual presentation.</b> Self-taught in design: presentations, interface concepts, logos and graphics.</p>
-    </section>
-    <section>
-      <h2>Publication</h2>
-      <p>Co-author of “The Non-Alcoholic Beverage Market: Legal Regulation and Branding for a New Generation of Consumers”. <span class="m">Prakticheskiy Marketing, 2025, No. 3 · peer-reviewed (HAC list)</span></p>
-    </section>
+  <section>
+    <h2>Skills</h2>
+    <ul class="bul">
+      <li>Surveys and in-depth interviews</li>
+      <li>Market and competitor analysis</li>
+      <li>Segmentation and positioning</li>
+      <li>SWOT, PEST, 4P / 7P</li>
+      <li>Presentations and visuals in Figma and Canva</li>
+      <li>Presenting and defending solutions</li>
+    </ul>
+  </section>
 
-  </main>
+  <section>
+    <h2>Tools</h2>
+    <p>Excel, Google Sheets &amp; Forms, PowerPoint, Figma, Canva, Photoshop, Yandex Wordstat, ChatGPT, Claude.</p>
+    <p class="m">Learning: amoCRM, Yandex Metrica, R, Python.</p>
+  </section>
 
-  <aside class="side">
-    <section>
-      <h2>Education</h2>
-      <p><span class="k">Financial University under the Government of the Russian Federation</span>Bachelor’s in Management (38.03.02), Marketing track</p>
-      <p class="m">3rd year · Higher School of Management</p>
-    </section>
+  <section>
+    <h2>Courses</h2>
+    <ul>
+      <li>International Eurasian Summer School, Lobachevsky University, 72&nbsp;hours, <span class="m">2026</span></li>
+      <li>Ya v Dele entrepreneurship course, 8&nbsp;weeks, <span class="m">2024</span></li>
+    </ul>
+  </section>
+</aside>
 
-    <section>
-      <h2>Languages</h2>
-      <p><span class="k">English — B2</span>IELTS Academic 6.0 / 9 · Duolingo English Test 110 / 160</p>
-      <p><span class="k">Russian — native</span></p>
-    </section>
+<main>
+  <h1>Denis<br>Berzhanin</h1>
+  <p class="role">Marketing student: market research and branding</p>
+  <p class="goal">Looking for a marketing internship. Any format and schedule, can start right away.</p>
 
-    <section>
-      <h2>Tools</h2>
-      <ul class="tools">
-        <li><span>ChatGPT, Claude</span><span>confident</span></li>
-        <li><span>PowerPoint, Excel</span><span>confident</span></li>
-        <li><span>Google Sheets &amp; Forms</span><span>confident</span></li>
-        <li><span>Figma, Canva</span><span>confident</span></li>
-        <li><span>Photoshop, Yandex Wordstat</span><span>working</span></li>
-        <li><span>amoCRM, Yandex Metrica</span><span>learning</span></li>
-        <li><span>R, Python</span><span>basic</span></li>
+  <section>
+    <h2>How I can help</h2>
+    <ul class="bul">
+      <li>Market and audience research: surveys, interviews, takeaways for the team</li>
+      <li>Competitor analysis and positioning</li>
+      <li>Help with branding and marketing analytics</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="item">
+      <h3>Nerovill LLC</h3>
+      <p class="sub">Market research and rebranding, a project commissioned by the company</p>
+      <ul class="bul">
+        <li>Ran a survey of ~100 people and 7 in-depth interviews.</li>
+        <li>Showed that branding alone can make water from the same well differ in price by more than 2×.</li>
+        <li>Presented the rebranding recommendations myself; the client accepted them all.</li>
       </ul>
-    </section>
-
-    <section>
-      <h2>Awards</h2>
-      <ul>
-        <li><span class="k">2nd place · 2026</span>“Branding in the Platform Economy” conference</li>
-        <li><span class="k">3rd degree · 2025</span>“Marketing of Russia” conference</li>
-        <li><span class="k">1st degree · 2025</span>Foreign Language Week, joint work with Ekaterina Singileytseva</li>
+    </div>
+    <div class="item">
+      <h3>VTB Bank case championship</h3>
+      <p class="sub">Team project</p>
+      <ul class="bul">
+        <li>In three days we built a data model that finds the best ATM locations across Moscow.</li>
+        <li>Defended the solution in front of the bank’s representatives.</li>
       </ul>
-    </section>
-
-    <section>
-      <h2>Training</h2>
-      <ul>
-        <li>International Eurasian Summer School, Lobachevsky University <span class="m">· 72 hours · 2026</span></li>
-        <li>Ya v Dele entrepreneurship course <span class="m">· 8 weeks · 2024</span></li>
+    </div>
+    <div class="item">
+      <h3>Ya v Dele</h3>
+      <p class="sub">Mentor to two teams, youth entrepreneurship programme</p>
+      <ul class="bul">
+        <li>Set tasks and deadlines, guided the projects, prepared reports.</li>
+        <li>Both teams took their projects through to the final defence.</li>
       </ul>
-    </section>
-  </aside>
-</div>
+    </div>
+  </section>
 
-<footer class="foot"><span>Denis Berzhanin · CV · 2026</span><span>Projects, certificates and work samples: denisberzh.github.io/en</span></footer>
+  <section>
+    <h2>Awards</h2>
+    <ul class="plain">
+      <li><b>2nd place</b>, “Branding in the Platform Economy” conference, <span class="when">2026</span></li>
+      <li><b>3rd degree</b>, “Marketing of Russia” conference, <span class="when">2025</span></li>
+      <li><b>1st degree</b>, Foreign Language Week, joint work with E. Singileytseva, <span class="when">2025</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Study projects</h2>
+    <div class="item">
+      <div class="item-head"><h3>Aviasales: strategy for a B2B line</h3><span class="when">2026</span></div>
+      <p class="sub">Term paper, top marks</p>
+      <ul class="bul">
+        <li>Built a strategy for a new B2B line: PESTEL and SWOT analysis, a 6-month promotion plan, budget and KPIs.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="item-head"><h3>Basic apparel line: market entry</h3><span class="when">2025</span></div>
+      <p class="sub">Term paper, top marks</p>
+      <ul class="bul">
+        <li>Built a go-to-market model for 5 product categories based on Lime’s practices: audience, range, pricing, sales channels, budget.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <h3>Financial University under the Government of the Russian Federation</h3>
+    <p class="sub">Higher School of Management</p>
+    <p>Bachelor’s in Management (38.03.02), Marketing track, <span class="nw">3rd year</span></p>
+  </section>
+
+  <section>
+    <h2>Publication</h2>
+    <p>Co-author of <a href="https://doi.org/10.24412/2071-3762-2025-3333-26-33">“The Non-Alcoholic Beverage Market: Legal Regulation and Branding for a New Generation of Consumers”</a>. <span class="m">Prakticheskiy Marketing, 2025, No. 3, peer-reviewed (VAK list)</span></p>
+  </section>
+</main>
 </body>
 </html>

@@ -1,163 +1,143 @@
 <!doctype html>
-<!-- Source of assets/denis-berzhanin-resume.pdf (one A4 page). Facts mirror resume.html.
-     Rebuild: node tools/cv-pdf.js -->
+<!-- Source of assets/denis-berzhanin-resume.pdf (one A4 page). Facts mirror resume.html and index.html.
+     Shared styles: tools/cv.css. Rebuild: node tools/cv-pdf.js -->
 <html lang="ru">
 <head>
 <meta charset="utf-8">
 <title>Денис Бержанин — резюме</title>
-<style>
-@font-face{font-family:"Inter Text";font-weight:400 600;src:url("../assets/fonts/Inter-cyr.woff2") format("woff2");unicode-range:U+0400-04FF}
-@font-face{font-family:"Inter Text";font-weight:400 600;src:url("../assets/fonts/Inter-lat.woff2") format("woff2")}
-@font-face{font-family:"Inter Display";font-weight:500;src:url("../assets/fonts/InterDisplay500-cyr.woff2") format("woff2");unicode-range:U+0400-04FF}
-@font-face{font-family:"Inter Display";font-weight:500;src:url("../assets/fonts/InterDisplay500-lat.woff2") format("woff2")}
-@page{size:A4;margin:0}
-:root{--ink:#1c1c1c;--muted:#5f5f5f;--line:#d2d2d2;--paper:#fff}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{width:210mm;height:297mm;overflow:hidden;font:400 8.3pt/1.4 "Inter Text",Arial,sans-serif;color:var(--ink);background:var(--paper);-webkit-print-color-adjust:exact;print-color-adjust:exact}
-a{color:inherit;text-decoration:none}
-p,h1,h2,h3,ul{margin:0;padding:0}
-ul{list-style:none}
-
-.head{display:grid;grid-template-columns:1fr 30mm;gap:10mm;align-items:end;padding:10mm 14mm 7mm;background:var(--ink);color:#fff}
-.head h1{font:500 30pt/1 "Inter Display","Inter Text",Arial,sans-serif;letter-spacing:-.035em}
-.head .role{margin-top:3mm;font-size:11pt;letter-spacing:-.01em}
-.head .goal{display:inline-flex;align-items:center;gap:2mm;margin-top:3mm;font-size:8.6pt;color:#e6e6e6}
-.head .goal::before{content:"";width:1.6mm;height:1.6mm;border-radius:50%;background:#fff}
-.contacts{display:flex;flex-wrap:wrap;gap:1.2mm 5mm;margin-top:4mm;font-size:8.2pt;color:#d6d6d6}
-.contacts b{font-weight:500;color:#fff}
-.photo{width:30mm;height:37mm;object-fit:cover;object-position:50% 22%;filter:grayscale(1);display:block}
-
-.body{display:grid;grid-template-columns:1fr 60mm;gap:4.5mm 9mm;padding:6mm 14mm 0}
-.summary{grid-column:1 / -1;font-size:9.4pt;line-height:1.42;letter-spacing:-.005em;padding-bottom:4mm;border-bottom:1px solid var(--line)}
-h2{font:600 7.4pt/1 "Inter Text",Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 3mm}
-section+section{margin-top:4.5mm}
-
-.job+.job{margin-top:3mm}
-.job h3{font-size:9.4pt;font-weight:600;letter-spacing:-.005em}
-.job h3 span{font-weight:400;color:var(--muted)}
-.job p{margin-top:.8mm}
-.job .res{margin-top:.8mm}
-.job .res b{font-weight:600}
-.job .note{margin-top:.6mm;font-size:7.6pt;color:var(--muted)}
-
-.side p+p,.side li+li{margin-top:1.2mm}
-.side .k{display:block;font-weight:600}
-.side .m{color:var(--muted)}
-.side li .m{white-space:nowrap}
-.tools li{display:flex;justify-content:space-between;gap:3mm}
-.tools li span:last-child{color:var(--muted);white-space:nowrap}
-.tools li+li{margin-top:.9mm}
-
-.foot{position:absolute;left:14mm;right:14mm;bottom:8mm;display:flex;justify-content:space-between;font-size:7.4pt;color:var(--muted);border-top:1px solid var(--line);padding-top:2.5mm}
-/* Russian runs longer than English: slightly tighter type keeps it on one page. */
-body{font-size:8pt;line-height:1.36}.summary{font-size:9pt}.job+.job{margin-top:2.4mm}section+section{margin-top:3.8mm}.body{padding-top:5mm}
-</style>
+<link rel="stylesheet" href="cv.css">
 </head>
 <body>
-<header class="head">
-  <div>
-    <h1>Денис<br>Бержанин</h1>
-    <p class="role">Студент-маркетолог · Исследования и брендинг</p>
-    <p class="goal">Ищу стажировку в сфере маркетинга</p>
-    <p class="contacts">
-      <a href="mailto:den.berzhanin@mail.ru"><b>Почта</b> den.berzhanin@mail.ru</a>
-      <a href="tel:+79160593839"><b>Телефон</b> +7 916 059 38 39</a>
-      <a href="https://www.linkedin.com/in/denisberzhanin/"><b>LinkedIn</b> linkedin.com/in/denisberzhanin</a>
-      <a href="https://denisberzh.github.io/"><b>Портфолио</b> denisberzh.github.io</a>
-      <a href="https://t.me/denskoi"><b>Telegram</b> @denskoi</a>
-    </p>
-  </div>
-  <img class="photo" src="../assets/portrait-800.webp" alt="Портрет Дениса Бержанина">
-</header>
+<aside>
+  <img class="photo" src="cv-photo.jpg" alt="Портрет Дениса Бержанина">
 
-<div class="body">
-  <p class="summary">Студент-маркетолог Финансового университета. Специализируюсь на анализе рынков, потребительском поведении и позиционировании продуктов: опросы и глубинные интервью, сегментация, выводы из данных и рекомендации, которые могу представить и защитить.</p>
+  <section>
+    <h2>Контакты</h2>
+    <ul>
+      <li><span class="lbl">LinkedIn</span><a href="https://www.linkedin.com/in/denisberzhanin/">linkedin.com/in/denisberzhanin</a></li>
+      <li><span class="lbl">Почта</span><a href="mailto:den.berzhanin@mail.ru">den.berzhanin@mail.ru</a></li>
+      <li><span class="lbl">Телефон</span><a href="tel:+79160593839">+7 916 059 38 39</a></li>
+      <li><span class="lbl">Портфолио</span><a href="https://denisberzh.github.io/?utm_source=cv">denisberzh.github.io</a></li>
+      <li><span class="lbl">Telegram</span><a href="https://t.me/denskoi">@denskoi</a></li>
+    </ul>
+  </section>
 
-  <main>
-    <section>
-      <h2>Проектный опыт</h2>
-      <div class="job">
-        <h3>ООО «Неровилль» <span>· исследование и брендинг</span></h3>
-        <p>Исследование рынка и потребителей по заказу компании: опрос ~100 человек и 7 глубинных интервью. На примерах брендов показал, что вода из одной скважины может отличаться в цене более чем в 2 раза за счёт бренда.</p>
-        <p class="res"><b>Результат:</b> лично защитил рекомендации по ребрендингу — заказчик принял их все.</p>
-      </div>
-      <div class="job">
-        <h3>Aviasales <span>· курсовая работа, 2026 · «отлично»</span></h3>
-        <p>Стратегия развития нового B2B-направления: анализ PESTEL, SWOT и портфельных матриц, коммуникация с корпоративной аудиторией, план продвижения на 6 месяцев, бюджет и система KPI. Финансово обосновал жизнеспособность решения.</p>
-        <p class="note">Финансовые показатели — сценарные оценки; программа не запускалась.</p>
-      </div>
-      <div class="job">
-        <h3>Базовая линейка одежды <span>· курсовая работа, 2025 · «отлично»</span></h3>
-        <p>На основе анализа рынка и практик Lime сформировал go-to-market модель для 5 товарных категорий: целевая аудитория, ценностное предложение, ассортимент, цены, каналы продаж и бюджет запуска.</p>
-      </div>
-      <div class="job">
-        <h3>Кейс-чемпионат ВТБ <span>· командный проект</span></h3>
-        <p>За три дня командой построили модель на данных по всей Москве, которая определяет лучшие места для банкоматов, и защитили решение перед представителями банка.</p>
-      </div>
-      <div class="job">
-        <h3>«Я в деле» <span>· наставник двух команд</span></h3>
-        <p>Обучал участников, ставил задачи и сроки, сопровождал проекты и готовил отчётность. Обе команды довели проекты до защиты. Ранее — участник образовательного проекта «БЕЗ ТАБУ».</p>
-      </div>
-    </section>
+  <section>
+    <h2>Языки</h2>
+    <ul>
+      <li><b>Английский:</b> B2 (IELTS&nbsp;6.0, Duolingo&nbsp;110)</li>
+      <li><b>Русский:</b> родной</li>
+    </ul>
+  </section>
 
-    <section>
-      <h2>Навыки</h2>
-      <p><b>Исследования и стратегия.</b> Анализ рынка и конкурентов, сегментация, опросы и глубинные интервью, первичные и вторичные данные, позиционирование, SWOT / PEST, 4P / 7P.</p>
-      <p style="margin-top:1.4mm"><b>Работа с людьми и решениями.</b> Сопровождение команд, постановка задач и дедлайнов, отчётность, презентация и защита результатов.</p>
-      <p style="margin-top:1.4mm"><b>Визуальная подача.</b> Самостоятельно изучаю дизайн: презентации, концепты интерфейсов, логотипы и графика.</p>
-    </section>
-    <section>
-      <h2>Публикация</h2>
-      <p>Соавтор статьи «Рынок безалкогольных напитков: аспекты правового регулирования и брендинг для нового поколения потребителей». <span class="m">«Практический маркетинг», 2025, № 3 · журнал из перечня ВАК</span></p>
-    </section>
-  </main>
+  <section>
+    <h2>Навыки</h2>
+    <ul class="bul">
+      <li>Опросы и глубинные интервью</li>
+      <li>Анализ рынка и конкурентов</li>
+      <li>Сегментация и позиционирование</li>
+      <li>SWOT, PEST, 4P / 7P</li>
+      <li>Презентации и визуал в Figma и Canva</li>
+      <li>Публичная защита решений</li>
+    </ul>
+  </section>
 
-  <aside class="side">
-    <section>
-      <h2>Образование</h2>
-      <p><span class="k">Финансовый университет при Правительстве РФ</span>Направление 38.03.02 «Менеджмент», профиль «Маркетинг»</p>
-      <p class="m">3-й курс · Высшая школа управления</p>
-    </section>
+  <section>
+    <h2>Инструменты</h2>
+    <p>Excel, Google Sheets и Forms, PowerPoint, Figma, Canva, Photoshop, Яндекс Вордстат, ChatGPT, Claude.</p>
+    <p class="m">Изучаю: amoCRM, Яндекс Метрика, R, Python.</p>
+  </section>
 
-    <section>
-      <h2>Языки</h2>
-      <p><span class="k">Английский — B2</span>IELTS Academic 6.0 / 9 · Duolingo English Test 110 / 160</p>
-      <p><span class="k">Русский — родной</span></p>
-    </section>
+  <section>
+    <h2>Курсы и школы</h2>
+    <ul>
+      <li>Евразийская летняя школа ННГУ, 72&nbsp;часа, <span class="m">2026</span></li>
+      <li>«Я в деле», предпринимательский курс, 8&nbsp;недель, <span class="m">2024</span></li>
+    </ul>
+  </section>
+</aside>
 
-    <section>
-      <h2>Инструменты</h2>
-      <ul class="tools">
-        <li><span>ChatGPT, Claude</span><span>уверенно</span></li>
-        <li><span>PowerPoint, Excel</span><span>уверенно</span></li>
-        <li><span>Google Sheets и Forms</span><span>уверенно</span></li>
-        <li><span>Figma, Canva</span><span>уверенно</span></li>
-        <li><span>Photoshop, Яндекс Вордстат</span><span>рабочий</span></li>
-        <li><span>amoCRM, Яндекс Метрика</span><span>изучаю</span></li>
-        <li><span>R, Python</span><span>базовый</span></li>
+<main>
+  <h1>Денис<br>Бержанин</h1>
+  <p class="role">Студент-маркетолог: исследования рынка и брендинг</p>
+  <p class="goal">Ищу стажировку в маркетинге. Формат и график гибкие, могу начать сразу.</p>
+
+  <section>
+    <h2>Чем могу быть полезен</h2>
+    <ul class="bul">
+      <li>Исследования рынка и аудитории: опросы, интервью, выводы для команды</li>
+      <li>Анализ конкурентов и позиционирование</li>
+      <li>Помощь с брендингом и маркетинговой аналитикой</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Опыт</h2>
+    <div class="item">
+      <h3>ООО «Неровилль»</h3>
+      <p class="sub">Исследование рынка и ребрендинг, проект по заказу компании</p>
+      <ul class="bul">
+        <li>Провёл опрос ~100 человек и 7 глубинных интервью.</li>
+        <li>Показал, что вода из одной скважины может отличаться в цене более чем в&nbsp;2&nbsp;раза за счёт бренда.</li>
+        <li>Сам защитил рекомендации по ребрендингу, заказчик принял их все.</li>
       </ul>
-    </section>
-
-    <section>
-      <h2>Награды</h2>
-      <ul>
-        <li><span class="k">II место · 2026</span>Конференция «Брендинг в эпоху платформенной экономики»</li>
-        <li><span class="k">III степень · 2025</span>Конференция «Маркетинг России»</li>
-        <li><span class="k">I степень · 2025</span>Неделя иностранного языка, совместно с Екатериной Сингилейцевой</li>
+    </div>
+    <div class="item">
+      <h3>Кейс-чемпионат ВТБ</h3>
+      <p class="sub">Командный проект</p>
+      <ul class="bul">
+        <li>За три дня построили модель на данных, которая находит лучшие места для банкоматов в Москве.</li>
+        <li>Защитили решение перед представителями банка.</li>
       </ul>
-    </section>
-
-    <section>
-      <h2>Обучение</h2>
-      <ul>
-        <li>Международная Евразийская летняя школа ННГУ <span class="m">· 72 часа · 2026</span></li>
-        <li>«Я в деле», предпринимательский курс <span class="m">· 8 недель · 2024</span></li>
+    </div>
+    <div class="item">
+      <h3>«Я в деле»</h3>
+      <p class="sub">Наставник двух команд, программа по предпринимательству</p>
+      <ul class="bul">
+        <li>Ставил задачи и сроки, сопровождал проекты, готовил отчёты.</li>
+        <li>Обе команды довели проекты до защиты.</li>
       </ul>
-    </section>
-  </aside>
-</div>
+    </div>
+  </section>
 
-<footer class="foot"><span>Денис Бержанин · Резюме · 2026</span><span>Проекты, сертификаты и работы: denisberzh.github.io</span></footer>
+  <section>
+    <h2>Награды</h2>
+    <ul class="plain">
+      <li><b>II место</b>, конференция «Брендинг в эпоху платформенной экономики», <span class="when">2026</span></li>
+      <li><b>III степень</b>, конференция «Маркетинг России», <span class="when">2025</span></li>
+      <li><b>I степень</b>, Неделя иностранного языка, совместно с Е. Сингилейцевой, <span class="when">2025</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Учебные проекты</h2>
+    <div class="item">
+      <div class="item-head"><h3>Aviasales: стратегия B2B-направления</h3><span class="when">2026</span></div>
+      <p class="sub">Курсовая работа, «отлично»</p>
+      <ul class="bul">
+        <li>Разработал стратегию нового B2B-направления: анализ PESTEL и SWOT, план продвижения на 6 месяцев, бюджет и KPI.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="item-head"><h3>Базовая линейка одежды: выход на рынок</h3><span class="when">2025</span></div>
+      <p class="sub">Курсовая работа, «отлично»</p>
+      <ul class="bul">
+        <li>Сформировал go-to-market модель для 5 товарных категорий на основе практик Lime: аудитория, ассортимент, цены, каналы продаж, бюджет.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Образование</h2>
+    <h3>Финансовый университет при Правительстве РФ</h3>
+    <p class="sub">Высшая школа управления</p>
+    <p>Бакалавриат «Менеджмент» (38.03.02), профиль «Маркетинг», <span class="nw">3-й курс</span></p>
+  </section>
+
+  <section>
+    <h2>Публикация</h2>
+    <p>Соавтор статьи <a href="https://doi.org/10.24412/2071-3762-2025-3333-26-33">«Рынок безалкогольных напитков: аспекты правового регулирования и брендинг для нового поколения потребителей»</a>. <span class="m">«Практический маркетинг», 2025, № 3, журнал из перечня ВАК</span></p>
+  </section>
+</main>
 </body>
 </html>
