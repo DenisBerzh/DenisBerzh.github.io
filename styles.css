@@ -1232,3 +1232,31 @@ dialog.menu .eyebrow{padding-bottom:20px}
 .hero-link-label,.cv-article-link,.resume-ending>footer a{position:relative}
 .hero-link-label::before,.cv-article-link::before,.resume-ending>footer a::before{content:"";position:absolute;inset:-12px -6px}
 @media(max-width:700px){.about-useful{grid-template-columns:1fr}.about-useful ul{grid-column:auto}}
+/* 20. Резюме тремя колонками, как в резюме-сайтах с тонкой типографикой: мелкая строка
+       с датой или контекстом, название заглавными, описание серым, между пунктами — линии.
+       Ниже — инструменты прежними строками со шкалами и три фото с проектов. */
+.cv-head{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-bottom:12px;margin-bottom:clamp(40px,5vw,64px);border-bottom:1px solid var(--line)}
+.cv-head h2{margin:0;font:500 13px/1.4 var(--font-label);letter-spacing:.08em;text-transform:uppercase;color:var(--text-secondary)}
+.cv-pdf{display:inline-flex;align-items:center;gap:6px;min-height:44px;font:500 13px/1.4 var(--font-label);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:underline 1px var(--line);text-underline-offset:.35em}
+.cv-pdf:hover{color:var(--accent);text-decoration-color:currentColor}
+.cv-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(32px,4vw,64px)}
+.cv-col{min-width:0}
+.cv-col h3{margin:0 0 8px;font:400 clamp(20px,1.7vw,26px)/1.2 var(--font-display);letter-spacing:.01em;text-transform:uppercase;color:var(--ink)}
+.cv-col article{padding:20px 0 22px;border-bottom:1px solid var(--line)}
+.cv-col article:last-child{border-bottom:0}
+.cv-meta{margin:0 0 6px;font:600 11px/1.4 var(--font-label);letter-spacing:.02em;text-transform:uppercase;color:var(--text-primary)}
+.cv-col h4{margin:0;font:600 13px/1.4 var(--font-label);letter-spacing:.07em;text-transform:uppercase;color:var(--ink)}
+.cv-col article>p:not(.cv-meta){margin:10px 0 0;font-size:14px;line-height:1.6;color:var(--text-secondary);max-width:46ch}
+.cv-columns>.cv-row{margin-top:clamp(56px,7vw,96px)}
+.cv-row.cv-photos{align-items:start}
+.cv-photo-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,24px)}
+.cv-photo-row .event-photo-link img{aspect-ratio:4/3;object-fit:cover}
+@media(max-width:1000px){.cv-cols{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* На телефоне фото — лентой с прокруткой вбок, чтобы не растягивать страницу. */
+@media(max-width:640px){
+  .cv-cols{grid-template-columns:minmax(0,1fr);gap:40px}
+  .cv-col article{padding:16px 0 18px}
+  .cv-photo-row{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .cv-photo-row>*{scroll-snap-align:start}
+}
+@media print{.cv-photos,.cv-pdf{display:none!important}.cv-col article{break-inside:avoid}}
