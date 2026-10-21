@@ -1124,3 +1124,27 @@ dialog.menu .eyebrow{padding-bottom:20px}
   .contact-links a{display:grid;grid-template-columns:84px minmax(0,1fr);align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:16px}
   .contact-links a>span{margin:0}
 }
+
+/* Recruiter journey: hero CTAs, proof facts, next-step links, mobile sticky write button */
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.cta{display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:13px 22px;border-radius:99px;font:500 14px/1.2 var(--font-label);white-space:nowrap;transition:background .3s,color .3s,border-color .3s}
+.cta-primary{background:var(--accent);color:#fff}.cta-primary:hover{background:var(--accent-dark)}
+.cta-secondary{border:1px solid #ffffff99;color:#fff}.cta-secondary:hover{background:#fff;color:var(--ink)}
+.hero--silhouette .hero-link-label{display:inline-flex;margin-top:20px}
+.about-facts{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin:72px 0 0;padding:32px 0 0;border-top:1px solid #00000026}
+.about-facts b{display:block;font:500 clamp(32px,4vw,56px)/1.05 var(--font-display);letter-spacing:-.03em}
+.about-facts span{display:block;margin-top:12px;max-width:280px;font-size:14px;line-height:1.5;color:var(--muted)}
+.next-step{display:flex;justify-content:flex-end;margin-top:48px;font:500 15px/1.4 var(--font-label);min-height:44px;align-items:center;gap:12px}
+.next-step:hover{text-decoration:underline;text-underline-offset:5px}
+.contact-cv{display:inline-flex;gap:12px;margin-top:32px;font:500 15px/1.4 var(--font-label);border-bottom:1px solid #ffffff66;padding-bottom:4px;min-height:44px;align-items:flex-end}
+.contact-cv:hover{border-color:#fff}
+.sticky-write{display:none}
+@media(max-width:700px){
+  .hero-cta{gap:10px;margin-top:20px}.cta{padding:12px 18px;font-size:13px}
+  .about-facts{grid-template-columns:1fr;gap:24px;margin-top:48px}
+  .about-facts li{display:grid;grid-template-columns:104px 1fr;gap:16px;align-items:baseline}.about-facts span{margin-top:0}
+  .next-step{justify-content:flex-start;margin-top:32px}
+  .sticky-write{position:fixed;left:16px;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:5;display:flex;justify-content:center;align-items:center;gap:10px;min-height:52px;border-radius:99px;background:var(--accent);color:#fff;font:500 15px/1.2 var(--font-label);box-shadow:0 8px 24px #0003;transform:translateY(0);transition:transform .35s var(--ease),opacity .35s}
+  .sticky-write[hidden]{display:none}.sticky-write.is-off{transform:translateY(140%);opacity:0;pointer-events:none}
+  body:has(dialog[open]) .sticky-write{display:none}
+}
