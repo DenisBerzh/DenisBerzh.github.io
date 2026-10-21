@@ -804,11 +804,10 @@ button.more-presentations[aria-expanded="false"]:hover .more-label{background:va
   .cv-thesis{grid-column:1 / -1}
 }
 
-/* 19. Полоса прокрутки. Шторка, меню и просмотрщик запрещают прокрутку, и
+/* 19. Полоса прокрутки. Меню и просмотрщик запрещают прокрутку, и
        браузер убирал полосу: страница на миг становилась шире на ~15px и всё
        прыгало вбок, а потом обратно. Теперь место под полосой сохраняется и
        закрашивается в цвет того, что открыто поверх. */
-html:has(> body.page-entering),html:has(> body.page-leaving){scrollbar-gutter:stable;background:var(--dark)}
 html:has(> body.menu-open){scrollbar-gutter:stable;background:var(--ink)}
 html:has(> body.viewer-open){scrollbar-gutter:stable;background:#444}
 
