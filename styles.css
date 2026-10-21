@@ -1052,3 +1052,12 @@ dialog.menu .eyebrow{padding-bottom:20px}
 /* Зоны нажатия не меньше 24×24 (WCAG 2.2): невидимое поле вокруг коротких ссылок, вёрстка не сдвигается. */
 .desktop-nav a,.cv-article-link,footer a[href="#top"]{position:relative}
 .desktop-nav a::before,.cv-article-link::before,footer a[href="#top"]::before{content:"";position:absolute;inset:-10px -8px}
+/* Печать резюме: без шапки, шторки, фото с мероприятий и превью документов; анимации появления не прячут текст. */
+@media print{
+  .skip-link,.header,.menu-toggle,.page-curtain,.pause-motion,.cv-event-photos,.event-photo,.event-photo-pair,.certificate-preview,.slide-viewer,.resume-ending .contact-line,.resume-ending>footer a,.resume-ending>.eyebrow,.resume-ending h2,.download-resume,.work-cursor{display:none!important}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  [data-reveal],[data-split] .line-inner,.line-inner{opacity:1!important;translate:none!important;transform:none!important;filter:none!important}
+  body{background:#fff}
+  .certificate-card,.cv-project{break-inside:avoid}
+  html{font-size:90%}
+}
