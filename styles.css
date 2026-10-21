@@ -153,10 +153,6 @@ body.viewer-open{overflow:hidden}.slide-viewer{position:fixed;inset:0;margin:aut
 .resume-heading>p{margin-top:32px;font-size:18px;color:var(--muted);line-height:1.5}
 .resume-portrait{margin:0;width:100%;background:#ddd}
 .resume-portrait img{width:100%;height:auto;aspect-ratio:1122/1402;object-fit:contain;filter:grayscale(1)}
-.resume-section-nav{display:flex;flex-wrap:wrap;gap:48px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.resume-section-nav a{display:flex;align-items:center;justify-content:space-between;gap:40px;font-size:14px;padding:8px 0;min-height:44px}
-.resume-section-nav span{font-size:22px;transition:transform .3s var(--ease)}
-.resume-section-nav a:hover span{transform:translate(3px,3px)}
 .resume-document,.certificates{padding-top:96px;padding-bottom:0;scroll-margin-top:40px}
 .resume-section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:48px}
 .resume-section-heading h2{font-size:clamp(40px,5.2vw,80px);line-height:1.08;font-weight:400;letter-spacing:-.045em}
@@ -182,8 +178,8 @@ body.viewer-open{overflow:hidden}.slide-viewer{position:fixed;inset:0;margin:aut
 .certificate-original:hover{color:white}
 .certificate-viewer{max-width:1100px}
 .certificate-viewer .slide-image{height:min(70dvh,880px);aspect-ratio:auto;object-fit:contain}
-@media(max-width:1000px){.certificate-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.resume-intro-grid{gap:48px;grid-template-columns:1fr 240px}.resume-section-nav{gap:32px}.resume-section-nav a{gap:24px}}
-@media(max-width:600px){.resume-intro{padding-top:112px}.resume-intro-grid{grid-template-columns:1fr;gap:32px;margin:32px 0}.resume-heading h1{font-size:clamp(56px,14.5vw,84px)}.resume-heading>p{font-size:15px;margin-top:24px}.resume-portrait{width:160px;justify-self:end}.resume-section-nav{gap:12px 24px;padding:16px 0}.resume-section-nav a{font-size:12px;gap:12px}.resume-section-nav span{font-size:18px}.resume-document,.certificates{padding-top:64px;scroll-margin-top:24px}.resume-section-heading{align-items:flex-start;flex-direction:column;gap:16px;margin-bottom:32px}.resume-section-heading h2{font-size:clamp(36px,9.8vw,48px)}.certificate-grid{grid-template-columns:1fr;gap:48px}.certificate-preview{padding:20px}.certificate-card h3{font-size:24px}.certificate-meta{margin-top:20px}.certificates{padding-bottom:64px}.certificate-viewer .slide-image{height:auto;max-height:65dvh;aspect-ratio:auto}}
+@media(max-width:1000px){.certificate-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.resume-intro-grid{gap:48px;grid-template-columns:1fr 240px}}
+@media(max-width:600px){.resume-intro{padding-top:112px}.resume-intro-grid{grid-template-columns:1fr;gap:32px;margin:32px 0}.resume-heading h1{font-size:clamp(56px,14.5vw,84px)}.resume-heading>p{font-size:15px;margin-top:24px}.resume-portrait{width:160px;justify-self:end}.resume-document,.certificates{padding-top:64px;scroll-margin-top:24px}.resume-section-heading{align-items:flex-start;flex-direction:column;gap:16px;margin-bottom:32px}.resume-section-heading h2{font-size:clamp(36px,9.8vw,48px)}.certificate-grid{grid-template-columns:1fr;gap:48px}.certificate-preview{padding:20px}.certificate-card h3{font-size:24px}.certificate-meta{margin-top:20px}.certificates{padding-bottom:64px}.certificate-viewer .slide-image{height:auto;max-height:65dvh;aspect-ratio:auto}}
 @media(hover:none){.certificate-preview>span{opacity:1;transform:none}}
 
 /* Language qualifications are highlighted before the academic documents. */
@@ -643,12 +639,11 @@ html{-moz-osx-font-smoothing:grayscale}
 .slide-open-label,.certificate-preview>span,.event-photo-open{font-size:var(--fs-label)}
 .hero--silhouette .hero-link-label{font-size:var(--fs-label)}
 .hero--silhouette .hero-summary{font-size:clamp(15px,1.15vw,19px)}
-.resume-section-nav a{font-size:var(--fs-small)}
 .download-meta{opacity:.7;font-weight:400}
 @media(max-width:1050px){.category-description{font-size:var(--fs-label)}}
 .resume-section-heading>.subtle{font-size:var(--fs-label)}
 @media(max-width:720px){.download-resume{font-size:var(--fs-label)}}
-@media(max-width:600px){.resume-section-nav a,.all-filter,.category-description{font-size:var(--fs-label)}}
+@media(max-width:600px){.all-filter,.category-description{font-size:var(--fs-label)}}
 
 /* 3. Резюме (better-colors: токен по роли). Раньше метка и значение были
       одного серого цвета, и глазу не за что было зацепиться. */
@@ -682,7 +677,7 @@ button.more-presentations:active .more-label,.slide-close:active,
 /* 6c. Сенсорные экраны: эффекты наведения не остаются после касания
        (better-accessibility: hover только при hover:hover). */
 @media(hover:none){
-  .menu nav a:hover,.certificate-preview:hover img,.resume-section-nav a:hover span,
+  .menu nav a:hover,.certificate-preview:hover img,
   .hero-resume-link:hover .arrow-diagonal,.wordmark:hover .copyright{transform:none}
   .round-link:hover,.contact-line .round-link:hover,.header-write:hover{background:var(--accent)}
   .download-resume:hover,button.more-presentations:hover .more-label{background:none;color:inherit;border-color:var(--line)}
@@ -898,32 +893,17 @@ html:has(> body.viewer-open){scrollbar-gutter:stable;background:#444}
 .about h2,.portfolio-heading,.category-name,.contact h2,.resume-heading h1,.resume-section-heading h2,
 .language-score,.award-result>span,.hero--silhouette .hero-title,.not-found h1,.menu nav a{letter-spacing:-.025em}
 
-/* 30. Полоса разделов резюме — оглавление на всю ширину: номер, название,
-       куда ведёт ссылка, стрелка рядом. Раньше мелкие слова и стрелки,
-       отъехавшие на 40px, читались как разрозненный ряд (better-layout, better-writing:
-       ссылка описывает, куда ведёт). */
-.resume-section-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.resume-section-nav a{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"num arrow" "label label" "meta meta";align-content:start;gap:0;min-height:0;padding:22px clamp(16px,2vw,28px) 26px;border-inline-start:1px solid var(--line);font-size:inherit}
-.resume-section-nav a:first-child{border-inline-start:0;padding-inline-start:0}
-.resume-section-nav .rsn-num{grid-area:num;font:500 var(--fs-label)/1.4 var(--font-label);color:var(--text-secondary);font-variant-numeric:tabular-nums}
-.resume-section-nav .rsn-arrow{grid-area:arrow;font-size:20px;line-height:1;transition:translate .3s var(--ease),color .15s ease-out}
-.resume-section-nav .rsn-label{grid-area:label;margin-top:28px;font:500 clamp(22px,2.1vw,32px)/1.12 var(--font-display);letter-spacing:-.025em;transition:color .15s ease-out}
-.resume-section-nav .rsn-meta{grid-area:meta;margin-top:8px;font-size:var(--fs-small);line-height:1.45;color:var(--text-secondary)}
-.resume-section-nav a:hover :is(.rsn-num,.rsn-label,.rsn-meta){transform:none}
-.resume-section-nav a:hover .rsn-arrow{transform:none}
-@media(hover:hover){
-  .resume-section-nav a:hover .rsn-label,.resume-section-nav a:hover .rsn-arrow{color:var(--accent)}
-  .resume-section-nav a[href^="#"]:hover .rsn-arrow{translate:3px 3px}
-  .resume-section-nav a:not([href^="#"]):hover .rsn-arrow{translate:3px -3px}
-}
-@media(max-width:1000px){.resume-section-nav .rsn-label{margin-top:20px}}
+/* 30. Полоса разделов резюме — обычная строка ссылок, как оглавление в документе.
+       Без номеров, рамок, подписей и стрелок: карточки 01–04 выглядели шаблонно
+       (Денис, 2026-10-21). Стрелка осталась только у ссылки на другую страницу. */
+.resume-section-nav{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 32px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.resume-section-nav .rsn-intro{font-size:var(--fs-small);color:var(--text-secondary)}
+.resume-section-nav a{display:inline-block;padding:10px 0;font:500 clamp(18px,1.6vw,22px)/1.3 var(--font-display);letter-spacing:-.01em;text-decoration:underline 1px var(--line);text-underline-offset:.3em;transition:color .15s ease-out,text-decoration-color .15s ease-out}
+@media(hover:hover){.resume-section-nav a:hover{color:var(--accent);text-decoration-color:currentColor}}
 @media(max-width:600px){
-  .resume-section-nav{grid-template-columns:repeat(2,minmax(0,1fr));padding:0}
-  .resume-section-nav a{padding:18px 16px 20px}
-  .resume-section-nav a:nth-child(odd){border-inline-start:0;padding-inline-start:0}
-  .resume-section-nav a:nth-child(n+3){border-top:1px solid var(--line)}
-  .resume-section-nav .rsn-label{margin-top:14px;font-size:22px}
-  .resume-section-nav .rsn-meta{font-size:var(--fs-label)}
+  .resume-section-nav{gap:0 22px;padding:8px 0}
+  .resume-section-nav .rsn-intro{flex-basis:100%;padding-top:8px}
+  .resume-section-nav a{font-size:18px}
 }
 
 /* 31. Меню: нумерованный список с тонкими линиями вместо пяти огромных слов
