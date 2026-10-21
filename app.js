@@ -113,6 +113,28 @@
   };
   compact.addEventListener('change', applyCompact);
   applyCompact();
+  // Проектный опыт на телефоне и планшете: видны номер и название, текст — по нажатию.
+  const experience = [...document.querySelectorAll('.experience-item')];
+  const setItemOpen = (item, open) => {
+    const toggle = item.querySelector('.experience-toggle');
+    item.classList.toggle('is-collapsed', !open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', `${open ? labels.close : labels.open}: ${item.querySelector('h3').textContent}`);
+  };
+  experience.forEach(item => {
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'experience-toggle';
+    toggle.innerHTML = '<span aria-hidden="true"></span>';
+    item.append(toggle);
+    toggle.addEventListener('click', () => setItemOpen(item, item.classList.contains('is-collapsed')));
+  });
+  const applyExperience = () => {
+    document.querySelector('.experience-list')?.classList.toggle('is-accordion', compact.matches);
+    experience.forEach(item => compact.matches ? setItemOpen(item, false) : item.classList.remove('is-collapsed'));
+  };
+  compact.addEventListener('change', applyExperience);
+  applyExperience();
   render();
   let resizeFrame = 0;
   addEventListener('resize', () => {
