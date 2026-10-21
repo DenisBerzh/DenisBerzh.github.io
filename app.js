@@ -103,7 +103,8 @@
     slideImage.classList.add('is-loading');
     loadStatus.textContent = en ? 'Loading image…' : 'Загрузка изображения…';
     loadStatus.hidden = false;
-    slideImage.src = slide.src;
+    // The viewer shows a WebP copy; the PNG stays behind the «open image» link.
+    slideImage.src = slide.view || slide.src;
     slideImage.alt = slide.alt;
     viewer.querySelector('#slide-status').textContent = `${activeSlide + 1} / ${work.slides.length}`;
     viewer.querySelector('.slide-original').href = slide.src;

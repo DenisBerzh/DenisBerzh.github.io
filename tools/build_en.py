@@ -48,7 +48,7 @@ def portfolio_json(src):
             for s in w['slides']:
                 s['alt'] = tr(s['alt']) or s['alt']
                 # the viewer sets these as image URLs, so from /en/ they need to go one level up
-                for k in ('src', 'original'):
+                for k in ('src', 'view', 'original'):
                     if k in s and not s[k].startswith(('http', '../', '/')): s[k] = '../' + s[k]
         return m.group(0).replace(m.group(1), json.dumps(data, ensure_ascii=False))
     return re.sub(r'<script id="portfolio-data" type="application/json">(.*?)</script>', fix, src, flags=re.S)
