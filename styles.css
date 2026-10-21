@@ -893,18 +893,12 @@ html:has(> body.viewer-open){scrollbar-gutter:stable;background:#444}
 .about h2,.portfolio-heading,.category-name,.contact h2,.resume-heading h1,.resume-section-heading h2,
 .language-score,.award-result>span,.hero--silhouette .hero-title,.not-found h1,.menu nav a{letter-spacing:-.025em}
 
-/* 30. Полоса разделов резюме — обычная строка ссылок, как оглавление в документе.
-       Без номеров, рамок, подписей и стрелок: карточки 01–04 выглядели шаблонно
-       (Денис, 2026-10-21). Стрелка осталась только у ссылки на другую страницу. */
-.resume-section-nav{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 32px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.resume-section-nav .rsn-intro{font-size:var(--fs-small);color:var(--text-secondary)}
-.resume-section-nav a{display:inline-block;padding:10px 0;font:500 clamp(18px,1.6vw,22px)/1.3 var(--font-display);letter-spacing:-.01em;text-decoration:underline 1px var(--line);text-underline-offset:.3em;transition:color .15s ease-out,text-decoration-color .15s ease-out}
-@media(hover:hover){.resume-section-nav a:hover{color:var(--accent);text-decoration-color:currentColor}}
-@media(max-width:600px){
-  .resume-section-nav{gap:0 22px;padding:8px 0}
-  .resume-section-nav .rsn-intro{flex-basis:100%;padding-top:8px}
-  .resume-section-nav a{font-size:18px}
-}
+/* 30. Под шапкой резюме — линия и красная круглая кнопка «Скачать PDF», как «Написать»
+       и «К работам» внизу страниц. Заменила полосу ссылок на разделы: она выглядела
+       шаблонно (Денис, 2026-10-21), а разделы и так есть в меню. */
+.resume-cta{margin-top:clamp(8px,2vw,24px)}
+.resume-cta .contact-rule{background:var(--line)}
+.resume-cta .round-link span{max-width:76%;text-align:center;line-height:1.2}
 
 /* 31. Меню: нумерованный список с тонкими линиями вместо пяти огромных слов
        подряд. Стрелка появляется при наведении, текущая страница отмечена точкой,
