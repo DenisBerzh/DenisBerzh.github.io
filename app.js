@@ -13,10 +13,14 @@
   let activeCategory = 'all', expanded = false;
   const grid = document.querySelector('#portfolio-grid');
   const canMove = () => !reducedMotion.matches && !document.body.classList.contains('motion-paused');
-  // Все работы одного размера в ровной сетке. Свёрнутая плитка «Ещё» стоит в сетке
-  // как работа; раскрытая превращается в кнопку «Свернуть» на отдельной строке.
+  // Все работы одного размера в ровной сетке. Свёрнутая плитка «Ещё» дотягивает
+  // последний ряд до конца, чтобы в сетке не было дыры; раскрытая превращается
+  // в кнопку «Свернуть» на отдельной строке.
   const layoutGrid = () => {
-    grid.style.setProperty('--more-col', expanded ? '1 / -1' : 'auto');
+    const columns = getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length || 1;
+    const shown = cards.filter(card => !card.hidden).length;
+    const rest = columns - (shown % columns);
+    grid.style.setProperty('--more-col', expanded || rest === columns ? '1 / -1' : `span ${rest}`);
   };
   const updateCount = () => {
     const count = cards.filter(card => !card.hidden).length;
