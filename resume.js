@@ -140,28 +140,4 @@
     const rect = viewer.getBoundingClientRect();
     if (event.target === viewer && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) viewer.close();
   });
-
-  // Move the existing figures, keeping one focusable copy of each photo group.
-  const home = document.querySelector('.cv-event-photos');
-  const figures = [...home.querySelectorAll('[data-mobile-target]')];
-  const mobile = window.matchMedia('(max-width:1280px)');
-  function placePhotos() {
-    figures.forEach(figure => {
-      const destination = mobile.matches ? document.getElementById(figure.dataset.mobileTarget) : home;
-      if (mobile.matches) destination.append(figure);
-      else {
-        // Restore the photo's original slot between the paired images.
-        const slot = home.querySelector(`[data-photo-slot="${figure.dataset.photoGroup}"]`);
-        slot.after(figure);
-      }
-    });
-  }
-  figures.forEach(figure => {
-    const slot = document.createElement('span');
-    slot.dataset.photoSlot = figure.dataset.photoGroup;
-    slot.hidden = true;
-    figure.before(slot);
-  });
-  placePhotos();
-  mobile.addEventListener('change', placePhotos);
 })();
