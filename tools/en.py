@@ -72,7 +72,7 @@ T = {
 "04 / Аналитика и защита решений": "04 / Analytics & pitching",
 "Кейс-чемпионат ВТБ": "VTB Bank case championship",
 "За три дня командой построили модель на данных по всей Москве, которая определяет лучшие места для банкоматов. Защитили решение перед представителями банка.":
- "In three days our team built a data model covering all of Moscow that identifies the best locations for ATMs. We pitched the solution to the bank's representatives.",
+ "In three days our team built a data model covering all of Moscow that identifies the best locations for ATMs. We pitched the solution to the bank’s representatives.",
 "05 / Работа с командами": "05 / Team leadership",
 "«Я в деле»": "Ya v Dele",
 "Наставник двух команд: обучение, задачи и дедлайны, поддержка участников. Обе команды довели свои проекты до защиты. Ранее — участник проекта «БЕЗ ТАБУ».":
