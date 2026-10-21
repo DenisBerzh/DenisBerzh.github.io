@@ -220,7 +220,7 @@ T = {
 "3 диплома и 3 сертификата": "3 award diplomas and 3 certificates",
 "Презентации, интерфейсы, графика": "Presentations, interfaces, graphics",
 "Скачать резюме": "Download CV",
-"PDF · 120 КБ": "PDF · 90 KB",
+"PDF · 110 КБ": "PDF · 80 KB",
 "Изучаю людей.": "I study people.",
 "Нахожу закономерности.": "I find patterns.",
 "Объясняю решения.": "I explain decisions.",

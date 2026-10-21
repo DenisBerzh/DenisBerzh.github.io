@@ -10,7 +10,8 @@
 @font-face{font-family:"Manrope";font-weight:800;src:url("fonts/Manrope-800-cyr.woff2") format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:"Manrope";font-weight:800;src:url("fonts/Manrope-800-lat.woff2") format("woff2")}
 @page{size:A4;margin:0}
-:root{--ink:#202326;--muted:#5f666d;--accent:#3d6e8f;--side:#23272c;--side-ink:#e9eaeb;--side-muted:#a7adb3;--side-line:#555b62}
+/* Same grayscale and red accent as the site (styles.css) */
+:root{--ink:#1c1c1c;--muted:#686868;--accent:#c8102e;--side:#1c1c1c;--side-ink:#ececec;--side-muted:#a3a3a3;--side-line:#4a4a4a}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{display:grid;grid-template-columns:66mm 1fr;width:210mm;height:297mm;overflow:hidden;font:400 8.6pt/1.42 "Manrope",Arial,sans-serif;color:var(--ink);background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -33,7 +34,7 @@ aside p+p{margin-top:1.4mm}
 main{padding:14mm 13mm 10mm 10mm}
 h1{font-size:2.5em;font-weight:800;line-height:1.02;letter-spacing:-.02em}
 .role{margin-top:2.4mm;font-size:1.08em;font-weight:600;color:var(--accent)}
-.goal{margin-top:1mm;color:#555}
+.goal{margin-top:1mm;color:var(--muted)}
 main section{margin-top:5mm}
 main h2{margin-bottom:2mm;font-size:1.15em;font-weight:800}
 main h2::after{content:"";display:block;width:9mm;height:1.2pt;margin-top:1.2mm;background:var(--accent)}
