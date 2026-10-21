@@ -205,3 +205,20 @@
     if (event.key === 'ArrowRight') { event.preventDefault(); next.click(); }
   });
 })();
+
+// Mobile: a persistent «Написать» button once the hero is out of view, hidden over the contact section.
+(() => {
+  const bar = document.querySelector('.sticky-write');
+  const hero = document.getElementById('home');
+  const contact = document.getElementById('contact');
+  if (!bar || !hero || !contact || !('IntersectionObserver' in window)) return;
+  bar.hidden = false;
+  let heroSeen = true, contactSeen = false;
+  const update = () => bar.classList.toggle('is-off', heroSeen || contactSeen);
+  update();
+  const io = new IntersectionObserver(entries => {
+    for (const e of entries) { if (e.target === hero) heroSeen = e.isIntersecting; else contactSeen = e.isIntersecting; }
+    update();
+  }, { threshold: 0.15 });
+  io.observe(hero); io.observe(contact);
+})();

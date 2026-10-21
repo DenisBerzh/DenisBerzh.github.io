@@ -58,7 +58,7 @@
   <a class="skip-link" href="#about">Перейти к содержанию</a>
   <header class="header">
     <a class="wordmark" href="#home" aria-label="Berzhanin Denis — на главную"><span class="copyright">©</span><span>Berzhanin Denis</span></a><span class="lang-switch" aria-label="Язык сайта"><span aria-current="true">RU</span><a href="en/index.html" hreflang="en" lang="en">EN</a></span>
-    <div class="header-actions"><nav class="desktop-nav" aria-label="Основная навигация"><a href="#experience">Опыт</a><a href="#projects">Работы</a><a href="resume.html">Резюме</a></nav><a class="header-write" href="https://t.me/denskoi" target="_blank" rel="noopener">Написать <span aria-hidden="true">↗</span></a></div>
+    <div class="header-actions"><nav class="desktop-nav" aria-label="Основная навигация"><a href="#about">Обо мне</a><a href="#experience">Опыт</a><a href="#projects">Работы</a><a href="#contact">Контакты</a></nav><a class="header-write" href="https://t.me/denskoi" target="_blank" rel="noopener">Написать <span aria-hidden="true">↗</span></a></div>
   </header>
   <button class="menu-toggle magnetic" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
   <dialog id="menu" class="menu" aria-label="Навигация по сайту">
@@ -70,13 +70,13 @@
   <main>
     <section id="home" class="hero hero--silhouette" aria-labelledby="name">
       <div class="portrait-wrap"><img class="portrait" src="assets/portrait-original-cutout-1122.webp" srcset="assets/portrait-original-cutout-480.webp 480w, assets/portrait-original-cutout-800.webp 800w, assets/portrait-original-cutout-1122.webp 1122w" sizes="(max-width: 700px) 94vw, (max-width: 1500px) 46vw, 700px" decoding="async" alt="Чёрно-белый портрет Дениса Бержанина" fetchpriority="high" width="1122" height="1402"></div>
-      <a class="hero-intro hero-resume-link" href="resume.html">
-        <svg class="arrow-diagonal" viewBox="0 0 44 44" aria-hidden="true"><path d="M8 8l27 27M8 35h27V8"/></svg>
+      <div class="hero-intro">
         <p class="hero-status"><span class="status-dot" aria-hidden="true"></span>Ищу стажировку в&nbsp;сфере маркетинга</p>
         <h1 id="name" class="hero-title"><span class="sr-only">Денис Бержанин — </span><span class="line" style="--i:0"><span class="line-inner">Исследования</span></span><span class="line" style="--i:1"><span class="line-inner">& брендинг</span></span></h1>
         <p class="hero-summary">Специализируюсь на анализе рынков, потребительском поведении и&nbsp;позиционировании продуктов.</p>
-        <span class="hero-link-label">Резюме и опыт <span aria-hidden="true">↗</span></span>
-      </a>
+        <div class="hero-cta"><a class="cta cta-primary" href="https://t.me/denskoi" target="_blank" rel="noopener">Написать в&nbsp;Telegram <span aria-hidden="true">↗</span></a><a class="cta cta-secondary" href="assets/denis-berzhanin-resume.pdf" download>Скачать CV <span aria-hidden="true">↓</span></a></div>
+        <a class="hero-link-label" href="resume.html">Резюме и опыт <span aria-hidden="true">↗</span></a>
+      </div>
       <div class="name-marquee" aria-hidden="true"><div class="name-track"><span>Berzhanin Denis —&nbsp;</span><span>Berzhanin Denis —&nbsp;</span><span>Berzhanin Denis —&nbsp;</span></div></div>
       <div class="hero-bottom"><a class="scroll-link" href="#about">Листайте вниз <span aria-hidden="true">↓</span></a><button class="pause-motion" type="button" aria-pressed="false" aria-label="Остановить движение имени"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg></button></div>
     </section>
@@ -85,6 +85,7 @@
       <div class="about-grid">
         <div class="about-lead"><h2 data-reveal>Понять людей.<br>Найти смысл.<br>Предложить решение.</h2></div>
         <div class="about-aside" data-reveal><p>Денис Бержанин — студент-маркетолог. Специализируюсь на анализе рынков, потребительском поведении и позиционировании продуктов.</p><p class="subtle">3-й курс Финансового университета.<br>Дизайн помогает мне наглядно представлять выводы.</p><a class="round-link magnetic" href="resume.html"><span>Резюме</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 25L25 7M7 7h18v18"/></svg></a></div>
+      <ul class="about-facts" data-reveal aria-label="Коротко о результатах"><li><b>~100 + 7</b><span>опрошенных и&nbsp;глубинных интервью в&nbsp;исследовании для компании</span></li><li><b>2 из 2</b><span>курсовые по&nbsp;маркетингу защищены на&nbsp;«отлично»</span></li><li><b>3 дня</b><span>кейс-чемпионат ВТБ: модель на данных и&nbsp;защита перед банком</span></li></ul>
       </div>
     </section>
     <section id="experience" class="marketing-experience section-light" aria-labelledby="experience-title">
@@ -98,6 +99,7 @@
         <article class="experience-item" data-reveal><p class="eyebrow">05 / Работа с командами</p><h3>«Я в деле»</h3><p>Наставник двух команд: обучение, задачи и дедлайны, поддержка участников. Обе команды довели свои проекты до защиты. Ранее — участник проекта «БЕЗ ТАБУ».</p></article>
       </div>
       <a class="text-link experience-link" href="resume.html#resume">Резюме, навыки и награды <span aria-hidden="true">↗</span></a>
+      <a class="next-step" href="#projects">Дальше: мои работы <span aria-hidden="true">↓</span></a>
     </section>
     <section id="projects" class="projects section-light" aria-labelledby="projects-title">
       <div class="section-top"><p class="eyebrow">Визуальные работы</p><span class="subtle">Дополнительный навык</span></div>
@@ -162,11 +164,13 @@
             <figcaption><h3>Я устал</h3><p>Постер · Типографика и коллаж</p></figcaption>
           </figure>
       </div>
+      <a class="next-step" href="#contact">Понравилось? Давайте знакомиться <span aria-hidden="true">↓</span></a>
     </section>
     <section id="contact" class="contact">
       <div class="section-top"><p class="eyebrow">Контакты</p><span class="subtle">Berzhanin Denis</span></div>
       <h2 data-reveal><span class="contact-portrait"><img src="assets/portrait-1122.webp" srcset="assets/portrait-400.webp 400w, assets/portrait-800.webp 800w, assets/portrait-1122.webp 1122w" sizes="64px" decoding="async" alt="" width="1122" height="1402" loading="lazy"></span>Давайте<br>знакомиться</h2>
       <div class="contact-line"><span class="contact-rule"></span><a class="round-link inverse magnetic" href="https://t.me/denskoi" target="_blank" rel="noopener"><span>Написать</span><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 25L25 7M7 7h18v18"/></svg></a></div>
+      <a class="contact-cv" href="assets/denis-berzhanin-resume.pdf" download>Скачать CV (PDF) <span aria-hidden="true">↓</span></a>
       <div class="contact-links" role="group" aria-label="Связаться со мной">
         <a href="https://www.linkedin.com/in/denisberzhanin/" target="_blank" rel="noopener"><span>LinkedIn</span>denisberzhanin ↗</a>
         <a href="mailto:den.berzhanin@mail.ru"><span>Почта</span>den.berzhanin@mail.ru ↗</a>
@@ -181,6 +185,7 @@
     <div class="category-preview-slide"><img src="assets/design/atlas-1134.webp" srcset="assets/design/atlas-400.webp 400w, assets/design/atlas-800.webp 800w, assets/design/atlas-1134.webp 1134w" sizes="30vw" decoding="async" alt="" width="1134" height="713" loading="lazy"></div>
     <div class="category-preview-slide"><img src="assets/design/faux-1254.webp" srcset="assets/design/faux-400.webp 400w, assets/design/faux-800.webp 800w, assets/design/faux-1200.webp 1200w, assets/design/faux-1254.webp 1254w" sizes="30vw" decoding="async" alt="" width="1254" height="1254" loading="lazy"></div>
   </div></div><span class="category-preview-badge">К работам</span></div>
+  <a class="sticky-write" href="https://t.me/denskoi" target="_blank" rel="noopener" hidden>Написать в&nbsp;Telegram <span aria-hidden="true">↗</span></a>
   <dialog id="slide-viewer" class="slide-viewer" aria-labelledby="slide-title">
     <div class="slide-viewer-header"><h2 id="slide-title"></h2><button class="slide-close" type="button" aria-label="Закрыть просмотр">×</button></div>
     <div class="slide-stage" role="group" tabindex="0" aria-label="Изображение работы"><img id="slide-image" class="slide-image" alt=""></div>
