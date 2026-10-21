@@ -14,7 +14,7 @@
   <link rel="preload" href="/assets/fonts/InterDisplay500-cyr.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/InterTight-lat.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/Inter-lat.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/styles.css?v=design-36">
+  <link rel="stylesheet" href="/styles.css?v=design-37">
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -32,7 +32,7 @@
 <body class="plain-page">
   <a class="skip-link" href="#main" data-ru="Перейти к содержанию" data-en="Skip to content">Перейти к содержанию</a>
   <header class="header">
-    <a class="wordmark" href="/" aria-label="Berzhanin Denis — на главную" data-home><span class="copyright">©</span><span>Berzhanin Denis</span></a><span class="lang-switch" aria-label="Язык страницы"><a href="/" hreflang="ru" lang="ru" data-lang="ru" aria-current="true">RU</a><a href="/en/" hreflang="en" lang="en" data-lang="en">EN</a></span>
+    <a class="wordmark" href="/" aria-label="Денис Бержанин — на главную" data-home><span class="copyright">©</span><span data-ru="Денис Бержанин" data-en="Denis Berzhanin">Денис Бержанин</span></a><span class="lang-switch" aria-label="Язык страницы"><a href="/" hreflang="ru" lang="ru" data-lang="ru" aria-current="true">RU</a><a href="/en/" hreflang="en" lang="en" data-lang="en">EN</a></span>
     <div class="header-actions"><a class="header-write" href="https://t.me/denskoi" target="_blank" rel="noopener"><span data-ru="Написать" data-en="Message me">Написать</span> <span aria-hidden="true">↗</span></a></div>
   </header>
   <!-- GitHub Pages отдаёт один 404.html на любой адрес. Язык выбирается по адресу (/en/…)
@@ -59,7 +59,7 @@
         document.querySelectorAll('[data-ru-href]').forEach(el => { el.href = el.dataset[lang + 'Href']; });
         document.querySelectorAll('[data-ru-label]').forEach(el => el.setAttribute('aria-label', el.dataset[lang + 'Label']));
         document.querySelector('[data-home]').href = en ? '/en/' : '/';
-        document.querySelector('[data-home]').setAttribute('aria-label', en ? 'Berzhanin Denis — home' : 'Berzhanin Denis — на главную');
+        document.querySelector('[data-home]').setAttribute('aria-label', en ? 'Denis Berzhanin — home' : 'Денис Бержанин — на главную');
         document.querySelector('.lang-switch').setAttribute('aria-label', en ? 'Page language' : 'Язык страницы');
         document.querySelectorAll('[data-lang]').forEach(el => el.toggleAttribute('aria-current', el.dataset.lang === lang));
         document.querySelector('.not-found-en').hidden = true;
