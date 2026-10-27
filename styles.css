@@ -1007,7 +1007,7 @@ dialog.menu .eyebrow{padding-bottom:20px}
 .skill-track{display:block;position:relative;height:4px;border-radius:2px;background:#ececec}
 .skill-fill{display:block;height:100%;border-radius:2px;background:var(--ink);transform-origin:left;transform:scaleX(var(--p))}
 /* Точка на конце шкалы едет вместе с заполнением (позиция — от той же переменной). */
-.skill-track::after{content:"";position:absolute;top:50%;left:calc(var(--v,0) * 100%);width:8px;height:8px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 3px var(--paper);translate:-50% -50%;pointer-events:none}
+.skill-track::after{display:none}
 .skill-track:not([style])::after{display:none}
 .tool-level{justify-self:end;font:500 var(--fs-label)/1 var(--font-label);color:var(--text-primary);font-variant-numeric:tabular-nums}
 .tool-level-text{grid-column:3 / -1;color:var(--text-secondary)}
@@ -1260,7 +1260,6 @@ dialog.menu .eyebrow{padding-bottom:20px}
 .cv-tools-mini .tool-level{font-size:11px;color:var(--text-secondary)}
 .cv-tools-mini .tool-meter{grid-column:2 / -1;grid-row:2}
 .cv-tools-mini .skill-track{height:2px}
-.cv-tools-mini .skill-track::after{width:6px;height:6px;box-shadow:0 0 0 2px var(--paper)}
 .resume-photos{padding-top:0;padding-bottom:clamp(64px,6vw,112px)}
 .cv-photo-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,24px)}
 .cv-photo-row .event-photo-link img{aspect-ratio:4/3;object-fit:cover}
