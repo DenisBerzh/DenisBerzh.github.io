@@ -85,14 +85,13 @@
     if(mode==='intro'){
       label.animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'translateY(0)'}],{duration:320,easing:'cubic-bezier(.22,1,.36,1)'});
       entryTimers.push(setTimeout(()=>swap(L.w2),420));
-      entryTimers.push(setTimeout(()=>swap(L.name),860));
     }
     entryTimers.push(setTimeout(async()=>{
       if(entryStopped)return;
       label.animate([{opacity:1},{opacity:0}],{duration:300,easing:'ease-out',fill:'forwards'});
       await animate(curtain,[{transform:'translateY(0)'},{transform:'translateY(-125vh)'}],{duration:900,easing:'cubic-bezier(.76,0,.24,1)'});
       finishEntry();
-    },mode==='intro'?1400:120));
+    },mode==='intro'?1000:120));
     entryTimers.push(setTimeout(finishEntry,4000));
   }
   // Let visitors dismiss the short intro without activating a covered link.
