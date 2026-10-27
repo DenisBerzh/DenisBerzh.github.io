@@ -1293,3 +1293,6 @@ dialog.menu .eyebrow{padding-bottom:20px}
   .contact:has(.contact-head) .contact-links a{display:block;padding:8px 0;border:0;font-size:15px}
   .contact:has(.contact-head) .contact-links a>span{margin-bottom:8px}
 }
+
+/* Крупные заголовки: оптически выровнять первую букву по левому краю колонки */
+.about h2,.portfolio-heading,.resume-heading h1,.resume-section-heading h2{margin-left:-.035em}
