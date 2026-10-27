@@ -1279,7 +1279,7 @@ dialog.menu .eyebrow{padding-bottom:20px}
 
 /* Контакты на главной: заголовок и красная кнопка в одной строке, контакты в ряд по всей ширине, без линий */
 .contact-head{margin-top:56px;display:flex;align-items:center;justify-content:space-between;gap:32px}
-.contact-head h2{margin:0;font-size:clamp(44px,9.5vw,150px)}
+.contact-head h2{margin:0 0 0 -.035em;font-size:clamp(44px,9.5vw,150px)}
 .contact-head .round-link{margin:0;width:160px;height:160px;flex-shrink:0}
 .contact:has(.contact-head) .contact-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px 40px;margin-top:80px}
 @media(max-width:1100px){.contact:has(.contact-head) .contact-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
