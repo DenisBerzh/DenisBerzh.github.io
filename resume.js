@@ -1,3 +1,15 @@
+// Small meta lines separate their parts with a quiet gray "//" instead of "·".
+document.querySelectorAll('.cv-meta,.certificate-meta>span:first-child').forEach(el => {
+  const node = [...el.childNodes].find(n => n.nodeType === 3 && n.textContent.includes(' · '));
+  if (!node) return;
+  const parts = node.textContent.split(' · '), frag = document.createDocumentFragment();
+  parts.forEach((part, i) => {
+    if (i) { const sep = document.createElement('i'); sep.className = 'meta-sep'; sep.setAttribute('aria-hidden', 'true'); sep.textContent = '//'; frag.append(' ', sep, ' '); }
+    frag.append(part);
+  });
+  node.replaceWith(frag);
+});
+
 // The portrait matches the name's height: pass the name's font size to CSS.
 (() => {
   const name = document.querySelector('.resume-heading h1'), grid = document.querySelector('.resume-intro-grid');

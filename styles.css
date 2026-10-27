@@ -1274,3 +1274,5 @@ dialog.menu .eyebrow{padding-bottom:20px}
   .cv-photo-row>*{scroll-snap-align:start}
 }
 @media print{.resume-photos,.cv-pdf{display:none!important}.cv-col article{break-inside:avoid}}
+
+.meta-sep{font-style:normal;color:#b3b3b3;letter-spacing:0;font-weight:400}
