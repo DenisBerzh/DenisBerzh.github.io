@@ -51,7 +51,6 @@ T = {
 "Меню сайта": "Site menu",
 "Главная": "Home",
 "Почта": "Email",
-"Телефон": "Phone",
 "Связаться со мной": "Get in touch",
 "Резюме & портфолио": "CV & portfolio",
 "На главную": "Home",
@@ -90,6 +89,7 @@ T = {
  "Denis Berzhanin — marketing student. I specialise in market analysis, consumer behaviour and product positioning.",
 "3-й курс Финансового университета.": "3rd-year student at the Financial University, Moscow.",
 "Ищу стажировку в сфере маркетинга.": "Looking for a marketing internship.",
+"Английский B2: IELTS 6.0, Duolingo 110.": "English B2: IELTS 6.0, Duolingo English Test 110.",
 "Дизайн помогает мне наглядно представлять выводы.": "Design helps me present findings clearly.",
 # experience (home)
 "Проектный опыт": "Project experience",
